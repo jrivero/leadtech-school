@@ -1,0 +1,754 @@
+{
+  "name": "Leadtech School",
+  "reviewedDate": "2026-10-08",
+  "scope": "Desarrollo de software con IA: 12 bloques con 83 lecciones principales, 10 talleres, 2 temas complementarios y un proyecto final. Artículos, ejemplos y prácticas propios para aprendizaje autónomo, sin acreditación oficial.",
+  "phases": [
+    {
+      "id": 1,
+      "title": "Construye la base"
+    },
+    {
+      "id": 2,
+      "title": "Entiende y explora la IA"
+    },
+    {
+      "id": 3,
+      "title": "Trabaja con criterio"
+    },
+    {
+      "id": 4,
+      "title": "Llévalo a un proyecto"
+    }
+  ],
+  "modules": [
+    {
+      "id": "01-empieza-aqui",
+      "order": 1,
+      "title": "Empieza aquí",
+      "description": "Tu primer paso: aprender con criterio, entender el recorrido y trabajar con IA sin delegar tu aprendizaje.",
+      "phase": 1,
+      "level": "Inicial",
+      "lessons": [
+        {
+          "slug": "tu-primer-hola-mundo",
+          "title": "Tu primer hola mundo",
+          "order": 1,
+          "optional": false
+        },
+        {
+          "slug": "como-estudiar-y-mantener-el-habito",
+          "title": "Cómo estudiar y mantener el hábito",
+          "order": 2,
+          "optional": false
+        },
+        {
+          "slug": "una-ia-como-companera-de-aprendizaje",
+          "title": "Una IA como compañera de aprendizaje",
+          "order": 3,
+          "optional": false
+        },
+        {
+          "slug": "donde-encaja-la-ia-al-crear-software",
+          "title": "Dónde encaja la IA al crear software",
+          "order": 4,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "02-bases-para-crear-software",
+      "order": 2,
+      "title": "Bases para crear software",
+      "description": "De una idea a un programa: lógica, herramientas, código y un primer proyecto que puedes explicar.",
+      "phase": 1,
+      "level": "Inicial",
+      "lessons": [
+        {
+          "slug": "descomponer-problemas-y-pensar-en-algoritmos",
+          "title": "Descomponer problemas y pensar en algoritmos",
+          "order": 1,
+          "optional": false
+        },
+        {
+          "slug": "tu-entorno-terminal-git-y-editor",
+          "title": "Tu entorno: terminal, Git y editor",
+          "order": 2,
+          "optional": false
+        },
+        {
+          "slug": "variables-funciones-y-estructuras-de-control",
+          "title": "Variables, funciones y estructuras de control",
+          "order": 3,
+          "optional": false
+        },
+        {
+          "slug": "lenguajes-objetos-y-programacion-funcional",
+          "title": "Lenguajes, objetos y programación funcional",
+          "order": 4,
+          "optional": false
+        },
+        {
+          "slug": "como-se-comunican-sistemas-redes-y-apis",
+          "title": "Cómo se comunican sistemas, redes y APIs",
+          "order": 5,
+          "optional": false
+        },
+        {
+          "slug": "codigo-legible-depuracion-y-pruebas",
+          "title": "Código legible, depuración y pruebas",
+          "order": 6,
+          "optional": false
+        },
+        {
+          "slug": "construye-tu-primer-gestor-de-tareas",
+          "title": "Construye tu primer gestor de tareas",
+          "order": 7,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "03-disenar-antes-de-programar",
+      "order": 3,
+      "title": "Diseñar antes de programar",
+      "description": "Aprende a traducir necesidades en especificaciones y decisiones de diseño comprobables.",
+      "phase": 1,
+      "level": "Inicial",
+      "lessons": [
+        {
+          "slug": "del-problema-al-mantenimiento-el-ciclo-del-software",
+          "title": "Del problema al mantenimiento: el ciclo del software",
+          "order": 1,
+          "optional": false
+        },
+        {
+          "slug": "convertir-necesidades-en-requisitos-verificables",
+          "title": "Convertir necesidades en requisitos verificables",
+          "order": 2,
+          "optional": false
+        },
+        {
+          "slug": "desarrollar-desde-una-especificacion-sdd",
+          "title": "Desarrollar desde una especificación: SDD",
+          "order": 3,
+          "optional": false
+        },
+        {
+          "slug": "elegir-un-paradigma-de-programacion",
+          "title": "Elegir un paradigma de programación",
+          "order": 4,
+          "optional": false
+        },
+        {
+          "slug": "principios-para-un-diseno-mantenible",
+          "title": "Principios para un diseño mantenible",
+          "order": 5,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "04-arquitectura-que-puedes-entender",
+      "order": 4,
+      "title": "Arquitectura que puedes entender",
+      "description": "Separa las reglas del negocio de la tecnología con dos ejercicios guiados.",
+      "phase": 1,
+      "level": "Intermedio",
+      "lessons": [
+        {
+          "slug": "clean-architecture-desde-cero",
+          "title": "Clean Architecture desde cero",
+          "order": 1,
+          "optional": false
+        },
+        {
+          "slug": "laboratorio-prestamos-de-una-biblioteca",
+          "title": "Laboratorio: préstamos de una biblioteca",
+          "order": 2,
+          "optional": false
+        },
+        {
+          "slug": "reto-resuelto-aprobar-gastos",
+          "title": "Reto resuelto: aprobar gastos",
+          "order": 3,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "05-entender-la-inteligencia-artificial",
+      "order": 5,
+      "title": "Entender la inteligencia artificial",
+      "description": "Modelos, datos, prompts y responsabilidad: una base clara antes de elegir herramientas.",
+      "phase": 2,
+      "level": "Inicial",
+      "lessons": [
+        {
+          "slug": "que-es-la-ia-y-que-no-es",
+          "title": "Qué es la IA y qué no es",
+          "order": 1,
+          "optional": false
+        },
+        {
+          "slug": "como-funciona-la-ia-generativa",
+          "title": "Cómo funciona la IA generativa",
+          "order": 2,
+          "optional": false
+        },
+        {
+          "slug": "dar-instrucciones-y-trabajar-con-imagenes-y-audio",
+          "title": "Dar instrucciones y trabajar con imágenes y audio",
+          "order": 3,
+          "optional": false
+        },
+        {
+          "slug": "frameworks-rag-y-ajuste-de-modelos",
+          "title": "Frameworks, RAG y ajuste de modelos",
+          "order": 4,
+          "optional": false
+        },
+        {
+          "slug": "como-leer-las-tendencias-de-ia-con-criterio",
+          "title": "Cómo leer las tendencias de IA con criterio",
+          "order": 5,
+          "optional": false
+        },
+        {
+          "slug": "privacidad-sesgos-y-uso-responsable",
+          "title": "Privacidad, sesgos y uso responsable",
+          "order": 6,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "06-tu-caja-de-herramientas-ia",
+      "order": 6,
+      "title": "Tu caja de herramientas IA",
+      "description": "Explora editores, asistentes y automatizaciones. Elige por necesidades, no por modas.",
+      "phase": 2,
+      "level": "Inicial",
+      "lessons": [
+        {
+          "slug": "elegir-herramientas-sin-perder-el-control",
+          "title": "Elegir herramientas sin perder el control",
+          "order": 1,
+          "optional": false
+        },
+        {
+          "slug": "vs-code-y-github-copilot-en-la-practica",
+          "title": "VS Code y GitHub Copilot en la práctica",
+          "order": 2,
+          "optional": false
+        },
+        {
+          "slug": "alternativas-de-editor-y-flujos-de-trabajo",
+          "title": "Alternativas de editor y flujos de trabajo",
+          "order": 3,
+          "optional": false
+        },
+        {
+          "slug": "copilot-en-el-flujo-de-github",
+          "title": "Copilot en el flujo de GitHub",
+          "order": 4,
+          "optional": false
+        },
+        {
+          "slug": "trabajar-con-codex-de-forma-supervisada",
+          "title": "Trabajar con Codex de forma supervisada",
+          "order": 5,
+          "optional": false
+        },
+        {
+          "slug": "claude-para-tareas-de-desarrollo",
+          "title": "Claude para tareas de desarrollo",
+          "order": 6,
+          "optional": false
+        },
+        {
+          "slug": "introduccion-practica-a-opencode",
+          "title": "Introducción práctica a OpenCode",
+          "order": 7,
+          "optional": false
+        },
+        {
+          "slug": "prototipar-interfaces-con-ayuda-de-ia",
+          "title": "Prototipar interfaces con ayuda de IA",
+          "order": 8,
+          "optional": false
+        },
+        {
+          "slug": "de-una-idea-a-un-mvp-verificable",
+          "title": "De una idea a un MVP verificable",
+          "order": 9,
+          "optional": false
+        },
+        {
+          "slug": "automatizar-un-flujo-con-n8n",
+          "title": "Automatizar un flujo con n8n",
+          "order": 10,
+          "optional": false
+        },
+        {
+          "slug": "ejecutar-modelos-en-tu-propio-equipo",
+          "title": "Ejecutar modelos en tu propio equipo",
+          "order": 11,
+          "optional": false
+        },
+        {
+          "slug": "una-terminal-asistida-warp",
+          "title": "Una terminal asistida: Warp",
+          "order": 12,
+          "optional": false
+        },
+        {
+          "slug": "revisar-cambios-con-coderabbit",
+          "title": "Revisar cambios con CodeRabbit",
+          "order": 13,
+          "optional": false
+        },
+        {
+          "slug": "openclaw-y-los-asistentes-persistentes",
+          "title": "OpenClaw y los asistentes persistentes",
+          "order": 14,
+          "optional": false
+        },
+        {
+          "slug": "hermes-y-los-agentes-con-herramientas",
+          "title": "Hermes y los agentes con herramientas",
+          "order": 15,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "07-un-flujo-de-trabajo-con-agentes",
+      "order": 7,
+      "title": "Un flujo de trabajo con agentes",
+      "description": "Pasa de conversar a dirigir tareas con contexto, permisos, herramientas y validación.",
+      "phase": 3,
+      "level": "Intermedio",
+      "lessons": [
+        {
+          "slug": "de-copilotos-a-agentes-de-desarrollo",
+          "title": "De copilotos a agentes de desarrollo",
+          "order": 1,
+          "optional": false
+        },
+        {
+          "slug": "contexto-agents-md-skills-y-mcp",
+          "title": "Contexto, AGENTS.md, skills y MCP",
+          "order": 2,
+          "optional": false
+        },
+        {
+          "slug": "conectar-proveedores-de-ia-mediante-apis",
+          "title": "Conectar proveedores de IA mediante APIs",
+          "order": 3,
+          "optional": false
+        },
+        {
+          "slug": "laboratorio-optativo-voz-y-audio-con-elevenlabs",
+          "title": "Laboratorio optativo: voz y audio con ElevenLabs",
+          "order": 4,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "08-calidad-que-se-demuestra",
+      "order": 8,
+      "title": "Calidad que se demuestra",
+      "description": "Comprueba código, experiencia de usuario y trabajo de agentes con evidencia, no con confianza ciega.",
+      "phase": 3,
+      "level": "Intermedio",
+      "lessons": [
+        {
+          "slug": "pruebas-unitarias-de-integracion-y-de-extremo-a-extremo",
+          "title": "Pruebas unitarias, de integración y de extremo a extremo",
+          "order": 1,
+          "optional": false
+        },
+        {
+          "slug": "refactorizar-y-gestionar-deuda-tecnica",
+          "title": "Refactorizar y gestionar deuda técnica",
+          "order": 2,
+          "optional": false
+        },
+        {
+          "slug": "cobertura-complejidad-y-metricas-utiles",
+          "title": "Cobertura, complejidad y métricas útiles",
+          "order": 3,
+          "optional": false
+        },
+        {
+          "slug": "observar-errores-y-rendimiento-con-sentry",
+          "title": "Observar errores y rendimiento con Sentry",
+          "order": 4,
+          "optional": false
+        },
+        {
+          "slug": "secretos-validacion-y-seguridad-de-aplicacion",
+          "title": "Secretos, validación y seguridad de aplicación",
+          "order": 5,
+          "optional": false
+        },
+        {
+          "slug": "documentacion-versionada-con-ayuda-de-ia",
+          "title": "Documentación versionada con ayuda de IA",
+          "order": 6,
+          "optional": false
+        },
+        {
+          "slug": "interfaces-usables-y-accesibles",
+          "title": "Interfaces usables y accesibles",
+          "order": 7,
+          "optional": false
+        },
+        {
+          "slug": "patrones-para-coordinar-varios-agentes",
+          "title": "Patrones para coordinar varios agentes",
+          "order": 8,
+          "optional": false
+        },
+        {
+          "slug": "revision-de-codigo-entre-personas-e-ia",
+          "title": "Revisión de código entre personas e IA",
+          "order": 9,
+          "optional": false
+        },
+        {
+          "slug": "verificar-el-software-generado-por-agentes",
+          "title": "Verificar el software generado por agentes",
+          "order": 10,
+          "optional": false
+        },
+        {
+          "slug": "dar-vision-a-un-agente-con-pruebas-de-navegador",
+          "title": "Dar visión a un agente con pruebas de navegador",
+          "order": 11,
+          "optional": false
+        },
+        {
+          "slug": "laboratorio-un-pipeline-de-calidad-completo",
+          "title": "Laboratorio: un pipeline de calidad completo",
+          "order": 12,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "09-de-tu-equipo-a-la-nube",
+      "order": 9,
+      "title": "De tu equipo a la nube",
+      "description": "Datos, contenedores y operaciones: entiende qué hace falta para publicar y mantener una aplicación.",
+      "phase": 3,
+      "level": "Intermedio",
+      "lessons": [
+        {
+          "slug": "devops-y-pipelines-de-integracion-y-entrega",
+          "title": "DevOps y pipelines de integración y entrega",
+          "order": 1,
+          "optional": false
+        },
+        {
+          "slug": "servicios-cloud-y-control-del-gasto",
+          "title": "Servicios cloud y control del gasto",
+          "order": 2,
+          "optional": false
+        },
+        {
+          "slug": "bases-de-datos-relacionales-documentales-y-vectoriales",
+          "title": "Bases de datos relacionales, documentales y vectoriales",
+          "order": 3,
+          "optional": false
+        },
+        {
+          "slug": "contenedores-reproducibles-con-docker",
+          "title": "Contenedores reproducibles con Docker",
+          "order": 4,
+          "optional": false
+        },
+        {
+          "slug": "un-rag-sencillo-con-python-y-langchain",
+          "title": "Un RAG sencillo con Python y LangChain",
+          "order": 5,
+          "optional": false
+        },
+        {
+          "slug": "llmops-evaluar-y-operar-sistemas-de-ia",
+          "title": "LLMOps: evaluar y operar sistemas de IA",
+          "order": 6,
+          "optional": false
+        },
+        {
+          "slug": "sistemas-multiagente-con-google-adk",
+          "title": "Sistemas multiagente con Google ADK",
+          "order": 7,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "10-seguridad-desde-el-primer-dia",
+      "order": 10,
+      "title": "Seguridad desde el primer día",
+      "description": "Modela riesgos y protege aplicaciones, APIs y agentes con laboratorios defensivos.",
+      "phase": 3,
+      "level": "Intermedio",
+      "lessons": [
+        {
+          "slug": "pensar-en-seguridad-antes-de-escribir-codigo",
+          "title": "Pensar en seguridad antes de escribir código",
+          "order": 1,
+          "optional": false
+        },
+        {
+          "slug": "riesgos-web-y-el-owasp-top-10",
+          "title": "Riesgos web y el OWASP Top 10",
+          "order": 2,
+          "optional": false
+        },
+        {
+          "slug": "proteger-apis-con-el-owasp-api-top-10-de-2023",
+          "title": "Proteger APIs con el OWASP API Top 10 de 2023",
+          "order": 3,
+          "optional": false
+        },
+        {
+          "slug": "riesgos-de-ia-generativa-y-el-owasp-llm-top-10",
+          "title": "Riesgos de IA generativa y el OWASP LLM Top 10",
+          "order": 4,
+          "optional": false
+        },
+        {
+          "slug": "integrar-seguridad-en-el-ciclo-de-desarrollo",
+          "title": "Integrar seguridad en el ciclo de desarrollo",
+          "order": 5,
+          "optional": false
+        },
+        {
+          "slug": "validacion-autorizacion-y-codificacion-defensiva",
+          "title": "Validación, autorización y codificación defensiva",
+          "order": 6,
+          "optional": false
+        },
+        {
+          "slug": "usar-ia-para-revisar-seguridad-sin-confiar-a-ciegas",
+          "title": "Usar IA para revisar seguridad sin confiar a ciegas",
+          "order": 7,
+          "optional": false
+        },
+        {
+          "slug": "laboratorio-defensivo-corregir-una-aplicacion",
+          "title": "Laboratorio defensivo: corregir una aplicación",
+          "order": 8,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "11-construye-tus-proyectos",
+      "order": 11,
+      "title": "Construye tus proyectos",
+      "description": "Aplica el recorrido a productos pequeños: interfaz, API, móvil y búsqueda con IA.",
+      "phase": 4,
+      "level": "Intermedio",
+      "lessons": [
+        {
+          "slug": "proyecto-una-interfaz-web-accesible",
+          "title": "Proyecto: una interfaz web accesible",
+          "order": 1,
+          "optional": false
+        },
+        {
+          "slug": "proyecto-una-api-de-tareas-segura",
+          "title": "Proyecto: una API de tareas segura",
+          "order": 2,
+          "optional": false
+        },
+        {
+          "slug": "proyecto-una-aplicacion-movil-pequena",
+          "title": "Proyecto: una aplicación móvil pequeña",
+          "order": 3,
+          "optional": false
+        },
+        {
+          "slug": "proyecto-preguntas-y-respuestas-sobre-tus-documentos",
+          "title": "Proyecto: preguntas y respuestas sobre tus documentos",
+          "order": 4,
+          "optional": false
+        },
+        {
+          "slug": "practica-integradora-desarrollar-con-especificaciones-y-agentes",
+          "title": "Práctica integradora: desarrollar con especificaciones y agentes",
+          "order": 5,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "12-crece-como-profesional",
+      "order": 12,
+      "title": "Crece como profesional",
+      "description": "Planifica, comunica y demuestra tu trabajo. Una base sostenible para seguir aprendiendo.",
+      "phase": 4,
+      "level": "Inicial",
+      "lessons": [
+        {
+          "slug": "priorizar-trabajo-con-agilidad-y-foco",
+          "title": "Priorizar trabajo con agilidad y foco",
+          "order": 1,
+          "optional": false
+        },
+        {
+          "slug": "comunicacion-feedback-y-colaboracion",
+          "title": "Comunicación, feedback y colaboración",
+          "order": 2,
+          "optional": false
+        },
+        {
+          "slug": "definir-servicios-y-trabajar-por-cuenta-propia",
+          "title": "Definir servicios y trabajar por cuenta propia",
+          "order": 3,
+          "optional": false
+        },
+        {
+          "slug": "detectar-oportunidades-de-ia-en-una-empresa",
+          "title": "Detectar oportunidades de IA en una empresa",
+          "order": 4,
+          "optional": false
+        },
+        {
+          "slug": "ingles-tecnico-para-colaborar-en-desarrollo",
+          "title": "Inglés técnico para colaborar en desarrollo",
+          "order": 5,
+          "optional": false
+        },
+        {
+          "slug": "compartir-tu-trabajo-y-construir-una-red-profesional",
+          "title": "Compartir tu trabajo y construir una red profesional",
+          "order": 6,
+          "optional": false
+        },
+        {
+          "slug": "preparar-tu-busqueda-de-empleo-y-tu-perfil-en-infojobs",
+          "title": "Preparar tu búsqueda de empleo y tu perfil en InfoJobs",
+          "order": 7,
+          "optional": false
+        }
+      ]
+    },
+    {
+      "id": "13-talleres-para-profundizar",
+      "order": 13,
+      "title": "Talleres para profundizar",
+      "description": "Diez temas complementarios del resumen público, adaptados a talleres escritos independientes. No son grabaciones ni clases del proveedor.",
+      "phase": 4,
+      "level": "Intermedio",
+      "supplement": true,
+      "lessons": [
+        {
+          "slug": "un-flujo-de-trabajo-con-neovim-y-terminal-asistida",
+          "title": "Un flujo de trabajo con Neovim y terminal asistida",
+          "order": 1,
+          "optional": true
+        },
+        {
+          "slug": "ajustar-un-modelo-de-lenguaje-con-un-experimento-pequeno",
+          "title": "Ajustar un modelo de lenguaje con un experimento pequeño",
+          "order": 2,
+          "optional": true
+        },
+        {
+          "slug": "disenar-un-agente-conversacional-con-voiceflow",
+          "title": "Diseñar un agente conversacional con Voiceflow",
+          "order": 3,
+          "optional": true
+        },
+        {
+          "slug": "una-api-tipada-de-extremo-a-extremo-con-trpc",
+          "title": "Una API tipada de extremo a extremo con tRPC",
+          "order": 4,
+          "optional": true
+        },
+        {
+          "slug": "modelar-un-dominio-con-ddd",
+          "title": "Modelar un dominio con DDD",
+          "order": 5,
+          "optional": true
+        },
+        {
+          "slug": "contenedores-para-modelos-locales-y-agentes",
+          "title": "Contenedores para modelos locales y agentes",
+          "order": 6,
+          "optional": true
+        },
+        {
+          "slug": "evaluar-respuestas-de-modelos-de-lenguaje",
+          "title": "Evaluar respuestas de modelos de lenguaje",
+          "order": 7,
+          "optional": true
+        },
+        {
+          "slug": "de-una-idea-a-una-entrega-con-github-y-agentes",
+          "title": "De una idea a una entrega con GitHub y agentes",
+          "order": 8,
+          "optional": true
+        },
+        {
+          "slug": "ciberseguridad-al-integrar-inteligencia-artificial",
+          "title": "Ciberseguridad al integrar inteligencia artificial",
+          "order": 9,
+          "optional": true
+        },
+        {
+          "slug": "recordar-lo-que-aprendes-al-programar",
+          "title": "Recordar lo que aprendes al programar",
+          "order": 10,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "14-del-proyecto-a-una-oportunidad",
+      "order": 14,
+      "title": "Del proyecto a una oportunidad",
+      "description": "Dos temas extra del programa público, tratados como ejercicios de planificación sin promesas de ingresos ni empleo.",
+      "phase": 4,
+      "level": "Intermedio",
+      "supplement": true,
+      "lessons": [
+        {
+          "slug": "validar-un-modelo-de-negocio-para-tu-proyecto",
+          "title": "Validar un modelo de negocio para tu proyecto",
+          "order": 1,
+          "optional": true
+        },
+        {
+          "slug": "practicar-una-entrevista-tecnica-con-y-sin-ia",
+          "title": "Practicar una entrevista técnica con y sin IA",
+          "order": 2,
+          "optional": true
+        }
+      ]
+    },
+    {
+      "id": "15-tu-proyecto-final",
+      "order": 15,
+      "title": "Tu proyecto final",
+      "description": "Una práctica de cierre para integrar requisitos, implementación, pruebas, seguridad y documentación. Sin evaluación oficial ni título.",
+      "phase": 4,
+      "level": "Intermedio",
+      "supplement": true,
+      "lessons": [
+        {
+          "slug": "proyecto-final-un-asistente-de-conocimiento-verificable",
+          "title": "Proyecto final: un asistente de conocimiento verificable",
+          "order": 1,
+          "optional": true
+        }
+      ]
+    }
+  ]
+}

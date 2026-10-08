@@ -1,0 +1,91 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  socialType?: 'website' | 'article';
+}
+
+const {
+  title,
+  description = 'Una ruta independiente para aprender desarrollo de software e inteligencia artificial con criterio.',
+  canonical,
+  socialType = 'website',
+} = Astro.props;
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#f5f1e8" />
+    <meta name="description" content={description} />
+    <meta property="og:type" content={socialType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <div class="site-frame">
+      <header class="site-header">
+        <div class="site-header__inner">
+          <a class="brand" href="/" aria-label="Leadtech School, inicio">
+            <svg class="brand__mark" viewBox="0 0 44 44" aria-hidden="true">
+              <rect x="1" y="1" width="42" height="42" rx="13" fill="currentColor" />
+              <path d="M13 30V14h4v12h9v4H13Z" fill="#F5F1E8" />
+              <circle cx="30" cy="14" r="3" fill="#D76A48" />
+              <path d="M30 18v7" stroke="#D76A48" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <span class="brand__wordmark">
+              <strong>Leadtech <span>School</span></strong>
+              <small>Aprender para construir</small>
+            </span>
+          </a>
+
+          <nav class="site-nav" aria-label="Navegación principal">
+            <a href="/#temario">Temario</a>
+            <a href="/#metodo">Método</a>
+            <a href="/#preguntas">Preguntas</a>
+          </nav>
+
+          <a class="site-header__cta" href="/#temario">
+            Explorar ruta
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8 4l4 4-4 4" /></svg>
+          </a>
+        </div>
+      </header>
+
+      <div class="page-content">
+        <slot />
+      </div>
+
+      <footer class="site-footer">
+        <div class="site-footer__inner">
+          <a class="brand brand--footer" href="/" aria-label="Leadtech School, volver al inicio">
+            <svg class="brand__mark" viewBox="0 0 44 44" aria-hidden="true">
+              <rect x="1" y="1" width="42" height="42" rx="13" fill="currentColor" />
+              <path d="M13 30V14h4v12h9v4H13Z" fill="#F5F1E8" />
+              <circle cx="30" cy="14" r="3" fill="#D76A48" />
+              <path d="M30 18v7" stroke="#D76A48" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <span class="brand__wordmark">
+              <strong>Leadtech <span>School</span></strong>
+              <small>Una ruta para aprender</small>
+            </span>
+          </a>
+          <div class="site-footer__note">
+            <p>Aprendizaje autónomo de desarrollo con IA, sin acreditación oficial.</p>
+            <a href="/#temario">Volver al temario <span aria-hidden="true">↑</span></a>
+          </div>
+          <p class="site-footer__copyright">Aprender con criterio también es avanzar.</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

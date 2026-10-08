@@ -1,0 +1,102 @@
+---
+interface LessonItem {
+  slug: string;
+  title: string;
+  order: number;
+  optional?: boolean;
+}
+
+interface ModuleItem {
+  id: string;
+  order: number;
+  title: string;
+  description: string;
+  phase: number;
+  level: string;
+  supplement?: boolean;
+  lessons: LessonItem[];
+}
+
+interface Props {
+  module: ModuleItem;
+  coreModuleCount: number;
+  supplementCount: number;
+  supplementIndex?: number;
+  initialOpen?: boolean;
+}
+
+const {
+  module,
+  coreModuleCount,
+  supplementCount,
+  supplementIndex = 0,
+  initialOpen = false,
+} = Astro.props;
+const isSupplement = module.supplement === true;
+const orderedLessons = module.lessons.slice().sort((a, b) => a.order - b.order);
+const searchText = [
+  module.title,
+  module.description,
+  module.level,
+  isSupplement ? 'complemento opcional extra' : 'módulo principal',
+].join(' ');
+const pluralize = (count: number, singular: string, plural: string) => `${count} ${count === 1 ? singular : plural}`;
+---
+<details
+  id={`module-${module.id}`}
+  class:list={['module-card', isSupplement && 'module-card--supplement']}
+  data-module-card
+  data-phase={module.phase}
+  data-supplement={String(isSupplement)}
+  data-search={searchText}
+  open={initialOpen}
+>
+  <summary class="module-card__summary">
+    <span class="module-card__number" aria-hidden="true">{isSupplement ? `+${String(supplementIndex).padStart(2, '0')}` : String(module.order).padStart(2, '0')}</span>
+    <span class="module-card__copy">
+      <span class="module-card__eyebrow">
+        {isSupplement
+          ? <span class="module-card__badge">Complemento opcional</span>
+          : <span>{module.level}</span>}
+        <i aria-hidden="true">·</i>
+        <span>{pluralize(module.lessons.length, 'lección', 'lecciones')}</span>
+      </span>
+      <strong>{module.title}</strong>
+      <span class="module-card__description">{module.description}</span>
+    </span>
+    <span class="module-card__toggle" aria-hidden="true">
+      <svg viewBox="0 0 20 20"><path d="M10 4v12M4 10h12" /></svg>
+    </span>
+  </summary>
+  <div class="module-card__content">
+    <div class="module-card__content-heading">
+      <p>{isSupplement ? 'COMPLEMENTO OPCIONAL' : 'EN ESTE MÓDULO'}</p>
+      <span>
+        {isSupplement
+          ? `EXTRA ${String(supplementIndex).padStart(2, '0')} / ${String(supplementCount).padStart(2, '0')}`
+          : `MÓDULO ${String(module.order).padStart(2, '0')} / ${String(coreModuleCount).padStart(2, '0')}`}
+      </span>
+    </div>
+    <ol class="lesson-list">
+      {orderedLessons.map((lesson, lessonIndex) => {
+        const lessonHref = `/lecciones/${module.id}/${lesson.slug}/`;
+        const lessonId = `${module.id}/${lesson.slug}`;
+        return (
+          <li class="lesson-list__item" data-lesson-item data-search={lesson.title}>
+            <span class="lesson-list__number" aria-hidden="true">{String(lesson.order ?? lessonIndex + 1).padStart(2, '0')}</span>
+            <a
+              class="lesson-list__link"
+              href={lessonHref}
+              data-lesson-link
+              data-lesson-id={lessonId}
+            >
+              <span>{lesson.title}</span>
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8 4l4 4-4 4" /></svg>
+            </a>
+            {lesson.optional && !isSupplement && <span class="lesson-list__optional">Opcional</span>}
+          </li>
+        );
+      })}
+    </ol>
+  </div>
+</details>

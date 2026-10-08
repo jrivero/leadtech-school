@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Página no encontrada · Leadtech School" description="Esta página no existe. Vuelve al temario para continuar aprendiendo.">
+  <main id="contenido" tabindex="-1" class="not-found">
+    <span class="eyebrow">Error 404</span>
+    <h1>Este camino aún no existe.</h1>
+    <p>Puede que el enlace esté incompleto. Todas las lecciones disponibles están en el temario.</p>
+    <a class="button button--primary" href="/#temario">Volver al temario →</a>
+  </main>
+</BaseLayout>
+<style>.not-found{max-width:48rem;margin:6rem auto;padding:0 1.5rem 5rem}.not-found h1{font-size:clamp(2.5rem,6vw,4.5rem);line-height:1.06}.not-found p{font-size:1.15rem;margin:1.5rem 0 2rem}</style>

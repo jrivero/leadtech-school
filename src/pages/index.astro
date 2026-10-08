@@ -1,0 +1,189 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CurriculumExplorer from '../components/CurriculumExplorer.astro';
+import RoadmapVisual from '../components/RoadmapVisual.astro';
+import { curriculum, modules, totalLessons } from '../lib/curriculum';
+
+const coreModules = modules.filter((module) => module.supplement !== true);
+const supplementModules = modules.filter((module) => module.supplement === true);
+const coreLessonCount = coreModules.reduce((count, module) => count + module.lessons.length, 0);
+const supplementLessonCount = supplementModules.reduce((count, module) => count + module.lessons.length, 0);
+const orderedModules = [...modules].sort((a, b) => a.order - b.order);
+const firstModule = orderedModules[0];
+const firstLesson = firstModule?.lessons.slice().sort((a, b) => a.order - b.order)[0];
+const firstLessonHref = firstModule && firstLesson
+  ? `/lecciones/${firstModule.id}/${firstLesson.slug}/`
+  : '#temario';
+---
+<BaseLayout
+  title="Desarrollo de software con IA · Leadtech School"
+  description="Un recorrido independiente para aprender desarrollo de software con IA, desde las bases de programación hasta herramientas, revisión y proyectos. No es un máster acreditado."
+  socialType="website"
+>
+  <main id="contenido" tabindex="-1">
+  <section class="hero page-width" aria-labelledby="hero-title">
+    <div class="hero__copy">
+      <p class="eyebrow hero__eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span> RECORRIDO ÚNICO · DESARROLLO DE SOFTWARE CON IA</p>
+      <h1 id="hero-title">La IA no es magia.<br /><em>Es práctica.</em></h1>
+      <p class="hero__intro">
+        Aprende a desarrollar software con IA: construye desde las bases, explora herramientas y verifica cada decisión. La IA acompaña tu trabajo; el criterio sigue siendo tuyo.
+      </p>
+      <div class="hero__actions">
+        <a class="button button--primary" href={firstLessonHref}>
+          Comenzar la primera lección
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8 4l4 4-4 4" /></svg>
+        </a>
+        <a class="button button--text" href="#temario">
+          Ver el temario
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v9m-4-4 4 4 4-4" /></svg>
+        </a>
+      </div>
+      <div class="hero__aside">
+        <span class="hero__aside-arrow" aria-hidden="true">↳</span>
+        <span>Sin prisa. Con criterio. A tu ritmo.</span>
+      </div>
+    </div>
+    <RoadmapVisual />
+  </section>
+
+  <section class="metrics page-width" aria-label="Sobre este recorrido">
+    <div class="metric">
+      <strong>{coreModules.length}</strong>
+      <span>módulos<br />principales</span>
+    </div>
+    <div class="metric metric--lessons">
+      <strong>{totalLessons}</strong>
+      <span>lecciones: {coreLessonCount} principales<br />+ {supplementLessonCount} complementarias</span>
+    </div>
+    <div class="metric metric--note">
+      <span class="metric__asterisk" aria-hidden="true">✳</span>
+      <span><strong>{supplementModules.length} complementos</strong><br />opcionales de este recorrido</span>
+    </div>
+    <p class="metrics__caption">Formación independiente y autónoma · no es un máster acreditado.</p>
+  </section>
+
+  <CurriculumExplorer modules={modules} phases={curriculum.phases} totalLessons={totalLessons} />
+
+  <section class="method-section" id="metodo" aria-labelledby="method-title">
+    <div class="page-width method-section__inner">
+      <div class="section-intro__index method-section__index">
+        <span class="section-index">02 / EL MÉTODO</span>
+        <span class="section-index__line" aria-hidden="true"></span>
+      </div>
+      <div class="method-section__main">
+        <div class="method-section__heading">
+          <div>
+            <p class="eyebrow eyebrow--terra">Aprender es hacer y revisar</p>
+            <h2 class="section-title" id="method-title">Menos caja negra.<br /><em>Más criterio propio.</em></h2>
+          </div>
+          <p class="method-section__lead">
+            La IA puede acelerar partes del trabajo; entender el problema y comprobar la respuesta sigue siendo tuyo.
+          </p>
+        </div>
+
+        <ol class="method-steps">
+          <li class="method-step">
+            <span class="method-step__number">01</span>
+            <div>
+              <h3>Entiende la base</h3>
+              <p>Descompón problemas y reconoce las piezas con las que se construye el software.</p>
+            </div>
+            <span class="method-step__mark" aria-hidden="true">↗</span>
+          </li>
+          <li class="method-step">
+            <span class="method-step__number">02</span>
+            <div>
+              <h3>Explora la IA</h3>
+              <p>Conoce los modelos y herramientas antes de elegir cuándo te aportan valor.</p>
+            </div>
+            <span class="method-step__mark" aria-hidden="true">↗</span>
+          </li>
+          <li class="method-step">
+            <span class="method-step__number">03</span>
+            <div>
+              <h3>Comprueba el resultado</h3>
+              <p>Practica con pruebas, calidad y seguridad. No des por bueno lo que no has revisado.</p>
+            </div>
+            <span class="method-step__mark" aria-hidden="true">↗</span>
+          </li>
+          <li class="method-step">
+            <span class="method-step__number">04</span>
+            <div>
+              <h3>Llévalo a un proyecto</h3>
+              <p>Conecta lo aprendido en algo concreto y explica las decisiones que hay detrás.</p>
+            </div>
+            <span class="method-step__mark" aria-hidden="true">↗</span>
+          </li>
+        </ol>
+
+        <div class="method-footnote">
+          <span class="method-footnote__symbol" aria-hidden="true">i</span>
+          <p>Es formación independiente y autónoma: no es un máster acreditado ni concede una titulación oficial.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing-cta page-width" aria-labelledby="closing-title">
+    <div class="closing-cta__decoration" aria-hidden="true">
+      <span>APRENDER</span><span>→</span><span>PROBAR</span><span>→</span><span>ENTENDER</span>
+    </div>
+    <div class="closing-cta__body">
+      <p class="eyebrow">NO HACE FALTA TENERLO TODO CLARO</p>
+      <h2 id="closing-title">Empieza por una<br /><em>buena pregunta.</em></h2>
+      <p>La primera lección está a un paso. El siguiente lo decides tú.</p>
+      <a class="button button--light" href={firstLessonHref}>
+        Empezar desde el principio
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8 4l4 4-4 4" /></svg>
+      </a>
+    </div>
+    <span class="closing-cta__orbit closing-cta__orbit--one" aria-hidden="true"></span>
+    <span class="closing-cta__orbit closing-cta__orbit--two" aria-hidden="true"></span>
+    <span class="closing-cta__spark" aria-hidden="true">✳</span>
+  </section>
+
+  <section class="faq-section page-width" id="preguntas" aria-labelledby="faq-title">
+    <div class="section-intro__index faq-section__index">
+      <span class="section-index">03 / ANTES DE EMPEZAR</span>
+      <span class="section-index__line" aria-hidden="true"></span>
+    </div>
+    <div class="faq-section__main">
+      <div class="faq-section__heading">
+        <div>
+          <p class="eyebrow eyebrow--terra">Lo esencial, sin letra pequeña</p>
+          <h2 class="section-title" id="faq-title">Preguntas<br /><em>frecuentes.</em></h2>
+        </div>
+        <p>Una propuesta para aprender por cuenta propia, con el alcance explicado desde el principio.</p>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary><span class="faq-item__number">01</span><span>¿Necesito experiencia para empezar?</span><span class="faq-item__toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-item__answer"><p>No hace falta experiencia previa. La ruta empieza por ideas fundamentales y avanza hacia temas más complejos; puedes dedicar a cada parte el tiempo que necesites.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary><span class="faq-item__number">02</span><span>¿Esta formación ofrece acreditación oficial?</span><span class="faq-item__toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-item__answer"><p>No. Leadtech School es una plataforma de aprendizaje autónomo y no concede acreditaciones oficiales. Puedes estudiar las lecciones y realizar las prácticas a tu ritmo.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary><span class="faq-item__number">03</span><span>¿Cuánto tiempo necesito?</span><span class="faq-item__toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-item__answer"><p>No hay un calendario ni un plazo de finalización. Es un recorrido autónomo: puedes avanzar a tu ritmo, repasar una lección o pausar cuando lo necesites.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary><span class="faq-item__number">04</span><span>¿Cómo se guarda mi progreso?</span><span class="faq-item__toggle" aria-hidden="true">+</span></summary>
+          <div class="faq-item__answer"><p>Si marcas lecciones como completadas, el contador se conserva en el almacenamiento local de este navegador. No es una evaluación y no equivale a una acreditación.</p></div>
+        </details>
+      </div>
+
+      <aside class="source-note">
+        <span class="source-note__icon" aria-hidden="true">↗</span>
+        <div>
+          <strong>Sobre este temario</strong>
+          <p>Una ruta centrada en desarrollo de software con IA, con explicaciones, ejemplos y prácticas propios. Empieza por los fundamentos y avanza hacia proyectos que puedas construir y verificar.</p>
+          <a href="#temario">Explorar las lecciones <span aria-hidden="true">→</span></a>
+        </div>
+      </aside>
+    </div>
+  </section>
+  </main>
+</BaseLayout>

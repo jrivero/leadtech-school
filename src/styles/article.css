@@ -1,0 +1,28 @@
+/* Article-specific integration; the landing's design system lives in global.css. */
+.back-to-course{display:inline-block;margin:0 0 1.3rem;font-size:.82rem;color:var(--terra-dark);text-underline-offset:4px}
+.sidebar-module-heading h2{font-family:var(--serif);font-size:1.45rem;line-height:1.2;margin:.45rem 0 1rem;letter-spacing:-.02em}
+.sidebar-disclosure summary{font-size:.8rem;color:var(--muted-dark);cursor:pointer;line-height:1.4;padding:.6rem 0;min-height:44px}
+.sidebar-lessons{list-style:none;padding:0;margin:.5rem 0 0;display:grid;gap:.15rem}
+.sidebar-lessons a{display:flex;align-items:flex-start;gap:.55rem;padding:.65rem .5rem;text-decoration:none;font-size:.78rem;line-height:1.45;border-radius:3px;color:var(--muted-dark)}
+.sidebar-lessons a:hover,.sidebar-lessons a[aria-current=page]{background:#e9e0d2;color:var(--ink-deep)}
+.sidebar-lessons a[aria-current=page]{font-weight:700;border-left:2px solid var(--terra-dark)}
+.lesson-order{font-variant-numeric:tabular-nums;font-size:.65rem;margin-top:.16rem;opacity:.85}
+.sidebar-note{font-size:.73rem;color:var(--muted-dark);line-height:1.7;margin:1.3rem 0 0;padding-top:1rem;border-top:1px solid var(--line)}
+.article-main .lesson-objectives p{font-size:.83rem;color:var(--muted-dark);line-height:1.65;margin-bottom:0}
+.article-main .toc{display:block;border:1px solid var(--line);padding:.5rem 1rem;margin:1.5rem 0 2rem}
+.toc summary{cursor:pointer;min-height:44px;padding:.65rem 0;font-size:.84rem;font-weight:650}
+.toc ul{list-style:none;margin:0 0 .6rem;padding:0}
+.toc .toc-subheading{padding-left:1rem}
+.article-main .prose{overflow-wrap:break-word;line-height:1.85}
+.article-main .prose pre{max-width:100%;overflow-x:auto;overflow-wrap:normal;font-size:.82rem}
+.article-main .prose table{display:block;max-width:100%;overflow-x:auto}
+.lesson-sources{border-top:1px solid var(--line-strong);margin:2.5rem 0 1.5rem;padding-top:1.5rem}
+.lesson-sources h2{font-family:var(--serif);font-size:1.55rem;line-height:1.2;margin:0}
+.lesson-sources .source-note{display:block;padding:0;margin:1rem 0;color:var(--muted-dark);border:0;background:none;font-size:.78rem;line-height:1.8}
+.lesson-completion{margin:1.8rem 0}
+.completion-status{margin:.7rem 0 0;font-size:.79rem;color:var(--muted-dark);line-height:1.7}
+.lesson-nav a>span{font-size:.73rem;color:var(--muted-dark)}
+.article-main .breadcrumb{font-size:.76rem}
+.article-main .lesson-header h1{overflow-wrap:break-word;line-height:1.07}
+@media(min-width:901px){.article-sidebar{max-height:calc(100vh - 3rem);overflow-y:auto}}
+@media(max-width:900px){.article-sidebar{position:static}.sidebar-note{display:none}.sidebar-module-heading h2{font-size:1.25rem;margin-bottom:.25rem}.back-to-course{margin-bottom:.7rem}.sidebar-disclosure summary{padding-bottom:.3rem}.article-shell{gap:1.6rem}}

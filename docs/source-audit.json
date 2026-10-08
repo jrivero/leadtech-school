@@ -1,0 +1,1636 @@
+{
+  "reviewedDate": "2026-10-08",
+  "purpose": "Disponibilidad de URLs; no valida cada afirmación ni sustituye revisión editorial.",
+  "total": 177,
+  "reachable": 171,
+  "results": [
+    {
+      "url": "https://adk.dev/agents/multi-agents/",
+      "lessons": [
+        "src/content/lecciones/09-de-tu-equipo-a-la-nube/sistemas-multiagente-con-google-adk.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://adk.dev/agents/multi-agents/",
+      "ok": true
+    },
+    {
+      "url": "https://adk.dev/agents/workflow-agents/",
+      "lessons": [
+        "src/content/lecciones/09-de-tu-equipo-a-la-nube/sistemas-multiagente-con-google-adk.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://adk.dev/agents/workflow-agents/",
+      "ok": true
+    },
+    {
+      "url": "https://adk.dev/evaluate/",
+      "lessons": [
+        "src/content/lecciones/09-de-tu-equipo-a-la-nube/sistemas-multiagente-con-google-adk.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://adk.dev/evaluate/",
+      "ok": true
+    },
+    {
+      "url": "https://adk.dev/workflows/collaboration/",
+      "lessons": [
+        "src/content/lecciones/09-de-tu-equipo-a-la-nube/sistemas-multiagente-con-google-adk.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://adk.dev/workflows/collaboration/",
+      "ok": true
+    },
+    {
+      "url": "https://agents.md/",
+      "lessons": [
+        "src/content/lecciones/07-un-flujo-de-trabajo-con-agentes/contexto-agents-md-skills-y-mcp.md",
+        "src/content/lecciones/07-un-flujo-de-trabajo-con-agentes/de-copilotos-a-agentes-de-desarrollo.md",
+        "src/content/lecciones/08-calidad-que-se-demuestra/documentacion-versionada-con-ayuda-de-ia.md",
+        "src/content/lecciones/08-calidad-que-se-demuestra/verificar-el-software-generado-por-agentes.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://agents.md/",
+      "ok": true
+    },
+    {
+      "url": "https://agentskills.io/",
+      "lessons": [
+        "src/content/lecciones/07-un-flujo-de-trabajo-con-agentes/contexto-agents-md-skills-y-mcp.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://agentskills.io/home",
+      "ok": true
+    },
+    {
+      "url": "https://agilemanifesto.org/iso/es/manifesto.html",
+      "lessons": [
+        "src/content/lecciones/03-disenar-antes-de-programar/del-problema-al-mantenimiento-el-ciclo-del-software.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://agilemanifesto.org/iso/es/manifesto.html",
+      "ok": true
+    },
+    {
+      "url": "https://ai.google.dev/api",
+      "lessons": [
+        "src/content/lecciones/07-un-flujo-de-trabajo-con-agentes/conectar-proveedores-de-ia-mediante-apis.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://ai.google.dev/api?hl=pl",
+      "ok": true
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/ai-studio-quickstart",
+      "lessons": [
+        "src/content/lecciones/05-entender-la-inteligencia-artificial/como-funciona-la-ia-generativa.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=es-419",
+      "ok": true
+    },
+    {
+      "url": "https://api-security.owasp.org/editions/2023/en/0x03-introduction/",
+      "lessons": [
+        "src/content/lecciones/10-seguridad-desde-el-primer-dia/proteger-apis-con-el-owasp-api-top-10-de-2023.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://api-security.owasp.org/editions/2023/en/0x03-introduction/",
+      "ok": true
+    },
+    {
+      "url": "https://api-security.owasp.org/editions/2023/en/0x04-release-notes/",
+      "lessons": [
+        "src/content/lecciones/10-seguridad-desde-el-primer-dia/proteger-apis-con-el-owasp-api-top-10-de-2023.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://api-security.owasp.org/editions/2023/en/0x04-release-notes/",
+      "ok": true
+    },
+    {
+      "url": "https://api-security.owasp.org/editions/2023/en/0x11-t10/",
+      "lessons": [
+        "src/content/lecciones/11-construye-tus-proyectos/proyecto-una-api-de-tareas-segura.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://api-security.owasp.org/editions/2023/en/0x11-t10/",
+      "ok": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1706.03762",
+      "lessons": [
+        "src/content/lecciones/05-entender-la-inteligencia-artificial/como-funciona-la-ia-generativa.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://arxiv.org/abs/1706.03762",
+      "ok": true
+    },
+    {
+      "url": "https://ayuda.infojobs.net/hc/es/articles/40722392329745--C%C3%B3mo-puedo-crear-y-adjuntar-un-nuevo-CV",
+      "lessons": [
+        "src/content/lecciones/12-crece-como-profesional/preparar-tu-busqueda-de-empleo-y-tu-perfil-en-infojobs.md"
+      ],
+      "status": 403,
+      "finalUrl": "https://ayuda.infojobs.net/hc/es/articles/40722392329745--C%C3%B3mo-puedo-crear-y-adjuntar-un-nuevo-CV",
+      "ok": false
+    },
+    {
+      "url": "https://ayuda.infojobs.net/hc/es/articles/40722405732241--C%C3%B3mo-modifico-mi-CV",
+      "lessons": [
+        "src/content/lecciones/12-crece-como-profesional/preparar-tu-busqueda-de-empleo-y-tu-perfil-en-infojobs.md"
+      ],
+      "status": 403,
+      "finalUrl": "https://ayuda.infojobs.net/hc/es/articles/40722405732241--C%C3%B3mo-modifico-mi-CV",
+      "ok": false
+    },
+    {
+      "url": "https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html",
+      "lessons": [
+        "src/content/lecciones/04-arquitectura-que-puedes-entender/clean-architecture-desde-cero.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html",
+      "ok": true
+    },
+    {
+      "url": "https://careerservices.cns.utexas.edu/resources/interviews/technical-interviews",
+      "lessons": [
+        "src/content/lecciones/14-del-proyecto-a-una-oportunidad/practicar-una-entrevista-tecnica-con-y-sin-ia.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://careerservices.cns.utexas.edu/resources/interviews/technical-interviews",
+      "ok": true
+    },
+    {
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html",
+      "lessons": [
+        "src/content/lecciones/10-seguridad-desde-el-primer-dia/laboratorio-defensivo-corregir-una-aplicacion.md",
+        "src/content/lecciones/10-seguridad-desde-el-primer-dia/validacion-autorizacion-y-codificacion-defensiva.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html",
+      "ok": true
+    },
+    {
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html",
+      "lessons": [
+        "src/content/lecciones/10-seguridad-desde-el-primer-dia/validacion-autorizacion-y-codificacion-defensiva.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html",
+      "ok": true
+    },
+    {
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Error_Handling_Cheat_Sheet.html",
+      "lessons": [
+        "src/content/lecciones/10-seguridad-desde-el-primer-dia/validacion-autorizacion-y-codificacion-defensiva.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://cheatsheetseries.owasp.org/cheatsheets/Error_Handling_Cheat_Sheet.html",
+      "ok": true
+    },
+    {
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html",
+      "lessons": [
+        "src/content/lecciones/08-calidad-que-se-demuestra/secretos-validacion-y-seguridad-de-aplicacion.md",
+        "src/content/lecciones/10-seguridad-desde-el-primer-dia/laboratorio-defensivo-corregir-una-aplicacion.md",
+        "src/content/lecciones/10-seguridad-desde-el-primer-dia/validacion-autorizacion-y-codificacion-defensiva.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html",
+      "ok": true
+    },
+    {
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html",
+      "lessons": [
+        "src/content/lecciones/08-calidad-que-se-demuestra/observar-errores-y-rendimiento-con-sentry.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html",
+      "ok": true
+    },
+    {
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html",
+      "lessons": [
+        "src/content/lecciones/08-calidad-que-se-demuestra/secretos-validacion-y-seguridad-de-aplicacion.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html",
+      "ok": true
+    },
+    {
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Secure_Code_Review_Cheat_Sheet.html",
+      "lessons": [
+        "src/content/lecciones/08-calidad-que-se-demuestra/revision-de-codigo-entre-personas-e-ia.md",
+        "src/content/lecciones/08-calidad-que-se-demuestra/verificar-el-software-generado-por-agentes.md",
+        "src/content/lecciones/10-seguridad-desde-el-primer-dia/integrar-seguridad-en-el-ciclo-de-desarrollo.md",
+        "src/content/lecciones/10-seguridad-desde-el-primer-dia/laboratorio-defensivo-corregir-una-aplicacion.md",
+        "src/content/lecciones/10-seguridad-desde-el-primer-dia/usar-ia-para-revisar-seguridad-sin-confiar-a-ciegas.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://cheatsheetseries.owasp.org/cheatsheets/Secure_Code_Review_Cheat_Sheet.html",
+      "ok": true
+    },
+    {
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/Secure_Coding_with_AI_Cheat_Sheet.html",
+      "lessons": [
+        "src/content/lecciones/10-seguridad-desde-el-primer-dia/usar-ia-para-revisar-seguridad-sin-confiar-a-ciegas.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://cheatsheetseries.owasp.org/cheatsheets/Secure_Coding_with_AI_Cheat_Sheet.html",
+      "ok": true
+    },
+    {
+      "url": "https://code.claude.com/docs/en/overview",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/claude-para-tareas-de-desarrollo.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://code.claude.com/docs/en/overview",
+      "ok": true
+    },
+    {
+      "url": "https://code.visualstudio.com/docs/getstarted/overview",
+      "lessons": [
+        "src/content/lecciones/02-bases-para-crear-software/tu-entorno-terminal-git-y-editor.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://code.visualstudio.com/docs/getstarted/overview",
+      "ok": true
+    },
+    {
+      "url": "https://code.visualstudio.com/docs/setup/copilot",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/vs-code-y-github-copilot-en-la-practica.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://code.visualstudio.com/docs/setup/copilot",
+      "ok": true
+    },
+    {
+      "url": "https://coverage.readthedocs.io/en/latest/branch.html",
+      "lessons": [
+        "src/content/lecciones/08-calidad-que-se-demuestra/cobertura-complejidad-y-metricas-utiles.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://coverage.readthedocs.io/en/latest/branch.html",
+      "ok": true
+    },
+    {
+      "url": "https://csrc.nist.gov/pubs/sp/800/218/final",
+      "lessons": [
+        "src/content/lecciones/10-seguridad-desde-el-primer-dia/integrar-seguridad-en-el-ciclo-de-desarrollo.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://csrc.nist.gov/pubs/sp/800/218/final",
+      "ok": true
+    },
+    {
+      "url": "https://cursor.com/docs",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/alternativas-de-editor-y-flujos-de-trabajo.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://cursor.com/docs",
+      "ok": true
+    },
+    {
+      "url": "https://cursor.com/security",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/alternativas-de-editor-y-flujos-de-trabajo.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://cursor.com/security",
+      "ok": true
+    },
+    {
+      "url": "https://developers.llamaindex.ai/python/framework/understanding/rag/",
+      "lessons": [
+        "src/content/lecciones/05-entender-la-inteligencia-artificial/frameworks-rag-y-ajuste-de-modelos.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://developers.llamaindex.ai/python/framework/understanding/rag/",
+      "ok": true
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/",
+      "lessons": [
+        "src/content/lecciones/07-un-flujo-de-trabajo-con-agentes/conectar-proveedores-de-ia-mediante-apis.md",
+        "src/content/lecciones/07-un-flujo-de-trabajo-con-agentes/de-copilotos-a-agentes-de-desarrollo.md",
+        "src/content/lecciones/08-calidad-que-se-demuestra/patrones-para-coordinar-varios-agentes.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://developers.openai.com/api/docs",
+      "ok": true
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices",
+      "lessons": [
+        "src/content/lecciones/13-talleres-para-profundizar/evaluar-respuestas-de-modelos-de-lenguaje.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://developers.openai.com/api/docs/guides/evaluation-best-practices",
+      "ok": true
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/evaluation-getting-started",
+      "lessons": [
+        "src/content/lecciones/13-talleres-para-profundizar/evaluar-respuestas-de-modelos-de-lenguaje.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://developers.openai.com/api/docs/guides/evaluation-getting-started",
+      "ok": true
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/images-vision",
+      "lessons": [
+        "src/content/lecciones/05-entender-la-inteligencia-artificial/dar-instrucciones-y-trabajar-con-imagenes-y-audio.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://developers.openai.com/api/docs/guides/images-vision",
+      "ok": true
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/model-optimization",
+      "lessons": [
+        "src/content/lecciones/05-entender-la-inteligencia-artificial/frameworks-rag-y-ajuste-de-modelos.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://developers.openai.com/api/docs/guides/model-optimization",
+      "ok": true
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/guides/transcription",
+      "lessons": [
+        "src/content/lecciones/05-entender-la-inteligencia-artificial/dar-instrucciones-y-trabajar-con-imagenes-y-audio.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://developers.openai.com/api/docs/guides/transcription",
+      "ok": true
+    },
+    {
+      "url": "https://digital-strategy.ec.europa.eu/es/policies/regulatory-framework-ai",
+      "lessons": [
+        "src/content/lecciones/05-entender-la-inteligencia-artificial/privacidad-sesgos-y-uso-responsable.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://digital-strategy.ec.europa.eu/es/policies/regulatory-framework-ai",
+      "ok": true
+    },
+    {
+      "url": "https://docs.anthropic.com/",
+      "lessons": [
+        "src/content/lecciones/07-un-flujo-de-trabajo-con-agentes/conectar-proveedores-de-ia-mediante-apis.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://platform.claude.com/docs/en/home",
+      "ok": true
+    },
+    {
+      "url": "https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-create.html",
+      "lessons": [
+        "src/content/lecciones/09-de-tu-equipo-a-la-nube/servicios-cloud-y-control-del-gasto.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-create.html",
+      "ok": true
+    },
+    {
+      "url": "https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html",
+      "lessons": [
+        "src/content/lecciones/09-de-tu-equipo-a-la-nube/servicios-cloud-y-control-del-gasto.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html",
+      "ok": true
+    },
+    {
+      "url": "https://docs.cloud.google.com/billing/docs/how-to/budgets",
+      "lessons": [
+        "src/content/lecciones/09-de-tu-equipo-a-la-nube/servicios-cloud-y-control-del-gasto.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.cloud.google.com/billing/docs/how-to/budgets",
+      "ok": true
+    },
+    {
+      "url": "https://docs.cloud.google.com/billing/docs/how-to/budgets-spend-caps",
+      "lessons": [
+        "src/content/lecciones/09-de-tu-equipo-a-la-nube/servicios-cloud-y-control-del-gasto.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.cloud.google.com/billing/docs/how-to/budgets-spend-caps",
+      "ok": true
+    },
+    {
+      "url": "https://docs.coderabbit.ai/guides/code-review-overview",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/revisar-cambios-con-coderabbit.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.coderabbit.ai/guides/code-review-overview",
+      "ok": true
+    },
+    {
+      "url": "https://docs.coderabbit.ai/security",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/revisar-cambios-con-coderabbit.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.coderabbit.ai/security",
+      "ok": true
+    },
+    {
+      "url": "https://docs.docker.com/ai/model-runner/api-reference/",
+      "lessons": [
+        "src/content/lecciones/13-talleres-para-profundizar/contenedores-para-modelos-locales-y-agentes.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.docker.com/ai/model-runner/api-reference/",
+      "ok": true
+    },
+    {
+      "url": "https://docs.docker.com/ai/model-runner/get-started/",
+      "lessons": [
+        "src/content/lecciones/13-talleres-para-profundizar/contenedores-para-modelos-locales-y-agentes.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.docker.com/ai/model-runner/get-started/",
+      "ok": true
+    },
+    {
+      "url": "https://docs.docker.com/build/concepts/context/",
+      "lessons": [
+        "src/content/lecciones/09-de-tu-equipo-a-la-nube/contenedores-reproducibles-con-docker.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.docker.com/build/concepts/context/",
+      "ok": true
+    },
+    {
+      "url": "https://docs.docker.com/get-started/docker-concepts/building-images/writing-a-dockerfile/",
+      "lessons": [
+        "src/content/lecciones/09-de-tu-equipo-a-la-nube/contenedores-reproducibles-con-docker.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.docker.com/get-started/docker-concepts/building-images/writing-a-dockerfile/",
+      "ok": true
+    },
+    {
+      "url": "https://docs.docker.com/reference/build-checks/",
+      "lessons": [
+        "src/content/lecciones/09-de-tu-equipo-a-la-nube/contenedores-reproducibles-con-docker.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.docker.com/reference/build-checks/",
+      "ok": true
+    },
+    {
+      "url": "https://docs.docker.com/reference/cli/docker/model/run/",
+      "lessons": [
+        "src/content/lecciones/13-talleres-para-profundizar/contenedores-para-modelos-locales-y-agentes.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.docker.com/reference/cli/docker/model/run/",
+      "ok": true
+    },
+    {
+      "url": "https://docs.docker.com/reference/dockerfile/",
+      "lessons": [
+        "src/content/lecciones/09-de-tu-equipo-a-la-nube/contenedores-reproducibles-con-docker.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.docker.com/reference/dockerfile/",
+      "ok": true
+    },
+    {
+      "url": "https://docs.expo.dev/tutorial/create-your-first-app/",
+      "lessons": [
+        "src/content/lecciones/11-construye-tus-proyectos/proyecto-una-aplicacion-movil-pequena.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.expo.dev/tutorial/create-your-first-app/",
+      "ok": true
+    },
+    {
+      "url": "https://docs.github.com/en/account-and-profile/how-tos/profile-customization/managing-your-profile-readme",
+      "lessons": [
+        "src/content/lecciones/12-crece-como-profesional/compartir-tu-trabajo-y-construir-una-red-profesional.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.github.com/en/account-and-profile/how-tos/profile-customization/managing-your-profile-readme",
+      "ok": true
+    },
+    {
+      "url": "https://docs.github.com/en/actions/concepts/workflows-and-actions/workflows",
+      "lessons": [
+        "src/content/lecciones/08-calidad-que-se-demuestra/laboratorio-un-pipeline-de-calidad-completo.md",
+        "src/content/lecciones/09-de-tu-equipo-a-la-nube/devops-y-pipelines-de-integracion-y-entrega.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.github.com/en/actions/concepts/workflows-and-actions/workflows",
+      "ok": true
+    },
+    {
+      "url": "https://docs.github.com/en/actions/reference/security/secure-use",
+      "lessons": [
+        "src/content/lecciones/08-calidad-que-se-demuestra/laboratorio-un-pipeline-de-calidad-completo.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.github.com/en/actions/reference/security/secure-use",
+      "ok": true
+    },
+    {
+      "url": "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax",
+      "lessons": [
+        "src/content/lecciones/09-de-tu-equipo-a-la-nube/devops-y-pipelines-de-integracion-y-entrega.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax",
+      "ok": true
+    },
+    {
+      "url": "https://docs.github.com/en/copilot",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/vs-code-y-github-copilot-en-la-practica.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.github.com/en/copilot",
+      "ok": true
+    },
+    {
+      "url": "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/copilot-en-el-flujo-de-github.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/use-code-review",
+      "ok": true
+    },
+    {
+      "url": "https://docs.github.com/en/copilot/reference/custom-instructions-support",
+      "lessons": [
+        "src/content/lecciones/13-talleres-para-profundizar/de-una-idea-a-una-entrega-con-github-y-agentes.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.github.com/en/copilot/reference/custom-instructions-support",
+      "ok": true
+    },
+    {
+      "url": "https://docs.github.com/en/copilot/tutorials/cloud-agent/get-the-best-results",
+      "lessons": [
+        "src/content/lecciones/13-talleres-para-profundizar/de-una-idea-a-una-entrega-con-github-y-agentes.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.github.com/en/copilot/tutorials/cloud-agent/get-the-best-results",
+      "ok": true
+    },
+    {
+      "url": "https://docs.github.com/en/copilot/tutorials/explore-pull-requests",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/copilot-en-el-flujo-de-github.md",
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/de-una-idea-a-un-mvp-verificable.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.github.com/en/copilot/tutorials/explore-pull-requests",
+      "ok": true
+    },
+    {
+      "url": "https://docs.github.com/en/copilot/tutorials/write-tests",
+      "lessons": [
+        "src/content/lecciones/01-empieza-aqui/donde-encaja-la-ia-al-crear-software.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.github.com/en/copilot/tutorials/write-tests",
+      "ok": true
+    },
+    {
+      "url": "https://docs.github.com/en/get-started/writing-on-github",
+      "lessons": [
+        "src/content/lecciones/08-calidad-que-se-demuestra/documentacion-versionada-con-ayuda-de-ia.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.github.com/en/get-started/writing-on-github",
+      "ok": true
+    },
+    {
+      "url": "https://docs.github.com/en/github-models",
+      "lessons": [
+        "src/content/lecciones/05-entender-la-inteligencia-artificial/como-funciona-la-ia-generativa.md",
+        "src/content/lecciones/05-entender-la-inteligencia-artificial/como-leer-las-tendencias-de-ia-con-criterio.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.github.com/en/github-models",
+      "ok": true
+    },
+    {
+      "url": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests",
+      "lessons": [
+        "src/content/lecciones/11-construye-tus-proyectos/practica-integradora-desarrollar-con-especificaciones-y-agentes.md",
+        "src/content/lecciones/12-crece-como-profesional/comunicacion-feedback-y-colaboracion.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.github.com/en/pull-requests",
+      "ok": true
+    },
+    {
+      "url": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests",
+      "lessons": [
+        "src/content/lecciones/12-crece-como-profesional/comunicacion-feedback-y-colaboracion.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.github.com/en/pull-requests/how-tos/review-pull-requests",
+      "ok": true
+    },
+    {
+      "url": "https://docs.github.com/en/pull-requests/how-tos/review-pull-requests",
+      "lessons": [
+        "src/content/lecciones/08-calidad-que-se-demuestra/revision-de-codigo-entre-personas-e-ia.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.github.com/en/pull-requests/how-tos/review-pull-requests",
+      "ok": true
+    },
+    {
+      "url": "https://docs.langchain.com/oss/python/learn",
+      "lessons": [
+        "src/content/lecciones/09-de-tu-equipo-a-la-nube/un-rag-sencillo-con-python-y-langchain.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.langchain.com/oss/python/learn",
+      "ok": true
+    },
+    {
+      "url": "https://docs.n8n.io/",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/automatizar-un-flujo-con-n8n.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.n8n.io/",
+      "ok": true
+    },
+    {
+      "url": "https://docs.n8n.io/build/integrate-ai/ai-examples/human-in-the-loop-for-tools.md",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/automatizar-un-flujo-con-n8n.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.n8n.io/build/integrate-ai/ai-examples/human-in-the-loop-for-tools.md",
+      "ok": true
+    },
+    {
+      "url": "https://docs.ollama.com/quickstart",
+      "lessons": [
+        "src/content/lecciones/11-construye-tus-proyectos/proyecto-preguntas-y-respuestas-sobre-tus-documentos.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.ollama.com/quickstart",
+      "ok": true
+    },
+    {
+      "url": "https://docs.openclaw.ai/gateway/security/tool-permissions",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/openclaw-y-los-asistentes-persistentes.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.openclaw.ai/gateway/security/tool-permissions",
+      "ok": true
+    },
+    {
+      "url": "https://docs.openclaw.ai/help/faq/what-is-openclaw",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/openclaw-y-los-asistentes-persistentes.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.openclaw.ai/help/faq/what-is-openclaw",
+      "ok": true
+    },
+    {
+      "url": "https://docs.openclaw.ai/tools/exec-approvals",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/openclaw-y-los-asistentes-persistentes.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.openclaw.ai/tools/exec-approvals",
+      "ok": true
+    },
+    {
+      "url": "https://docs.python.org/3/howto/functional.html",
+      "lessons": [
+        "src/content/lecciones/03-disenar-antes-de-programar/elegir-un-paradigma-de-programacion.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.python.org/3/howto/functional.html",
+      "ok": true
+    },
+    {
+      "url": "https://docs.python.org/3/library/dataclasses.html",
+      "lessons": [
+        "src/content/lecciones/04-arquitectura-que-puedes-entender/laboratorio-prestamos-de-una-biblioteca.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.python.org/3/library/dataclasses.html",
+      "ok": true
+    },
+    {
+      "url": "https://docs.python.org/3/library/datetime.html",
+      "lessons": [
+        "src/content/lecciones/04-arquitectura-que-puedes-entender/laboratorio-prestamos-de-una-biblioteca.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.python.org/3/library/datetime.html",
+      "ok": true
+    },
+    {
+      "url": "https://docs.python.org/3/library/decimal.html",
+      "lessons": [
+        "src/content/lecciones/04-arquitectura-que-puedes-entender/reto-resuelto-aprobar-gastos.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.python.org/3/library/decimal.html",
+      "ok": true
+    },
+    {
+      "url": "https://docs.python.org/3/library/functional.html",
+      "lessons": [
+        "src/content/lecciones/02-bases-para-crear-software/lenguajes-objetos-y-programacion-funcional.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.python.org/3/library/functional.html",
+      "ok": true
+    },
+    {
+      "url": "https://docs.python.org/3/library/index.html",
+      "lessons": [
+        "src/content/lecciones/11-construye-tus-proyectos/proyecto-preguntas-y-respuestas-sobre-tus-documentos.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.python.org/3/library/index.html",
+      "ok": true
+    },
+    {
+      "url": "https://docs.python.org/3/library/json.html",
+      "lessons": [
+        "src/content/lecciones/02-bases-para-crear-software/construye-tu-primer-gestor-de-tareas.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.python.org/3/library/json.html",
+      "ok": true
+    },
+    {
+      "url": "https://docs.python.org/3/library/pathlib.html",
+      "lessons": [
+        "src/content/lecciones/15-tu-proyecto-final/proyecto-final-un-asistente-de-conocimiento-verificable.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.python.org/3/library/pathlib.html",
+      "ok": true
+    },
+    {
+      "url": "https://docs.python.org/3/library/pdb.html",
+      "lessons": [
+        "src/content/lecciones/02-bases-para-crear-software/codigo-legible-depuracion-y-pruebas.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.python.org/3/library/pdb.html",
+      "ok": true
+    },
+    {
+      "url": "https://docs.python.org/3/library/sqlite3.html",
+      "lessons": [
+        "src/content/lecciones/09-de-tu-equipo-a-la-nube/bases-de-datos-relacionales-documentales-y-vectoriales.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.python.org/3/library/sqlite3.html",
+      "ok": true
+    },
+    {
+      "url": "https://docs.python.org/3/library/unittest.html",
+      "lessons": [
+        "src/content/lecciones/02-bases-para-crear-software/codigo-legible-depuracion-y-pruebas.md",
+        "src/content/lecciones/08-calidad-que-se-demuestra/cobertura-complejidad-y-metricas-utiles.md",
+        "src/content/lecciones/08-calidad-que-se-demuestra/pruebas-unitarias-de-integracion-y-de-extremo-a-extremo.md",
+        "src/content/lecciones/08-calidad-que-se-demuestra/refactorizar-y-gestionar-deuda-tecnica.md",
+        "src/content/lecciones/15-tu-proyecto-final/proyecto-final-un-asistente-de-conocimiento-verificable.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.python.org/3/library/unittest.html",
+      "ok": true
+    },
+    {
+      "url": "https://docs.python.org/3/tutorial/classes.html",
+      "lessons": [
+        "src/content/lecciones/02-bases-para-crear-software/lenguajes-objetos-y-programacion-funcional.md",
+        "src/content/lecciones/03-disenar-antes-de-programar/elegir-un-paradigma-de-programacion.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.python.org/3/tutorial/classes.html",
+      "ok": true
+    },
+    {
+      "url": "https://docs.python.org/3/tutorial/controlflow.html",
+      "lessons": [
+        "src/content/lecciones/02-bases-para-crear-software/descomponer-problemas-y-pensar-en-algoritmos.md",
+        "src/content/lecciones/02-bases-para-crear-software/variables-funciones-y-estructuras-de-control.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.python.org/3/tutorial/controlflow.html",
+      "ok": true
+    },
+    {
+      "url": "https://docs.python.org/3/tutorial/datastructures.html",
+      "lessons": [
+        "src/content/lecciones/02-bases-para-crear-software/construye-tu-primer-gestor-de-tareas.md",
+        "src/content/lecciones/14-del-proyecto-a-una-oportunidad/practicar-una-entrevista-tecnica-con-y-sin-ia.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.python.org/3/tutorial/datastructures.html",
+      "ok": true
+    },
+    {
+      "url": "https://docs.python.org/3/tutorial/introduction.html",
+      "lessons": [
+        "src/content/lecciones/01-empieza-aqui/tu-primer-hola-mundo.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.python.org/3/tutorial/introduction.html",
+      "ok": true
+    },
+    {
+      "url": "https://docs.sentry.io/product/issues/issue-details/",
+      "lessons": [
+        "src/content/lecciones/08-calidad-que-se-demuestra/observar-errores-y-rendimiento-con-sentry.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.sentry.io/product/issues/issue-details/",
+      "ok": true
+    },
+    {
+      "url": "https://docs.warp.dev/agents/capabilities/agent-profiles-permissions/",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/una-terminal-asistida-warp.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.warp.dev/agents/capabilities/agent-profiles-permissions/",
+      "ok": true
+    },
+    {
+      "url": "https://docs.warp.dev/quickstart/",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/una-terminal-asistida-warp.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.warp.dev/quickstart/",
+      "ok": true
+    },
+    {
+      "url": "https://docs.warp.dev/support-and-community/privacy-and-security/privacy",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/una-terminal-asistida-warp.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://docs.warp.dev/support-and-community/privacy-and-security/privacy",
+      "ok": true
+    },
+    {
+      "url": "https://elevenlabs.io/docs/api-reference/authentication",
+      "lessons": [
+        "src/content/lecciones/07-un-flujo-de-trabajo-con-agentes/laboratorio-optativo-voz-y-audio-con-elevenlabs.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://elevenlabs.io/docs/api-reference/authentication",
+      "ok": true
+    },
+    {
+      "url": "https://elevenlabs.io/docs/api-reference/introduction",
+      "lessons": [
+        "src/content/lecciones/07-un-flujo-de-trabajo-con-agentes/laboratorio-optativo-voz-y-audio-con-elevenlabs.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://elevenlabs.io/docs/api-reference/introduction",
+      "ok": true
+    },
+    {
+      "url": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+      "lessons": [
+        "src/content/lecciones/05-entender-la-inteligencia-artificial/privacidad-sesgos-y-uso-responsable.md"
+      ],
+      "status": 202,
+      "finalUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj",
+      "ok": true
+    },
+    {
+      "url": "https://genai.owasp.org/llm-top-10/",
+      "lessons": [
+        "src/content/lecciones/13-talleres-para-profundizar/ciberseguridad-al-integrar-inteligencia-artificial.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://genai.owasp.org/llm-top-10/",
+      "ok": true
+    },
+    {
+      "url": "https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/",
+      "lessons": [
+        "src/content/lecciones/10-seguridad-desde-el-primer-dia/riesgos-de-ia-generativa-y-el-owasp-llm-top-10.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://genai.owasp.org/resource/owasp-genai-llm-top-10-2026/",
+      "ok": true
+    },
+    {
+      "url": "https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control.html",
+      "lessons": [
+        "src/content/lecciones/02-bases-para-crear-software/tu-entorno-terminal-git-y-editor.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control.html",
+      "ok": true
+    },
+    {
+      "url": "https://github.com/actions/checkout/releases",
+      "lessons": [
+        "src/content/lecciones/09-de-tu-equipo-a-la-nube/devops-y-pipelines-de-integracion-y-entrega.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://github.com/actions/checkout/releases",
+      "ok": true
+    },
+    {
+      "url": "https://github.com/anomalyco/opencode/blob/dev/LICENSE",
+      "lessons": [
+        "src/content/lecciones/11-construye-tus-proyectos/practica-integradora-desarrollar-con-especificaciones-y-agentes.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://github.com/anomalyco/opencode/blob/dev/LICENSE",
+      "ok": true
+    },
+    {
+      "url": "https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/README.md",
+      "lessons": [
+        "src/content/lecciones/10-seguridad-desde-el-primer-dia/riesgos-de-ia-generativa-y-el-owasp-llm-top-10.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/2026/README.md",
+      "ok": true
+    },
+    {
+      "url": "https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/README.md",
+      "lessons": [
+        "src/content/lecciones/10-seguridad-desde-el-primer-dia/riesgos-de-ia-generativa-y-el-owasp-llm-top-10.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://github.com/GenAI-Security-Project/GenAI-LLM-Top10/blob/main/README.md",
+      "ok": true
+    },
+    {
+      "url": "https://github.com/github/spec-kit/blob/main/docs/index.md",
+      "lessons": [
+        "src/content/lecciones/03-disenar-antes-de-programar/desarrollar-desde-una-especificacion-sdd.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://github.com/github/spec-kit/blob/main/docs/index.md",
+      "ok": true
+    },
+    {
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/hermes-y-los-agentes-con-herramientas.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://github.com/NousResearch/hermes-agent",
+      "ok": true
+    },
+    {
+      "url": "https://github.com/ollama/ollama/blob/main/docs/integrations/opencode.mdx",
+      "lessons": [
+        "src/content/lecciones/11-construye-tus-proyectos/practica-integradora-desarrollar-con-especificaciones-y-agentes.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://github.com/ollama/ollama/blob/main/docs/integrations/opencode.mdx",
+      "ok": true
+    },
+    {
+      "url": "https://github.com/ollama/ollama/blob/main/LICENSE",
+      "lessons": [
+        "src/content/lecciones/11-construye-tus-proyectos/practica-integradora-desarrollar-con-especificaciones-y-agentes.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://github.com/ollama/ollama/blob/main/LICENSE",
+      "ok": true
+    },
+    {
+      "url": "https://hai.stanford.edu/ai-index",
+      "lessons": [
+        "src/content/lecciones/05-entender-la-inteligencia-artificial/como-leer-las-tendencias-de-ia-con-criterio.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://hai.stanford.edu/ai-index",
+      "ok": true
+    },
+    {
+      "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report/technical-performance",
+      "lessons": [
+        "src/content/lecciones/05-entender-la-inteligencia-artificial/como-leer-las-tendencias-de-ia-con-criterio.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://hai.stanford.edu/ai-index/2026-ai-index-report/technical-performance",
+      "ok": true
+    },
+    {
+      "url": "https://help.figma.com/hc/es-es/articles/23870272542231-Utilizar-herramientas-de-IA-en-Figma-Design",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/prototipar-interfaces-con-ayuda-de-ia.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://help.figma.com/hc/es-es/articles/23870272542231-Utilizar-herramientas-de-IA-en-Figma-Design",
+      "ok": true
+    },
+    {
+      "url": "https://help.openai.com/en/articles/11780217-study-mode",
+      "lessons": [
+        "src/content/lecciones/01-empieza-aqui/una-ia-como-companera-de-aprendizaje.md"
+      ],
+      "status": 403,
+      "finalUrl": "https://help.openai.com/en/articles/11780217-study-mode",
+      "ok": false
+    },
+    {
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/tools",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/hermes-y-los-agentes-con-herramientas.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://hermes-agent.nousresearch.com/docs/user-guide/features/tools",
+      "ok": true
+    },
+    {
+      "url": "https://hermes-agent.nousresearch.com/docs/user-guide/security",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/hermes-y-los-agentes-con-herramientas.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://hermes-agent.nousresearch.com/docs/user-guide/security",
+      "ok": true
+    },
+    {
+      "url": "https://huggingface.co/docs/hub/model-cards",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/ejecutar-modelos-en-tu-propio-equipo.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://huggingface.co/docs/hub/model-cards",
+      "ok": true
+    },
+    {
+      "url": "https://huggingface.co/docs/peft/en/methods/overview",
+      "lessons": [
+        "src/content/lecciones/13-talleres-para-profundizar/ajustar-un-modelo-de-lenguaje-con-un-experimento-pequeno.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://huggingface.co/docs/peft/en/methods/overview",
+      "ok": true
+    },
+    {
+      "url": "https://huggingface.co/docs/trl/en/sft_trainer",
+      "lessons": [
+        "src/content/lecciones/13-talleres-para-profundizar/ajustar-un-modelo-de-lenguaje-con-un-experimento-pequeno.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://huggingface.co/docs/trl/en/sft_trainer",
+      "ok": true
+    },
+    {
+      "url": "https://huggingface.co/learn/llm-course/en/chapter1/4",
+      "lessons": [
+        "src/content/lecciones/05-entender-la-inteligencia-artificial/como-funciona-la-ia-generativa.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://huggingface.co/learn/llm-course/en/chapter1/4",
+      "ok": true
+    },
+    {
+      "url": "https://learn.chatgpt.com/docs/codex/cli",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/trabajar-con-codex-de-forma-supervisada.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://learn.chatgpt.com/docs/codex/cli",
+      "ok": true
+    },
+    {
+      "url": "https://learn.chatgpt.com/docs/permission-modes",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/trabajar-con-codex-de-forma-supervisada.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://learn.chatgpt.com/docs/permission-modes",
+      "ok": true
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis",
+      "lessons": [
+        "src/content/lecciones/13-talleres-para-profundizar/modelar-un-dominio-con-ddd.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://learn.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis",
+      "ok": true
+    },
+    {
+      "url": "https://learn.microsoft.com/es-es/azure/architecture/microservices/model/tactical-domain-driven-design",
+      "lessons": [
+        "src/content/lecciones/13-talleres-para-profundizar/modelar-un-dominio-con-ddd.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://learn.microsoft.com/es-es/azure/architecture/microservices/model/tactical-domain-driven-design",
+      "ok": true
+    },
+    {
+      "url": "https://lsc.cornell.edu/how-to-study/studying-for-and-taking-exams/effective-study-strategies/",
+      "lessons": [
+        "src/content/lecciones/01-empieza-aqui/como-estudiar-y-mantener-el-habito.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://lsc.cornell.edu/how-to-study/studying-for-and-taking-exams/effective-study-strategies/",
+      "ok": true
+    },
+    {
+      "url": "https://martinfowler.com/bliki/DefinitionOfRefactoring.html",
+      "lessons": [
+        "src/content/lecciones/08-calidad-que-se-demuestra/refactorizar-y-gestionar-deuda-tecnica.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://martinfowler.com/bliki/DefinitionOfRefactoring.html",
+      "ok": true
+    },
+    {
+      "url": "https://mlflow.org/docs/latest/genai/datasets/",
+      "lessons": [
+        "src/content/lecciones/09-de-tu-equipo-a-la-nube/llmops-evaluar-y-operar-sistemas-de-ia.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://mlflow.org/docs/latest/genai/datasets/",
+      "ok": true
+    },
+    {
+      "url": "https://mlflow.org/docs/latest/genai/eval-monitor/",
+      "lessons": [
+        "src/content/lecciones/09-de-tu-equipo-a-la-nube/llmops-evaluar-y-operar-sistemas-de-ia.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://mlflow.org/docs/latest/genai/eval-monitor/",
+      "ok": true
+    },
+    {
+      "url": "https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture",
+      "lessons": [
+        "src/content/lecciones/07-un-flujo-de-trabajo-con-agentes/contexto-agents-md-skills-y-mcp.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture",
+      "ok": true
+    },
+    {
+      "url": "https://modelcontextprotocol.io/introduction",
+      "lessons": [
+        "src/content/lecciones/08-calidad-que-se-demuestra/patrones-para-coordinar-varios-agentes.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro",
+      "ok": true
+    },
+    {
+      "url": "https://neovim.io/doc/user/lua-guide/",
+      "lessons": [
+        "src/content/lecciones/13-talleres-para-profundizar/un-flujo-de-trabajo-con-neovim-y-terminal-asistida.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://neovim.io/doc/user/lua-guide/",
+      "ok": true
+    },
+    {
+      "url": "https://neovim.io/doc/user/terminal/",
+      "lessons": [
+        "src/content/lecciones/13-talleres-para-profundizar/un-flujo-de-trabajo-con-neovim-y-terminal-asistida.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://neovim.io/doc/user/terminal/",
+      "ok": true
+    },
+    {
+      "url": "https://nodejs.org/api/http.html",
+      "lessons": [
+        "src/content/lecciones/11-construye-tus-proyectos/proyecto-una-api-de-tareas-segura.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://nodejs.org/api/http.html",
+      "ok": true
+    },
+    {
+      "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+      "lessons": [
+        "src/content/lecciones/05-entender-la-inteligencia-artificial/frameworks-rag-y-ajuste-de-modelos.md",
+        "src/content/lecciones/05-entender-la-inteligencia-artificial/privacidad-sesgos-y-uso-responsable.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+      "ok": true
+    },
+    {
+      "url": "https://ollama.com/privacy",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/ejecutar-modelos-en-tu-propio-equipo.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://ollama.com/privacy",
+      "ok": true
+    },
+    {
+      "url": "https://opencode.ai/docs/",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/introduccion-practica-a-opencode.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://opencode.ai/docs/",
+      "ok": true
+    },
+    {
+      "url": "https://opencode.ai/docs/agents/",
+      "lessons": [
+        "src/content/lecciones/11-construye-tus-proyectos/practica-integradora-desarrollar-con-especificaciones-y-agentes.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://opencode.ai/docs/agents/",
+      "ok": true
+    },
+    {
+      "url": "https://opencode.ai/v2/docs/permissions",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/introduccion-practica-a-opencode.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://opencode.ai/v2/docs/permissions",
+      "ok": true
+    },
+    {
+      "url": "https://orientacion-laboral.infojobs.net/curriculum/",
+      "lessons": [
+        "src/content/lecciones/12-crece-como-profesional/preparar-tu-busqueda-de-empleo-y-tu-perfil-en-infojobs.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://orientacion-laboral.infojobs.net/curriculum/",
+      "ok": true
+    },
+    {
+      "url": "https://owasp.org/projects/top-ten",
+      "lessons": [
+        "src/content/lecciones/10-seguridad-desde-el-primer-dia/riesgos-web-y-el-owasp-top-10.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://owasp.org/projects/top-ten",
+      "ok": true
+    },
+    {
+      "url": "https://owasp.org/www-community/Threat_Modeling",
+      "lessons": [
+        "src/content/lecciones/10-seguridad-desde-el-primer-dia/pensar-en-seguridad-antes-de-escribir-codigo.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://community.owasp.org/Threat_Modeling",
+      "ok": true
+    },
+    {
+      "url": "https://owasp.org/www-project-application-security-verification-standard/",
+      "lessons": [
+        "src/content/lecciones/10-seguridad-desde-el-primer-dia/laboratorio-defensivo-corregir-una-aplicacion.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://owasp.org/projects/asvs",
+      "ok": true
+    },
+    {
+      "url": "https://owasp.org/www-project-code-review-guide/",
+      "lessons": [
+        "src/content/lecciones/10-seguridad-desde-el-primer-dia/integrar-seguridad-en-el-ciclo-de-desarrollo.md",
+        "src/content/lecciones/10-seguridad-desde-el-primer-dia/usar-ia-para-revisar-seguridad-sin-confiar-a-ciegas.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://owasp.org/projects/code-review-guide",
+      "ok": true
+    },
+    {
+      "url": "https://peps.python.org/pep-0008/",
+      "lessons": [
+        "src/content/lecciones/02-bases-para-crear-software/codigo-legible-depuracion-y-pruebas.md",
+        "src/content/lecciones/03-disenar-antes-de-programar/principios-para-un-diseno-mantenible.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://peps.python.org/pep-0008/",
+      "ok": true
+    },
+    {
+      "url": "https://peps.python.org/pep-0020/",
+      "lessons": [
+        "src/content/lecciones/03-disenar-antes-de-programar/principios-para-un-diseno-mantenible.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://peps.python.org/pep-0020/",
+      "ok": true
+    },
+    {
+      "url": "https://platform.openai.com/pricing",
+      "lessons": [
+        "src/content/lecciones/05-entender-la-inteligencia-artificial/frameworks-rag-y-ajuste-de-modelos.md"
+      ],
+      "status": 403,
+      "finalUrl": "https://platform.openai.com/pricing",
+      "ok": false
+    },
+    {
+      "url": "https://playwright.dev/docs/locators",
+      "lessons": [
+        "src/content/lecciones/08-calidad-que-se-demuestra/dar-vision-a-un-agente-con-pruebas-de-navegador.md",
+        "src/content/lecciones/08-calidad-que-se-demuestra/interfaces-usables-y-accesibles.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://playwright.dev/docs/locators",
+      "ok": true
+    },
+    {
+      "url": "https://playwright.dev/docs/test-assertions",
+      "lessons": [
+        "src/content/lecciones/08-calidad-que-se-demuestra/dar-vision-a-un-agente-con-pruebas-de-navegador.md",
+        "src/content/lecciones/08-calidad-que-se-demuestra/pruebas-unitarias-de-integracion-y-de-extremo-a-extremo.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://playwright.dev/docs/test-assertions",
+      "ok": true
+    },
+    {
+      "url": "https://proceedings.neurips.cc/paper/2020/hash/6b493230-Abstract.html",
+      "lessons": [
+        "src/content/lecciones/11-construye-tus-proyectos/proyecto-preguntas-y-respuestas-sobre-tus-documentos.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://proceedings.neurips.cc/paper/2020/hash/6b493230-Abstract.html",
+      "ok": true
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16719566/",
+      "lessons": [
+        "src/content/lecciones/13-talleres-para-profundizar/recordar-lo-que-aprendes-al-programar.md"
+      ],
+      "status": 203,
+      "finalUrl": "https://pubmed.ncbi.nlm.nih.gov/16719566/",
+      "ok": true
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25150680/",
+      "lessons": [
+        "src/content/lecciones/13-talleres-para-profundizar/recordar-lo-que-aprendes-al-programar.md"
+      ],
+      "status": 203,
+      "finalUrl": "https://pubmed.ncbi.nlm.nih.gov/25150680/",
+      "ok": true
+    },
+    {
+      "url": "https://reactnative.dev/docs/accessibility",
+      "lessons": [
+        "src/content/lecciones/11-construye-tus-proyectos/proyecto-una-aplicacion-movil-pequena.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://reactnative.dev/docs/accessibility",
+      "ok": true
+    },
+    {
+      "url": "https://registry.ollama.com/blog/cloud-models",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/ejecutar-modelos-en-tu-propio-equipo.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://registry.ollama.com/blog/cloud-models",
+      "ok": true
+    },
+    {
+      "url": "https://scrumguides.org/download.html",
+      "lessons": [
+        "src/content/lecciones/12-crece-como-profesional/priorizar-trabajo-con-agilidad-y-foco.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://scrumguides.org/download.html",
+      "ok": true
+    },
+    {
+      "url": "https://spec.openapis.org/oas/",
+      "lessons": [
+        "src/content/lecciones/11-construye-tus-proyectos/proyecto-una-api-de-tareas-segura.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://spec.openapis.org/oas/",
+      "ok": true
+    },
+    {
+      "url": "https://swehb.nasa.gov/spaces/SWEHBVD/pages/133235373/A.00%2BActivity%2BView",
+      "lessons": [
+        "src/content/lecciones/03-disenar-antes-de-programar/del-problema-al-mantenimiento-el-ciclo-del-software.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://swehb.nasa.gov/spaces/SWEHBVD/pages/133235373/A.00%2BActivity%2BView",
+      "ok": true
+    },
+    {
+      "url": "https://top10.owasp.org/2025/0x00_2025-Introduction/",
+      "lessons": [
+        "src/content/lecciones/10-seguridad-desde-el-primer-dia/riesgos-web-y-el-owasp-top-10.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://top10.owasp.org/2025/0x00_2025-Introduction/",
+      "ok": true
+    },
+    {
+      "url": "https://trpc.io/docs/quickstart",
+      "lessons": [
+        "src/content/lecciones/13-talleres-para-profundizar/una-api-tipada-de-extremo-a-extremo-con-trpc.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://trpc.io/docs/quickstart",
+      "ok": true
+    },
+    {
+      "url": "https://trpc.io/docs/server/procedures",
+      "lessons": [
+        "src/content/lecciones/13-talleres-para-profundizar/una-api-tipada-de-extremo-a-extremo-con-trpc.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://trpc.io/docs/server/procedures",
+      "ok": true
+    },
+    {
+      "url": "https://trpc.io/docs/server/routers",
+      "lessons": [
+        "src/content/lecciones/13-talleres-para-profundizar/una-api-tipada-de-extremo-a-extremo-con-trpc.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://trpc.io/docs/server/routers",
+      "ok": true
+    },
+    {
+      "url": "https://www.coe.int/en/web/common-european-framework-reference-languages",
+      "lessons": [
+        "src/content/lecciones/12-crece-como-profesional/ingles-tecnico-para-colaborar-en-desarrollo.md"
+      ],
+      "status": 403,
+      "finalUrl": "https://www.coe.int/en/web/common-european-framework-reference-languages",
+      "ok": false
+    },
+    {
+      "url": "https://www.figma.com/ai/",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/prototipar-interfaces-con-ayuda-de-ia.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.figma.com/ai/",
+      "ok": true
+    },
+    {
+      "url": "https://www.freepik.com/ai/docs",
+      "lessons": [
+        "src/content/lecciones/05-entender-la-inteligencia-artificial/dar-instrucciones-y-trabajar-con-imagenes-y-audio.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.magnific.com/ai/docs",
+      "ok": true
+    },
+    {
+      "url": "https://www.nasa.gov/reference/system-engineering-handbook-appendix/",
+      "lessons": [
+        "src/content/lecciones/03-disenar-antes-de-programar/convertir-necesidades-en-requisitos-verificables.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.nasa.gov/reference/system-engineering-handbook-appendix/",
+      "ok": true
+    },
+    {
+      "url": "https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf",
+      "lessons": [
+        "src/content/lecciones/03-disenar-antes-de-programar/convertir-necesidades-en-requisitos-verificables.md",
+        "src/content/lecciones/04-arquitectura-que-puedes-entender/reto-resuelto-aprobar-gastos.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf",
+      "ok": true
+    },
+    {
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "lessons": [
+        "src/content/lecciones/05-entender-la-inteligencia-artificial/privacidad-sesgos-y-uso-responsable.md",
+        "src/content/lecciones/05-entender-la-inteligencia-artificial/que-es-la-ia-y-que-no-es.md",
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/de-una-idea-a-un-mvp-verificable.md",
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/elegir-herramientas-sin-perder-el-control.md",
+        "src/content/lecciones/12-crece-como-profesional/detectar-oportunidades-de-ia-en-una-empresa.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "ok": true
+    },
+    {
+      "url": "https://www.oecd.org/en/publications/explanatory-memorandum-on-the-updated-oecd-definition-of-an-ai-system_623da898-en.html",
+      "lessons": [
+        "src/content/lecciones/05-entender-la-inteligencia-artificial/que-es-la-ia-y-que-no-es.md",
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/elegir-herramientas-sin-perder-el-control.md"
+      ],
+      "status": 403,
+      "finalUrl": "https://www.oecd.org/en/publications/explanatory-memorandum-on-the-updated-oecd-definition-of-an-ai-system_623da898-en.html",
+      "ok": false
+    },
+    {
+      "url": "https://www.postgresql.org/docs/current/",
+      "lessons": [
+        "src/content/lecciones/09-de-tu-equipo-a-la-nube/bases-de-datos-relacionales-documentales-y-vectoriales.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.postgresql.org/docs/current/",
+      "ok": true
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "lessons": [
+        "src/content/lecciones/02-bases-para-crear-software/como-se-comunican-sistemas-redes-y-apis.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "ok": true
+    },
+    {
+      "url": "https://www.sba.gov/business-guide/plan-your-business/market-research-competitive-analysis",
+      "lessons": [
+        "src/content/lecciones/12-crece-como-profesional/definir-servicios-y-trabajar-por-cuenta-propia.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.sba.gov/counseling/plan-your-business/",
+      "ok": true
+    },
+    {
+      "url": "https://www.sba.gov/counseling/plan-your-business/",
+      "lessons": [
+        "src/content/lecciones/14-del-proyecto-a-una-oportunidad/validar-un-modelo-de-negocio-para-tu-proyecto.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.sba.gov/counseling/plan-your-business/",
+      "ok": true
+    },
+    {
+      "url": "https://www.sqlite.org/lang.html",
+      "lessons": [
+        "src/content/lecciones/09-de-tu-equipo-a-la-nube/bases-de-datos-relacionales-documentales-y-vectoriales.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.sqlite.org/lang.html",
+      "ok": true
+    },
+    {
+      "url": "https://www.strategyzer.com/library/the-business-model-canvas",
+      "lessons": [
+        "src/content/lecciones/14-del-proyecto-a-una-oportunidad/validar-un-modelo-de-negocio-para-tu-proyecto.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.strategyzer.com/library/the-business-model-canvas",
+      "ok": true
+    },
+    {
+      "url": "https://www.voiceflow.com/docs/courses/chat-agent-quick-start",
+      "lessons": [
+        "src/content/lecciones/13-talleres-para-profundizar/disenar-un-agente-conversacional-con-voiceflow.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.voiceflow.com/docs/courses/chat-agent-quick-start",
+      "ok": true
+    },
+    {
+      "url": "https://www.voiceflow.com/docs/documentation/introduction",
+      "lessons": [
+        "src/content/lecciones/13-talleres-para-profundizar/disenar-un-agente-conversacional-con-voiceflow.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.voiceflow.com/docs/documentation/introduction",
+      "ok": true
+    },
+    {
+      "url": "https://www.w3.org/TR/WCAG22/",
+      "lessons": [
+        "src/content/lecciones/08-calidad-que-se-demuestra/interfaces-usables-y-accesibles.md",
+        "src/content/lecciones/11-construye-tus-proyectos/proyecto-una-interfaz-web-accesible.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://www.w3.org/TR/WCAG22/",
+      "ok": true
+    },
+    {
+      "url": "https://zed.dev/docs/ai/mcp",
+      "lessons": [
+        "src/content/lecciones/06-tu-caja-de-herramientas-ia/alternativas-de-editor-y-flujos-de-trabajo.md"
+      ],
+      "status": 200,
+      "finalUrl": "https://zed.dev/docs/ai/mcp",
+      "ok": true
+    }
+  ]
+}

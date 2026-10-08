@@ -1,0 +1,97 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/article.css';
+import { lessons, modules, getModuleLessons, formatDuration, type Lesson } from '../../lib/curriculum';
+
+export function getStaticPaths() {
+  return lessons.map((lesson, index) => ({ params: { id: lesson.id }, props: { lesson, index } }));
+}
+interface Props { lesson: Lesson; index: number }
+const { lesson, index } = Astro.props;
+const module = modules.find((item) => item.id === lesson.module)!;
+const siblings = getModuleLessons(module.id);
+const previous = lessons[index - 1];
+const next = lessons[index + 1];
+const { Content, headings } = await render(lesson.entry);
+const toc = headings.filter((heading) => heading.depth === 2 || heading.depth === 3);
+const isSupplement = 'supplement' in module && module.supplement;
+const prerequisites = lesson.prerequisites.map((text) => ({ text: lessons.find((item) => item.slug === text)?.title ?? text, href: lessons.find((item) => item.slug === text)?.href }));
+const date = new Intl.DateTimeFormat('es-ES', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(lesson.updatedDate);
+---
+<BaseLayout title={`${lesson.title} · Leadtech School`} description={lesson.description} socialType="article">
+  <div class="article-shell">
+    <aside class="article-sidebar" aria-label="Navegación del módulo">
+      <a class="back-to-course" href="/#temario">← Volver al temario</a>
+      <div class="sidebar-module-heading"><span class="eyebrow">{isSupplement ? 'Complemento' : 'Módulo'} {String(module.order).padStart(2, '0')}</span><h2>{module.title}</h2></div>
+      <details class="sidebar-disclosure"><summary>Ver las {siblings.length} lecciones del módulo</summary>
+      <ol class="sidebar-lessons">
+        {siblings.map((item) => <li><a href={item.href} aria-current={item.id === lesson.id ? 'page' : undefined}><span class="lesson-order">{String(item.order).padStart(2, '0')}</span><span>{item.title}</span></a></li>)}
+      </ol></details>
+      <p class="sidebar-note">Lee, prueba y explica el resultado con tus palabras. El progreso se guarda solo en este navegador.</p>
+    </aside>
+    <main id="contenido" tabindex="-1" class="article-main">
+      <nav class="breadcrumb" aria-label="Ruta de navegación"><a href="/">Inicio</a><span aria-hidden="true">/</span><a href={`/#module-${module.id}`}>{module.title}</a><span aria-hidden="true">/</span><span aria-current="page">Lección {lesson.order}</span></nav>
+      <header class="lesson-header">
+        <span class="eyebrow">{isSupplement ? 'Taller complementario' : `Fase ${module.phase}`} · {lesson.level}</span>
+        <h1>{lesson.title}</h1>
+        <p class="lesson-description">{lesson.description}</p>
+        <div class="lesson-meta"><span>{formatDuration(lesson.duration)} de estudio estimado</span><span>Actualizado el <time datetime={lesson.updatedDate.toISOString().slice(0, 10)}>{date}</time></span></div>
+      </header>
+      <section class="lesson-objectives" aria-labelledby="objectives-heading">
+        <h2 id="objectives-heading">Al terminar podrás</h2>
+        <ul>{lesson.objectives.map((objective) => <li>{objective}</li>)}</ul>
+        {prerequisites.length > 0 && <p><strong>Antes de empezar:</strong> {prerequisites.map((item, index) => <Fragment>{index > 0 && ' · '}{item.href ? <a href={item.href}>{item.text}</a> : item.text}</Fragment>)}</p>}
+      </section>
+      {toc.length > 0 && <details class="toc"><summary>En esta lección</summary><ul>{toc.map((heading) => <li class:list={{ 'toc-subheading': heading.depth === 3 }}><a href={`#${heading.slug}`}>{heading.text}</a></li>)}</ul></details>}
+      <article class="prose" aria-label="Contenido de la lección"><Content /></article>
+      <section class="lesson-sources" aria-labelledby="sources-heading">
+        <h2 id="sources-heading">Documentación para seguir aprendiendo</h2>
+        <ul class="source-list">{lesson.sources.map((source) => <li><a href={source.url} target="_blank" rel="noopener noreferrer">{source.label}<span class="sr-only"> (abre una pestaña nueva)</span><span aria-hidden="true"> ↗</span></a></li>)}</ul>
+        <p class="source-note">Artículo original y formación independiente. Las herramientas cambian: consulta su documentación y permisos antes de usarlas. El tiempo es orientativo, no una carga lectiva acreditada.</p>
+      </section>
+      <section class="lesson-completion" aria-label="Tu progreso" data-progress data-lesson-id={lesson.id} data-valid-ids={JSON.stringify(lessons.map((item) => item.id))}>
+        <button class="completion-button" type="button" aria-pressed="false" hidden>Marcar como completada <span aria-hidden="true">✓</span></button>
+        <p role="status" class="completion-status"></p>
+        <noscript><p>El contenido funciona sin JavaScript. Actívalo si quieres guardar tu progreso local.</p></noscript>
+      </section>
+      <nav class="lesson-nav" aria-label="Anterior y siguiente lección">
+        {previous ? <a href={previous.href}><span>← Anterior</span><strong>{previous.title}</strong></a> : <a href="/#temario"><span>← Tu recorrido</span><strong>Volver al temario</strong></a>}
+        {next ? <a href={next.href}><span>Siguiente →</span><strong>{next.title}</strong></a> : <a href="/#temario"><span>Has llegado al final →</span><strong>Repasar el recorrido</strong></a>}
+      </nav>
+    </main>
+  </div>
+</BaseLayout>
+<script>
+  import { PROGRESS_KEY, parseProgress, toggleCompleted } from '../../lib/progress';
+  const sidebar = document.querySelector<HTMLDetailsElement>('.sidebar-disclosure');
+  if (sidebar && window.matchMedia('(min-width: 901px)').matches) sidebar.open = true;
+  const panel = document.querySelector<HTMLElement>('[data-progress]');
+  if (panel) {
+    const button = panel.querySelector<HTMLButtonElement>('.completion-button');
+    const status = panel.querySelector<HTMLElement>('.completion-status');
+    const id = panel.dataset.lessonId!;
+    const validIds: string[] = JSON.parse(panel.dataset.validIds || '[]');
+    let memory: string[] = [];
+    let available = true;
+    try { memory = parseProgress(localStorage.getItem(PROGRESS_KEY), validIds); } catch { available = false; }
+    const update = () => {
+      const completed = memory.includes(id);
+      button?.setAttribute('aria-pressed', String(completed));
+      if (button) button.textContent = completed ? 'Completada · Desmarcar' : 'Marcar como completada ✓';
+      if (status) status.textContent = available ? `${memory.length} de ${validIds.length} lecciones completadas. Guardado solo en este navegador.` : 'El navegador no permite guardar progreso. Puedes seguir leyendo; esta marca solo se conservará mientras la página esté abierta.';
+    };
+    if (button) {
+      button.hidden = false;
+      button.addEventListener('click', () => {
+        // Merge changes made in another tab before toggling this lesson.
+        try { if (available) memory = parseProgress(localStorage.getItem(PROGRESS_KEY), validIds); } catch { available = false; }
+        memory = toggleCompleted(memory, id);
+        try { localStorage.setItem(PROGRESS_KEY, JSON.stringify(memory)); available = true; } catch { available = false; }
+        update();
+      });
+    }
+    window.addEventListener('storage', (event) => { if (event.key === PROGRESS_KEY) { memory = parseProgress(event.newValue, validIds); update(); } });
+    update();
+  }
+</script>

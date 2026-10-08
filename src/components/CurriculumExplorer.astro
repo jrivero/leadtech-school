@@ -1,0 +1,375 @@
+---
+import CurriculumModuleCard from './CurriculumModuleCard.astro';
+
+interface LessonItem {
+  slug: string;
+  title: string;
+  order: number;
+  optional?: boolean;
+}
+
+interface ModuleItem {
+  id: string;
+  order: number;
+  title: string;
+  description: string;
+  phase: number;
+  level: string;
+  supplement?: boolean;
+  lessons: LessonItem[];
+}
+
+interface PhaseItem {
+  id: number;
+  title: string;
+}
+
+interface Props {
+  modules: ModuleItem[];
+  phases: PhaseItem[];
+  totalLessons: number;
+}
+
+const { modules, phases, totalLessons } = Astro.props;
+const orderedModules = [...modules].sort((a, b) => a.order - b.order);
+const coreModules = orderedModules.filter((module) => module.supplement !== true);
+const supplementModules = orderedModules.filter((module) => module.supplement === true);
+const phaseGroups = phases.map((phase) => {
+  const phaseModules = orderedModules.filter((module) => module.phase === phase.id);
+  const phaseCoreModules = phaseModules.filter((module) => module.supplement !== true);
+  const phaseSupplementModules = phaseModules.filter((module) => module.supplement === true);
+  return {
+    phase,
+    coreModules: phaseCoreModules,
+    supplementModules: phaseSupplementModules,
+    lessonCount: phaseModules.reduce((count, module) => count + module.lessons.length, 0),
+  };
+});
+const firstModule = orderedModules[0];
+const firstLesson = firstModule?.lessons.slice().sort((a, b) => a.order - b.order)[0];
+const firstLessonHref = firstModule && firstLesson
+  ? `/lecciones/${firstModule.id}/${firstLesson.slug}/`
+  : '#temario';
+const pluralize = (count: number, singular: string, plural: string) => `${count} ${count === 1 ? singular : plural}`;
+const phaseFilterCount = (phaseId: number) => {
+  const group = phaseGroups.find((entry) => entry.phase.id === phaseId);
+  if (!group) return '0';
+  return group.supplementModules.length > 0
+    ? `${group.coreModules.length}+${group.supplementModules.length}`
+    : String(group.coreModules.length);
+};
+---
+<section class="curriculum-section page-width" id="temario" data-curriculum-explorer aria-labelledby="curriculum-title">
+  <div class="section-intro curriculum-section__intro">
+    <div class="section-intro__index">
+      <span class="section-index">01 / EL RECORRIDO</span>
+      <span class="section-index__line" aria-hidden="true"></span>
+    </div>
+    <div class="section-intro__body">
+      <p class="eyebrow eyebrow--terra">Desarrollo con IA · un único recorrido</p>
+      <h2 class="section-title" id="curriculum-title">Aprende la base.<br /><em>Construye con intención.</em></h2>
+      <p class="section-intro__description">
+        Un recorrido para desarrollar software con IA: primero las bases, luego las herramientas y el criterio para revisar lo que construyes. Los complementos opcionales amplían este mismo programa.
+      </p>
+    </div>
+    <div
+      class="curriculum-total"
+      aria-label={`${coreModules.length} módulos principales y ${supplementModules.length} complementos opcionales; ${totalLessons} lecciones en total`}
+    >
+      <strong>{String(coreModules.length).padStart(2, '0')}</strong>
+      <span>módulos principales<br />+ {supplementModules.length} complementos opcionales</span>
+    </div>
+  </div>
+
+  <div class="curriculum-progress" data-progress-panel hidden aria-label="Tu progreso de aprendizaje">
+    <div class="curriculum-progress__copy">
+      <span class="eyebrow">TU RECORRIDO</span>
+      <p class="curriculum-progress__count"><strong><span data-progress-count>0</span> de {totalLessons}</strong> lecciones completadas</p>
+      <p class="curriculum-progress__message" data-progress-message>Tu avance se guarda en este navegador.</p>
+    </div>
+    <div
+      class="curriculum-progress__meter"
+      role="progressbar"
+      aria-label="Progreso de las lecciones"
+      aria-valuemin="0"
+      aria-valuemax={totalLessons}
+      aria-valuenow="0"
+      aria-valuetext={`0 de ${totalLessons} lecciones completadas`}
+      data-progress-meter
+    >
+      <span data-progress-fill></span>
+    </div>
+    <a class="curriculum-progress__link" href={firstLessonHref} data-continue-link>
+      <span data-progress-link-label>Continuar el recorrido</span>
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8 4l4 4-4 4" /></svg>
+    </a>
+  </div>
+
+  <div class="curriculum-tools" data-curriculum-controls hidden>
+    <div class="curriculum-search">
+      <label class="visually-hidden" for="curriculum-search">Buscar módulos y lecciones</label>
+      <svg class="curriculum-search__icon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.7" cy="8.7" r="5.8" /><path d="m13 13 4 4" /></svg>
+      <input
+        id="curriculum-search"
+        type="search"
+        placeholder="Busca un tema o una lección"
+        autocomplete="off"
+        spellcheck="false"
+        aria-controls="curriculum-results"
+        data-curriculum-search
+      />
+      <button class="curriculum-search__clear" type="button" aria-label="Borrar búsqueda" data-clear-search hidden>×</button>
+    </div>
+
+    <div class="phase-filter" role="group" aria-label="Filtrar por fase">
+      <button
+        class="phase-filter__button is-active"
+        type="button"
+        aria-pressed="true"
+        aria-label={`Mostrar todo: ${coreModules.length} módulos principales y ${supplementModules.length} complementos opcionales`}
+        data-phase-filter="all"
+      >
+        Todo <span>{coreModules.length}+{supplementModules.length}</span>
+      </button>
+      {phases.map((phase) => {
+        const group = phaseGroups.find((entry) => entry.phase.id === phase.id);
+        const moduleDescription = group?.supplementModules.length
+          ? `${group.coreModules.length} módulos y ${group.supplementModules.length} complementos opcionales`
+          : `${group?.coreModules.length ?? 0} módulos`;
+        return (
+          <button
+            class="phase-filter__button"
+            type="button"
+            aria-pressed="false"
+            aria-label={`Filtrar fase ${String(phase.id).padStart(2, '0')}: ${moduleDescription}`}
+            data-phase-filter={phase.id}
+          >
+            Fase {String(phase.id).padStart(2, '0')} <span>{phaseFilterCount(phase.id)}</span>
+          </button>
+        );
+      })}
+    </div>
+  </div>
+
+  <div class="curriculum-results-bar">
+    <p class="curriculum-results-count" data-results-count aria-live="polite" aria-atomic="true">
+      {pluralize(totalLessons, 'lección', 'lecciones')} · {coreModules.length} {coreModules.length === 1 ? 'módulo' : 'módulos'} + {supplementModules.length} {supplementModules.length === 1 ? 'complemento opcional' : 'complementos opcionales'}
+    </p>
+    <p class="curriculum-results-hint">Abre un módulo para ver sus lecciones</p>
+  </div>
+
+  <div class="curriculum-results" id="curriculum-results">
+    <div class="curriculum-empty" data-empty-state hidden role="status">
+      <span class="curriculum-empty__symbol" aria-hidden="true">⌕</span>
+      <div>
+        <strong>No encontramos resultados</strong>
+        <p>Prueba con otra palabra o vuelve a ver todas las fases.</p>
+      </div>
+      <button type="button" class="text-button" data-filter-reset>Limpiar filtros <span aria-hidden="true">↗</span></button>
+    </div>
+
+    {phaseGroups.map(({ phase, coreModules: phaseCoreModules, supplementModules: phaseSupplements, lessonCount }) => (
+      <section class="phase-group" data-phase-section data-phase={phase.id} aria-labelledby={`phase-${phase.id}-title`}>
+        <header class="phase-group__header">
+          <div class="phase-group__number" aria-hidden="true">{String(phase.id).padStart(2, '0')}</div>
+          <div class="phase-group__title-wrap">
+            <span class="phase-group__kicker">FASE {String(phase.id).padStart(2, '0')}</span>
+            <h3 id={`phase-${phase.id}-title`}>{phase.title}</h3>
+          </div>
+          <p class="phase-group__count">
+            <span>{pluralize(phaseCoreModules.length, 'módulo', 'módulos')}{phaseSupplements.length > 0 ? ` + ${pluralize(phaseSupplements.length, 'complemento opcional', 'complementos opcionales')}` : ''}</span>
+            <br />{pluralize(lessonCount, 'lección', 'lecciones')}
+          </p>
+          <span class="phase-group__rule" aria-hidden="true"></span>
+        </header>
+
+        <div class="module-list">
+          {phaseCoreModules.map((module) => (
+            <CurriculumModuleCard
+              module={module}
+              coreModuleCount={coreModules.length}
+              supplementCount={supplementModules.length}
+              initialOpen={module.id === firstModule?.id}
+            />
+          ))}
+        </div>
+
+        {phaseSupplements.length > 0 && (
+          <div class="supplement-group" role="group" aria-labelledby={`supplements-${phase.id}-title`}>
+            <div class="supplement-group__heading">
+              <div>
+                <span class="eyebrow eyebrow--terra">Complementos opcionales</span>
+                <h4 id={`supplements-${phase.id}-title`}>Para seguir profundizando</h4>
+                <p>Extras del mismo recorrido; puedes dejarlos para después o volver a ellos cuando te resulten útiles.</p>
+              </div>
+              <span class="supplement-group__count">
+                {pluralize(phaseSupplements.length, 'extra', 'extras')}<br />
+                {pluralize(phaseSupplements.reduce((count, module) => count + module.lessons.length, 0), 'lección', 'lecciones')}
+              </span>
+            </div>
+            <div class="module-list module-list--supplements">
+              {phaseSupplements.map((module) => (
+                <CurriculumModuleCard
+                  module={module}
+                  coreModuleCount={coreModules.length}
+                  supplementCount={supplementModules.length}
+                  supplementIndex={supplementModules.findIndex((item) => item.id === module.id) + 1}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+      </section>
+    ))}
+  </div>
+
+  <p class="curriculum-caveat">
+    Ruta autónoma y no acreditada: los complementos son opcionales y pertenecen a este mismo programa.
+  </p>
+</section>
+
+<script>
+  const explorer = document.querySelector<HTMLElement>('[data-curriculum-explorer]');
+
+  if (explorer) {
+    const controls = explorer.querySelector<HTMLElement>('[data-curriculum-controls]');
+    const searchInput = explorer.querySelector<HTMLInputElement>('[data-curriculum-search]');
+    const clearSearchButton = explorer.querySelector<HTMLButtonElement>('[data-clear-search]');
+    const filterButtons = Array.from(explorer.querySelectorAll<HTMLButtonElement>('[data-phase-filter]'));
+    const cards = Array.from(explorer.querySelectorAll<HTMLDetailsElement>('[data-module-card]'));
+    const phaseSections = Array.from(explorer.querySelectorAll<HTMLElement>('[data-phase-section]'));
+    const resultsCount = explorer.querySelector<HTMLElement>('[data-results-count]');
+    const emptyState = explorer.querySelector<HTMLElement>('[data-empty-state]');
+    const resetButton = explorer.querySelector<HTMLButtonElement>('[data-filter-reset]');
+    let activePhase = 'all';
+
+    const normalize = (value: string) =>
+      value.toLocaleLowerCase('es').normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+
+    const updateResults = () => {
+      if (!searchInput || !resultsCount || !emptyState) return;
+
+      const query = normalize(searchInput.value);
+      let visibleCoreModules = 0;
+      let visibleSupplements = 0;
+      let visibleLessons = 0;
+
+      cards.forEach((card) => {
+        const phaseMatches = activePhase === 'all' || card.dataset.phase === activePhase;
+        const moduleMatches = query.length === 0 || normalize(card.dataset.search ?? '').includes(query);
+        const lessonItems = Array.from(card.querySelectorAll<HTMLElement>('[data-lesson-item]'));
+        let matchingLessons = 0;
+
+        lessonItems.forEach((item) => {
+          const lessonMatches = query.length === 0 || moduleMatches || normalize(item.dataset.search ?? '').includes(query);
+          item.hidden = !lessonMatches;
+          if (lessonMatches) matchingLessons += 1;
+        });
+
+        const cardMatches = phaseMatches && (moduleMatches || matchingLessons > 0);
+        card.hidden = !cardMatches;
+        if (query.length > 0 && cardMatches) card.open = true;
+        if (cardMatches) {
+          if (card.dataset.supplement === 'true') visibleSupplements += 1;
+          else visibleCoreModules += 1;
+          visibleLessons += matchingLessons;
+        }
+      });
+
+      phaseSections.forEach((section) => {
+        const sectionCards = Array.from(section.querySelectorAll<HTMLDetailsElement>('[data-module-card]'));
+        section.hidden = !sectionCards.some((card) => !card.hidden);
+      });
+
+      const moduleLabel = visibleCoreModules === 1 ? 'módulo' : 'módulos';
+      const supplementLabel = visibleSupplements === 1 ? 'complemento opcional' : 'complementos opcionales';
+      const lessonLabel = visibleLessons === 1 ? 'lección' : 'lecciones';
+      resultsCount.textContent = `${visibleLessons} ${lessonLabel} · ${visibleCoreModules} ${moduleLabel} + ${visibleSupplements} ${supplementLabel}`;
+      emptyState.hidden = visibleCoreModules + visibleSupplements > 0;
+      if (clearSearchButton) clearSearchButton.hidden = searchInput.value.length === 0;
+      filterButtons.forEach((button) => {
+        const isActive = button.dataset.phaseFilter === activePhase;
+        button.setAttribute('aria-pressed', String(isActive));
+        button.classList.toggle('is-active', isActive);
+      });
+    };
+
+    if (searchInput && controls) {
+      searchInput.addEventListener('input', updateResults);
+      clearSearchButton?.addEventListener('click', () => {
+        searchInput.value = '';
+        updateResults();
+        searchInput.focus();
+      });
+      filterButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          activePhase = button.dataset.phaseFilter ?? 'all';
+          updateResults();
+        });
+      });
+      resetButton?.addEventListener('click', () => {
+        activePhase = 'all';
+        searchInput.value = '';
+        updateResults();
+        searchInput.focus();
+      });
+      controls.hidden = false;
+      updateResults();
+    }
+
+    const progressPanel = explorer.querySelector<HTMLElement>('[data-progress-panel]');
+    if (progressPanel) {
+      const lessons = Array.from(explorer.querySelectorAll<HTMLAnchorElement>('[data-lesson-link]')).map((link) => ({
+        id: link.dataset.lessonId ?? '',
+        href: link.getAttribute('href') ?? '#temario',
+        title: link.textContent?.trim() ?? 'la siguiente lección',
+      })).filter((lesson) => lesson.id.length > 0);
+      const knownIds = new Set(lessons.map((lesson) => lesson.id));
+      let completedIds = new Set<string>();
+
+      try {
+        const saved = window.localStorage.getItem('leadtech:completed:v1');
+        if (saved !== null) {
+          const parsed: unknown = JSON.parse(saved);
+          if (Array.isArray(parsed)) {
+            completedIds = new Set(
+              parsed.filter((value): value is string => typeof value === 'string' && knownIds.has(value)),
+            );
+          }
+        }
+      } catch {
+        completedIds = new Set();
+      }
+
+      if (completedIds.size > 0 && lessons.length > 0) {
+        const completedCount = Math.min(completedIds.size, lessons.length);
+        const nextLesson = lessons.find((lesson) => !completedIds.has(lesson.id)) ?? lessons[0];
+        const count = explorer.querySelector<HTMLElement>('[data-progress-count]');
+        const message = explorer.querySelector<HTMLElement>('[data-progress-message]');
+        const meter = explorer.querySelector<HTMLElement>('[data-progress-meter]');
+        const fill = explorer.querySelector<HTMLElement>('[data-progress-fill]');
+        const continueLink = explorer.querySelector<HTMLAnchorElement>('[data-continue-link]');
+        const continueLabel = explorer.querySelector<HTMLElement>('[data-progress-link-label]');
+        const isComplete = completedCount === lessons.length;
+        const percentage = Math.round((completedCount / lessons.length) * 100);
+
+        if (count) count.textContent = String(completedCount);
+        if (message) {
+          message.textContent = isComplete
+            ? 'Has marcado todas las lecciones y complementos de este recorrido en este navegador.'
+            : 'Tu avance solo se guarda en este navegador; los complementos son opcionales.';
+        }
+        if (meter) {
+          meter.setAttribute('aria-valuenow', String(completedCount));
+          meter.setAttribute('aria-valuetext', `${completedCount} de ${lessons.length} lecciones completadas`);
+        }
+        if (fill) fill.style.width = `${percentage}%`;
+        if (continueLink && nextLesson) continueLink.href = nextLesson.href;
+        if (continueLabel && nextLesson) {
+          continueLabel.textContent = isComplete ? 'Repasar desde el inicio' : `Continuar: ${nextLesson.title}`;
+        }
+        progressPanel.hidden = false;
+      }
+    }
+  }
+</script>
