@@ -12,7 +12,7 @@ La implementación se ha dividido en siete frentes con agentes **GPT-6 Luna** co
 6. Interfaz: landing, componentes, layout, estilo y favicon originales.
 7. Talleres complementarios: módulo 13.
 
-La coordinación principal se encarga de leer la referencia pública, construir el inventario, fijar contratos de metadatos y rutas, implementar la colección y las páginas de artículos, integrar las entregas, revisar muestras, comprobar fuentes y ejecutar pruebas. No se ha delegado un despliegue ni se ha creado un repositorio remoto.
+La coordinación principal se encarga de leer la referencia pública, construir el inventario, fijar contratos de metadatos y rutas, implementar la colección y las páginas de artículos, integrar las entregas, revisar muestras, comprobar fuentes y ejecutar pruebas. El despliegue no se ha delegado. Posteriormente se creó el repositorio público `jrivero/leadtech-school` y se publicó la web en Vercel, con integración GitHub.
 
 ## Contratos compartidos
 

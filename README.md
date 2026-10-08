@@ -18,7 +18,17 @@ npm run build
 npm run preview
 ```
 
-El resultado es `dist/`, publicable en la raíz de un dominio en un alojamiento de archivos estáticos. Las rutas son absolutas desde `/`; para servir dentro de un subdirectorio hay que adaptar la configuración `base` y los enlaces antes de desplegar. No se ha contratado ni configurado un dominio ni se ha desplegado un sitio público. La aplicación no necesita clave de API ni variables de entorno. Algunas actividades de los artículos usan herramientas externas opcionales, con sus propios requisitos y posibles costes.
+El resultado es `dist/`, publicable en la raíz de un dominio en un alojamiento de archivos estáticos. Las rutas son absolutas desde `/`; para servir dentro de un subdirectorio hay que adaptar la configuración `base` y los enlaces antes de desplegar. La web está publicada en https://leadtech-school.vercel.app; no se ha configurado un dominio propio. La aplicación no necesita clave de API ni variables de entorno. Algunas actividades de los artículos usan herramientas externas opcionales, con sus propios requisitos y posibles costes.
+
+## Despliegue en Vercel
+
+Web pública: **https://leadtech-school.vercel.app**.
+
+El proyecto `leadtech-school` está conectado al repositorio `jrivero/leadtech-school`. La rama de producción es `main`; los próximos cambios enviados a esta rama se desplegarán mediante la integración Git de Vercel.
+
+La configuración versionada en `vercel.json` usa el preset Astro, `npm ci`, `npm run build` y salida `dist/`. No necesita variables de entorno ni un adaptador de servidor. Se fuerza npm para utilizar `package-lock.json`, aunque el repositorio también contiene un lockfile de pnpm.
+
+Para desplegar manualmente desde una cuenta autorizada: `vercel link --project leadtech-school` y `vercel deploy --prod`. Los archivos locales de `.vercel/` y `.env*` no se suben a Git. `.vercelignore` excluye documentación y pruebas de la subida de código por CLI.
 
 ## Qué incluye
 

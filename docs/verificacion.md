@@ -17,8 +17,16 @@ Revisión: 8 de octubre de 2026.
 
 Solo se incluye desarrollo de software con IA: 83 lecciones principales y 13 complementarias del mismo programa. El inventario parte del temario público de referencia, no de material privado. Los artículos y el diseño son originales e independientes.
 
-No se han ejecutado todos los ejercicios ni realizado una auditoría profesional completa de accesibilidad o seguridad. No hay autenticación, pagos, certificación ni despliegue público.
+No se han ejecutado todos los ejercicios ni realizado una auditoría profesional completa de accesibilidad o seguridad. No hay autenticación de estudiantes, pagos ni certificación.
 
 Vista previa local iniciada en `http://127.0.0.1:4323/`. Puede dejar de estar disponible cuando se detenga el servidor. Para iniciar otra vista previa: `npm run build` y `npm run preview`.
 
 Para repetir las comprobaciones: `npm run validate` y `npm run test:e2e`. La auditoría de fuentes es opcional: `npm run audit:sources`.
+
+## Despliegue público en Vercel
+
+Publicado el 8 de octubre de 2026 en https://leadtech-school.vercel.app, con la integración GitHub conectada a `jrivero/leadtech-school`.
+
+La configuración de despliegue pasó de nuevo `npm run validate`: Astro sin errores ni advertencias, 107 pruebas superadas, 98 páginas y 2.949 enlaces internos/anclas válidos. Vercel completó el build y confirmó el estado READY.
+
+Comprobaciones HTTP sin autenticación: portada 200, primera lección 200 y ruta inexistente 404. Estas comprobaciones no sustituyen una ejecución completa de las pruebas de navegador contra producción.
