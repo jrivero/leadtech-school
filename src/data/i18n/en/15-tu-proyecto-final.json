@@ -1,0 +1,17 @@
+{
+  "id": "15-tu-proyecto-final",
+  "order": 15,
+  "title": "Your Final Project",
+  "description": "A closing exercise to integrate requirements, implementation, testing, security, and documentation. No official evaluation or title.",
+  "phase": 4,
+  "level": "Intermediate",
+  "supplement": true,
+  "lessons": [
+    {
+      "slug": "proyecto-final-un-asistente-de-conocimiento-verificable",
+      "title": "Final Project: A Verifiable Knowledge Assistant",
+      "order": 1,
+      "optional": true
+    }
+  ]
+}

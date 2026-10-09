@@ -1,22 +1,87 @@
 ---
 import '../styles/global.css';
+import { homeHref, otherLocale, type Locale } from '../lib/i18n';
+
+interface AlternateUrls {
+  es: string;
+  en: string;
+}
 
 interface Props {
   title: string;
-  description?: string;
+  description: string;
+  locale: Locale;
+  alternateUrls: AlternateUrls;
   canonical?: string;
   socialType?: 'website' | 'article';
 }
 
 const {
   title,
-  description = 'Una ruta independiente para aprender desarrollo de software e inteligencia artificial con criterio.',
-  canonical,
+  description,
+  locale,
+  alternateUrls,
+  canonical = Astro.url.pathname,
   socialType = 'website',
 } = Astro.props;
+const copy = locale === 'en'
+  ? {
+      skip: 'Skip to content',
+      brandHome: 'Leadtech School, home',
+      brandTagline: 'Learn to build',
+      primaryNav: 'Main navigation',
+      curriculum: 'Curriculum',
+      method: 'Our approach',
+      questions: 'FAQs',
+      explore: 'Explore the curriculum',
+      languageNav: 'Choose language',
+      spanishCurrent: 'Spanish, current language',
+      spanish: 'Spanish',
+      englishCurrent: 'English, current language',
+      english: 'English',
+      footerBrand: 'Leadtech School, back to home',
+      footerTagline: 'A path for independent learning',
+      footerNote: 'Independent software development learning with AI. No official accreditation.',
+      backToCurriculum: 'Back to the curriculum',
+      copyright: 'Learning with sound judgment is progress, too.',
+    }
+  : {
+      skip: 'Saltar al contenido',
+      brandHome: 'Leadtech School, inicio',
+      brandTagline: 'Aprender para construir',
+      primaryNav: 'Navegación principal',
+      curriculum: 'Temario',
+      method: 'Método',
+      questions: 'Preguntas',
+      explore: 'Explorar la ruta',
+      languageNav: 'Cambiar idioma',
+      spanishCurrent: 'Español, idioma actual',
+      spanish: 'Español',
+      englishCurrent: 'Inglés, idioma actual',
+      english: 'English',
+      footerBrand: 'Leadtech School, volver al inicio',
+      footerTagline: 'Una ruta para aprender',
+      footerNote: 'Aprendizaje autónomo de desarrollo con IA, sin acreditación oficial.',
+      backToCurriculum: 'Volver al temario',
+      copyright: 'Aprender con criterio también es avanzar.',
+    };
+const currentHome = homeHref(locale);
+const search = Astro.url.search;
+const withSearch = (path: string) => `${path}${search}`;
+const urls = {
+  es: withSearch(alternateUrls.es),
+  en: withSearch(alternateUrls.en),
+};
+const languageHref = urls[otherLocale(locale)];
+const publicUrl = (path: string) => Astro.site ? new URL(path, Astro.site).toString() : path;
+const canonicalUrl = publicUrl(canonical);
+const alternatePublicUrls = {
+  es: publicUrl(alternateUrls.es),
+  en: publicUrl(alternateUrls.en),
+};
 ---
 <!doctype html>
-<html lang="es">
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,16 +91,20 @@ const {
     <meta property="og:type" content={socialType} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    {canonical && <link rel="canonical" href={canonical} />}
+    <meta property="og:url" content={canonicalUrl} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="es" href={alternatePublicUrls.es} />
+    <link rel="alternate" hreflang="en" href={alternatePublicUrls.en} />
+    <link rel="alternate" hreflang="x-default" href={alternatePublicUrls.es} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
   <body>
-    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <a class="skip-link" href="#contenido">{copy.skip}</a>
     <div class="site-frame">
       <header class="site-header">
         <div class="site-header__inner">
-          <a class="brand" href="/" aria-label="Leadtech School, inicio">
+          <a class="brand" href={currentHome} aria-label={copy.brandHome}>
             <svg class="brand__mark" viewBox="0 0 44 44" aria-hidden="true">
               <rect x="1" y="1" width="42" height="42" rx="13" fill="currentColor" />
               <path d="M13 30V14h4v12h9v4H13Z" fill="#F5F1E8" />
@@ -44,20 +113,40 @@ const {
             </svg>
             <span class="brand__wordmark">
               <strong>Leadtech <span>School</span></strong>
-              <small>Aprender para construir</small>
+              <small>{copy.brandTagline}</small>
             </span>
           </a>
 
-          <nav class="site-nav" aria-label="Navegación principal">
-            <a href="/#temario">Temario</a>
-            <a href="/#metodo">Método</a>
-            <a href="/#preguntas">Preguntas</a>
+          <nav class="site-nav" aria-label={copy.primaryNav}>
+            <a href={`${currentHome}#temario`}>{copy.curriculum}</a>
+            <a href={`${currentHome}#metodo`}>{copy.method}</a>
+            <a href={`${currentHome}#preguntas`}>{copy.questions}</a>
           </nav>
 
-          <a class="site-header__cta" href="/#temario">
-            Explorar ruta
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8 4l4 4-4 4" /></svg>
-          </a>
+          <div class="site-header__actions">
+            <nav class="locale-switch" aria-label={copy.languageNav} data-language-switch>
+              <a
+                href={locale === 'es' ? urls.es : languageHref}
+                lang="es"
+                hreflang="es"
+                aria-label={locale === 'es' ? copy.spanishCurrent : copy.spanish}
+                aria-current={locale === 'es' ? 'page' : undefined}
+                data-locale-link
+              ><span aria-hidden="true">ES</span></a>
+              <a
+                href={locale === 'en' ? urls.en : languageHref}
+                lang="en"
+                hreflang="en"
+                aria-label={locale === 'en' ? copy.englishCurrent : copy.english}
+                aria-current={locale === 'en' ? 'page' : undefined}
+                data-locale-link
+              ><span aria-hidden="true">EN</span></a>
+            </nav>
+            <a class="site-header__cta" href={`${currentHome}#temario`}>
+              {copy.explore}
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8 4l4 4-4 4" /></svg>
+            </a>
+          </div>
         </div>
       </header>
 
@@ -67,7 +156,7 @@ const {
 
       <footer class="site-footer">
         <div class="site-footer__inner">
-          <a class="brand brand--footer" href="/" aria-label="Leadtech School, volver al inicio">
+          <a class="brand brand--footer" href={currentHome} aria-label={copy.footerBrand}>
             <svg class="brand__mark" viewBox="0 0 44 44" aria-hidden="true">
               <rect x="1" y="1" width="42" height="42" rx="13" fill="currentColor" />
               <path d="M13 30V14h4v12h9v4H13Z" fill="#F5F1E8" />
@@ -76,16 +165,29 @@ const {
             </svg>
             <span class="brand__wordmark">
               <strong>Leadtech <span>School</span></strong>
-              <small>Una ruta para aprender</small>
+              <small>{copy.footerTagline}</small>
             </span>
           </a>
           <div class="site-footer__note">
-            <p>Aprendizaje autónomo de desarrollo con IA, sin acreditación oficial.</p>
-            <a href="/#temario">Volver al temario <span aria-hidden="true">↑</span></a>
+            <p>{copy.footerNote}</p>
+            <a href={`${currentHome}#temario`}>{copy.backToCurriculum} <span aria-hidden="true">↑</span></a>
           </div>
-          <p class="site-footer__copyright">Aprender con criterio también es avanzar.</p>
+          <p class="site-footer__copyright">{copy.copyright}</p>
         </div>
       </footer>
     </div>
   </body>
 </html>
+<script>
+  // Keep only anchors whose IDs are shared across translated pages. Markdown headings
+  // are translated independently, so their generated table-of-contents IDs may differ.
+  const hash = window.location.hash.slice(1);
+  const sharedHash = /^(?:temario|metodo|preguntas|contenido|objectives-heading|sources-heading|curriculum-title|hero-title|method-title|closing-title|faq-title|module-[a-z0-9-]+|phase-\d+-title|supplements-\d+-title)$/;
+  if (sharedHash.test(hash)) {
+    document.querySelectorAll<HTMLAnchorElement>('[data-locale-link]').forEach((link) => {
+      const target = new URL(link.href, window.location.origin);
+      target.hash = hash;
+      link.href = target.toString();
+    });
+  }
+</script>

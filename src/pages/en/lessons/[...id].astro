@@ -1,0 +1,18 @@
+---
+import LessonPage from '../../../components/LessonPage.astro';
+import { getCourse } from '../../../lib/curriculum';
+
+export function getStaticPaths() {
+  return getCourse('en').lessons.map((lesson) => ({
+    params: { id: lesson.id },
+    props: { lessonId: lesson.id },
+  }));
+}
+
+interface Props {
+  lessonId: string;
+}
+
+const { lessonId } = Astro.props;
+---
+<LessonPage locale="en" lessonId={lessonId} />

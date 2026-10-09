@@ -1,0 +1,28 @@
+{
+  "id": "04-arquitectura-que-puedes-entender",
+  "order": 4,
+  "title": "Architecture You Can Understand",
+  "description": "Separate business rules from technology through two guided exercises.",
+  "phase": 1,
+  "level": "Intermediate",
+  "lessons": [
+    {
+      "slug": "clean-architecture-desde-cero",
+      "title": "Clean Architecture from Scratch",
+      "order": 1,
+      "optional": false
+    },
+    {
+      "slug": "laboratorio-prestamos-de-una-biblioteca",
+      "title": "Lab: Library Loans",
+      "order": 2,
+      "optional": false
+    },
+    {
+      "slug": "reto-resuelto-aprobar-gastos",
+      "title": "Solved Challenge: Approve Expenses",
+      "order": 3,
+      "optional": false
+    }
+  ]
+}

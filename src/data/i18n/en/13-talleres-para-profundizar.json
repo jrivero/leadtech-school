@@ -1,0 +1,71 @@
+{
+  "id": "13-talleres-para-profundizar",
+  "order": 13,
+  "title": "Deep-Dive Workshops",
+  "description": "Ten complementary topics from the public summary, adapted as independent written workshops. They are not recordings or classes from the provider.",
+  "phase": 4,
+  "level": "Intermediate",
+  "supplement": true,
+  "lessons": [
+    {
+      "slug": "un-flujo-de-trabajo-con-neovim-y-terminal-asistida",
+      "title": "A Workflow with Neovim and an AI-Assisted Terminal",
+      "order": 1,
+      "optional": true
+    },
+    {
+      "slug": "ajustar-un-modelo-de-lenguaje-con-un-experimento-pequeno",
+      "title": "Fine-Tuning a Language Model with a Small Experiment",
+      "order": 2,
+      "optional": true
+    },
+    {
+      "slug": "disenar-un-agente-conversacional-con-voiceflow",
+      "title": "Designing a Conversational Agent with Voiceflow",
+      "order": 3,
+      "optional": true
+    },
+    {
+      "slug": "una-api-tipada-de-extremo-a-extremo-con-trpc",
+      "title": "An End-to-End Typed API with tRPC",
+      "order": 4,
+      "optional": true
+    },
+    {
+      "slug": "modelar-un-dominio-con-ddd",
+      "title": "Modeling a Domain with DDD",
+      "order": 5,
+      "optional": true
+    },
+    {
+      "slug": "contenedores-para-modelos-locales-y-agentes",
+      "title": "Containers for Local Models and Agents",
+      "order": 6,
+      "optional": true
+    },
+    {
+      "slug": "evaluar-respuestas-de-modelos-de-lenguaje",
+      "title": "Evaluating Language Model Responses",
+      "order": 7,
+      "optional": true
+    },
+    {
+      "slug": "de-una-idea-a-una-entrega-con-github-y-agentes",
+      "title": "From Idea to Delivery with GitHub and Agents",
+      "order": 8,
+      "optional": true
+    },
+    {
+      "slug": "ciberseguridad-al-integrar-inteligencia-artificial",
+      "title": "Cybersecurity When Integrating Artificial Intelligence",
+      "order": 9,
+      "optional": true
+    },
+    {
+      "slug": "recordar-lo-que-aprendes-al-programar",
+      "title": "Remembering What You Learn While Programming",
+      "order": 10,
+      "optional": true
+    }
+  ]
+}

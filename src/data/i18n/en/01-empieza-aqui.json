@@ -1,0 +1,34 @@
+{
+  "id": "01-empieza-aqui",
+  "order": 1,
+  "title": "Start Here",
+  "description": "Your first step: learn with sound judgment, understand the path ahead, and work with AI without handing over your learning.",
+  "phase": 1,
+  "level": "Beginner",
+  "lessons": [
+    {
+      "slug": "tu-primer-hola-mundo",
+      "title": "Your First Hello World",
+      "order": 1,
+      "optional": false
+    },
+    {
+      "slug": "como-estudiar-y-mantener-el-habito",
+      "title": "How to Study and Build a Habit",
+      "order": 2,
+      "optional": false
+    },
+    {
+      "slug": "una-ia-como-companera-de-aprendizaje",
+      "title": "AI as a Learning Partner",
+      "order": 3,
+      "optional": false
+    },
+    {
+      "slug": "donde-encaja-la-ia-al-crear-software",
+      "title": "Where AI Fits in Software Development",
+      "order": 4,
+      "optional": false
+    }
+  ]
+}

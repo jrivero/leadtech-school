@@ -30,3 +30,10 @@ La validación realizada combina tipos Astro/TypeScript, esquema de frontmatter,
 El informe `source-audit.json` registra la disponibilidad HTTP de las fuentes externas en la revisión. Una respuesta 403 o timeout puede reflejar protección frente a bots: no demuestra que el enlace esté roto. Una respuesta 200 tampoco certifica la exactitud de cada afirmación. Esta auditoría es optativa y necesita red (`npm run audit:sources`); no participa en el build ni envía contenido de estudiantes.
 
 Las comprobaciones automatizadas y la revisión de muestras no equivalen a ejecutar todos los ejercicios, evaluar a un estudiante ni realizar una auditoría profesional completa de accesibilidad o seguridad. Las lecciones técnicas deben revisarse periódicamente si cambian los productos, APIs y documentación.
+
+
+## Ampliación bilingüe
+
+El 9 de octubre de 2026 se repartió la traducción en cinco lotes de contenido y una tarea de interfaz, todos ejecutados por agentes GPT-6 Luna con razonamiento max. La coordinación principal implementó las colecciones ES/EN, el currículo localizado, las pruebas y la integración. El registro de tareas y comprobaciones está en `docs/traduccion-ingles.md`.
+
+Los IDs se comparten entre idiomas para preservar las URLs españolas y el progreso existente. Cada idioma tiene su propio Markdown y metadatos; el build falla si falta una traducción, hay una lección huérfana o el título no coincide con su inventario. No se utiliza traducción automática en tiempo de ejecución ni fallback silencioso al español. Las plantillas de portada y lección son compartidas para evitar diferencias funcionales entre ES y EN.

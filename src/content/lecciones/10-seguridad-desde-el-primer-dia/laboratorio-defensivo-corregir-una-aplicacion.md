@@ -12,7 +12,7 @@ objectives:
 prerequisites:
   - "Haber completado las lecciones de validación, autorización y codificación defensiva."
   - "Saber ejecutar Python 3 y leer aserciones sencillas."
-updatedDate: '2026-10-08'
+updatedDate: '2026-10-09'
 sources:
   - label: "OWASP Application Security Verification Standard (ASVS)"
     url: "https://owasp.org/www-project-application-security-verification-standard/"
@@ -32,7 +32,7 @@ Antes de ejecutarlo, relaciona cada regla con su evidencia: campo → allowlist;
 
 ## Actividad local
 
-Abre una terminal local y ejecuta `python3 -`; copia todo el bloque y termina con `PY`. No uses cuentas ni información real: Ana, Leo y las tareas son fixtures sintéticos. El código emplea solo Python estándar, colecciones en memoria y aserciones.
+Abre una terminal local y pega el bloque completo, incluido `python3 - <<'PY'` y la línea final `PY`. No uses cuentas ni información real: Ana, Leo y las tareas son fixtures sintéticos. El código emplea solo Python estándar, colecciones en memoria y aserciones.
 
 ```bash
 python3 - <<'PY'
@@ -104,11 +104,11 @@ PY
 El orden de `actualizar` es deliberado: localiza y autoriza; valida todos los campos; solo entonces devuelve una copia modificada. `actor` simula el contexto establecido por el servidor, no viene de `cambios`, y la propiedad no se puede editar. La respuesta `denied` unifica recurso inexistente y falta de permiso. En una API real, mapea estados a mensajes estables y registra solo diagnóstico necesario en un lugar protegido. `escape` ilustra únicamente texto HTML; una API serializa JSON y conserva el escape automático de sus plantillas.
 ## Verificación y resultado
 
-Deben aparecer cuatro líneas `OK`. Comprueba que el propietario puede guardar el título recortado y el estado permitido, pero que `almacen` permanece intacto; otra identidad debe recibir `denied` y el mismo almacén. Un estado desconocido y un campo `owner_id` se rechazan. El mensaje público no muestra internals. Estas aserciones verifican reglas concretas del modelo; no prueban una API real ni todas sus capas. Repite la prueba tras cada cambio pequeño.
+Debe aparecer una línea: `OK: aserciones defensivas completadas`. Comprueba que el propietario puede guardar el título recortado y el estado permitido, pero que `datos` permanece intacto; otra identidad debe recibir `denied` y el mismo almacén. Un estado desconocido y un campo `owner_id` se rechazan. El mensaje público no muestra internals. Estas aserciones verifican reglas concretas del modelo; no prueban una API real ni todas sus capas. Repite la prueba tras cada cambio pequeño.
 
 ## Errores habituales y soluciones
 
-- **Tomar `identidad` del cuerpo de la solicitud.** En una aplicación real, usa el contexto autenticado que establece el servidor; aquí los diccionarios solo son fixtures.
+- **Tomar `actor` del cuerpo de la solicitud.** En una aplicación real, usa el contexto autenticado que establece el servidor; aquí los diccionarios solo son fixtures.
 - **Comprobar solo el rol, no el objeto.** Compara propietario y recurso en cada operación; tener capacidad de edición no concede todas las tareas.
 - **Validar después de mutar.** Valida el conjunto completo antes de crear y devolver el nuevo estado.
 - **Copiar todos los campos enviados.** Define campos editables y rechaza los demás; no permitas cambiar propietario o permisos desde esta función.

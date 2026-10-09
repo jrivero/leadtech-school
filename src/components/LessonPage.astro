@@ -1,0 +1,288 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/article.css';
+import { formatDuration, getCourse } from '../lib/curriculum';
+import { homeHref, lessonHref } from '../lib/i18n';
+import type { Locale } from '../lib/i18n';
+
+interface Props {
+  locale: Locale;
+  lessonId: string;
+}
+
+const { locale, lessonId } = Astro.props;
+const course = getCourse(locale);
+const { lessons, modules } = course;
+const lessonIndex = lessons.findIndex((item) => item.id === lessonId);
+const lesson = lessons[lessonIndex];
+if (!lesson) throw new Error(`Lesson not found for ${locale}: ${lessonId}`);
+const module = modules.find((item) => item.id === lesson.module);
+if (!module) throw new Error(`Module not found for lesson: ${lessonId}`);
+const siblings = course.getModuleLessons(module.id);
+const previous = lessons[lessonIndex - 1];
+const next = lessons[lessonIndex + 1];
+const { Content, headings } = await render(lesson.entry);
+const toc = headings.filter((heading) => heading.depth === 2 || heading.depth === 3);
+const isSupplement = module.supplement === true;
+const prerequisites = lesson.prerequisites.map((text) => {
+  const prerequisite = lessons.find((item) => item.slug === text || item.id === text);
+  return { text: prerequisite?.title ?? text, href: prerequisite?.href };
+});
+const date = new Intl.DateTimeFormat(locale === 'en' ? 'en-US' : 'es-ES', {
+  day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC',
+}).format(lesson.updatedDate);
+const home = homeHref(locale);
+const alternateUrls = {
+  es: lessonHref(lesson.id, 'es'),
+  en: lessonHref(lesson.id, 'en'),
+};
+const copy = locale === 'en'
+  ? {
+      titleSuffix: 'Leadtech School',
+      sidebar: 'Module navigation',
+      backToCurriculum: '← Back to the curriculum',
+      supplement: 'Extra',
+      module: 'Module',
+      lessonsInModule: (count: number) => `View ${count} ${count === 1 ? 'lesson' : 'lessons'} in this module`,
+      sidebarNote: 'Read, try it, and explain the result in your own words. Your progress is saved only in this browser.',
+      breadcrumb: 'Home',
+      lesson: 'Lesson',
+      workshop: 'Supplementary workshop',
+      phase: 'Phase',
+      estimatedStudy: 'of estimated study time',
+      updated: 'Updated',
+      objectives: 'By the end, you’ll be able to',
+      beforeStarting: 'Before you begin:',
+      contents: 'In this lesson',
+      article: 'Lesson content',
+      sources: 'Further reading',
+      opensNewTab: ' (opens in a new tab)',
+      sourceNote: 'Original article and independent learning material. Tools change: check their documentation and permissions before using them. Study time is an estimate, not accredited course hours.',
+      progress: 'Your progress',
+      markComplete: 'Mark as complete',
+      noscript: 'The lesson works without JavaScript. Turn it on if you want to save your progress locally.',
+      lessonNavigation: 'Previous and next lesson',
+      previous: '← Previous',
+      yourPath: '← Your path',
+      returnToCurriculum: 'Back to the curriculum',
+      next: 'Next →',
+      reachedEnd: 'You’ve reached the end →',
+      reviewPath: 'Review the path',
+    }
+  : {
+      titleSuffix: 'Leadtech School',
+      sidebar: 'Navegación del módulo',
+      backToCurriculum: '← Volver al temario',
+      supplement: 'Complemento',
+      module: 'Módulo',
+      lessonsInModule: (count: number) => `Ver las ${count} ${count === 1 ? 'lección' : 'lecciones'} del módulo`,
+      sidebarNote: 'Lee, prueba y explica el resultado con tus palabras. El progreso se guarda solo en este navegador.',
+      breadcrumb: 'Inicio',
+      lesson: 'Lección',
+      workshop: 'Taller complementario',
+      phase: 'Fase',
+      estimatedStudy: 'de estudio estimado',
+      updated: 'Actualizado el',
+      objectives: 'Al terminar podrás',
+      beforeStarting: 'Antes de empezar:',
+      contents: 'En esta lección',
+      article: 'Contenido de la lección',
+      sources: 'Documentación para seguir aprendiendo',
+      opensNewTab: ' (abre una pestaña nueva)',
+      sourceNote: 'Artículo original y formación independiente. Las herramientas cambian: consulta su documentación y permisos antes de usarlas. El tiempo es orientativo, no una carga lectiva acreditada.',
+      progress: 'Tu progreso',
+      markComplete: 'Marcar como completada',
+      noscript: 'El contenido funciona sin JavaScript. Actívalo si quieres guardar tu progreso local.',
+      lessonNavigation: 'Anterior y siguiente lección',
+      previous: '← Anterior',
+      yourPath: '← Tu recorrido',
+      returnToCurriculum: 'Volver al temario',
+      next: 'Siguiente →',
+      reachedEnd: 'Has llegado al final →',
+      reviewPath: 'Repasar el recorrido',
+    };
+---
+<BaseLayout
+  title={`${lesson.title} · ${copy.titleSuffix}`}
+  description={lesson.description}
+  locale={locale}
+  canonical={lesson.href}
+  alternateUrls={alternateUrls}
+  socialType="article"
+>
+  <div class="article-shell">
+    <aside class="article-sidebar" aria-label={copy.sidebar}>
+      <a class="back-to-course" href={`${home}#temario`}>{copy.backToCurriculum}</a>
+      <div class="sidebar-module-heading">
+        <span class="eyebrow">{isSupplement ? copy.supplement : copy.module} {String(module.order).padStart(2, '0')}</span>
+        <h2>{module.title}</h2>
+      </div>
+      <details class="sidebar-disclosure">
+        <summary>{copy.lessonsInModule(siblings.length)}</summary>
+        <ol class="sidebar-lessons">
+          {siblings.map((item) => (
+            <li>
+              <a href={item.href} aria-current={item.id === lesson.id ? 'page' : undefined}>
+                <span class="lesson-order">{String(item.order).padStart(2, '0')}</span>
+                <span>{item.title}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </details>
+      <p class="sidebar-note">{copy.sidebarNote}</p>
+    </aside>
+
+    <main id="contenido" tabindex="-1" class="article-main">
+      <nav class="breadcrumb" aria-label={locale === 'en' ? 'Breadcrumb' : 'Ruta de navegación'}>
+        <a href={home}>{copy.breadcrumb}</a>
+        <span aria-hidden="true">/</span>
+        <a href={`${home}#module-${module.id}`}>{module.title}</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">{copy.lesson} {lesson.order}</span>
+      </nav>
+
+      <header class="lesson-header">
+        <span class="eyebrow">{isSupplement ? copy.workshop : `${copy.phase} ${module.phase}`} · {lesson.level}</span>
+        <h1>{lesson.title}</h1>
+        <p class="lesson-description">{lesson.description}</p>
+        <div class="lesson-meta">
+          <span>{formatDuration(lesson.duration)} {copy.estimatedStudy}</span>
+          <span>{copy.updated} <time datetime={lesson.updatedDate.toISOString().slice(0, 10)}>{date}</time></span>
+        </div>
+      </header>
+
+      <section class="lesson-objectives" aria-labelledby="objectives-heading">
+        <h2 id="objectives-heading">{copy.objectives}</h2>
+        <ul>{lesson.objectives.map((objective) => <li>{objective}</li>)}</ul>
+        {prerequisites.length > 0 && (
+          <p>
+            <strong>{copy.beforeStarting}</strong>{' '}
+            {prerequisites.map((item, index) => (
+              <Fragment>{index > 0 && ' · '}{item.href ? <a href={item.href}>{item.text}</a> : item.text}</Fragment>
+            ))}
+          </p>
+        )}
+      </section>
+
+      {toc.length > 0 && (
+        <details class="toc">
+          <summary>{copy.contents}</summary>
+          <ul>{toc.map((heading) => <li class:list={{ 'toc-subheading': heading.depth === 3 }}><a href={`#${heading.slug}`}>{heading.text}</a></li>)}</ul>
+        </details>
+      )}
+
+      <article class="prose" aria-label={copy.article}><Content /></article>
+
+      <section class="lesson-sources" aria-labelledby="sources-heading">
+        <h2 id="sources-heading">{copy.sources}</h2>
+        <ul class="source-list">
+          {lesson.sources.map((source) => (
+            <li>
+              <a href={source.url} target="_blank" rel="noopener noreferrer">
+                {source.label}<span class="sr-only">{copy.opensNewTab}</span><span aria-hidden="true"> ↗</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <p class="source-note">{copy.sourceNote}</p>
+      </section>
+
+      <section
+        class="lesson-completion"
+        aria-label={copy.progress}
+        data-progress
+        data-locale={locale}
+        data-lesson-id={lesson.id}
+        data-valid-ids={JSON.stringify(lessons.map((item) => item.id))}
+      >
+        <button class="completion-button" type="button" aria-pressed="false" hidden>
+          {copy.markComplete} <span aria-hidden="true">✓</span>
+        </button>
+        <p role="status" class="completion-status"></p>
+        <noscript><p>{copy.noscript}</p></noscript>
+      </section>
+
+      <nav class="lesson-nav" aria-label={copy.lessonNavigation}>
+        {previous
+          ? <a href={previous.href}><span>{copy.previous}</span><strong>{previous.title}</strong></a>
+          : <a href={`${home}#temario`}><span>{copy.yourPath}</span><strong>{copy.returnToCurriculum}</strong></a>}
+        {next
+          ? <a href={next.href}><span>{copy.next}</span><strong>{next.title}</strong></a>
+          : <a href={`${home}#temario`}><span>{copy.reachedEnd}</span><strong>{copy.reviewPath}</strong></a>}
+      </nav>
+    </main>
+  </div>
+</BaseLayout>
+<script>
+  import { PROGRESS_KEY, parseProgress, toggleCompleted } from '../lib/progress';
+
+  const sidebar = document.querySelector<HTMLDetailsElement>('.sidebar-disclosure');
+  if (sidebar && window.matchMedia('(min-width: 901px)').matches) sidebar.open = true;
+
+  const panel = document.querySelector<HTMLElement>('[data-progress]');
+  if (panel) {
+    const locale = panel.dataset.locale === 'en' ? 'en' : 'es';
+    const copy = locale === 'en'
+      ? {
+          mark: 'Mark as complete ✓',
+          completed: 'Completed · undo',
+          progress: (done: number, total: number) => `${done} of ${total} lessons completed. Saved only in this browser.`,
+          unavailable: 'This browser can’t save progress. You can keep reading; this mark will only last while this page is open.',
+        }
+      : {
+          mark: 'Marcar como completada ✓',
+          completed: 'Completada · Desmarcar',
+          progress: (done: number, total: number) => `${done} de ${total} lecciones completadas. Guardado solo en este navegador.`,
+          unavailable: 'El navegador no permite guardar progreso. Puedes seguir leyendo; esta marca solo se conservará mientras la página esté abierta.',
+        };
+    const button = panel.querySelector<HTMLButtonElement>('.completion-button');
+    const status = panel.querySelector<HTMLElement>('.completion-status');
+    const id = panel.dataset.lessonId!;
+    const validIds: string[] = JSON.parse(panel.dataset.validIds || '[]');
+    let memory: string[] = [];
+    let available = true;
+
+    try {
+      memory = parseProgress(localStorage.getItem(PROGRESS_KEY), validIds);
+    } catch {
+      available = false;
+    }
+
+    const update = () => {
+      const completed = memory.includes(id);
+      button?.setAttribute('aria-pressed', String(completed));
+      if (button) button.textContent = completed ? copy.completed : copy.mark;
+      if (status) status.textContent = available ? copy.progress(memory.length, validIds.length) : copy.unavailable;
+    };
+
+    if (button) {
+      button.hidden = false;
+      button.addEventListener('click', () => {
+        // Merge changes made in another tab before toggling this lesson.
+        try {
+          if (available) memory = parseProgress(localStorage.getItem(PROGRESS_KEY), validIds);
+        } catch {
+          available = false;
+        }
+        memory = toggleCompleted(memory, id);
+        try {
+          localStorage.setItem(PROGRESS_KEY, JSON.stringify(memory));
+          available = true;
+        } catch {
+          available = false;
+        }
+        update();
+      });
+    }
+
+    window.addEventListener('storage', (event) => {
+      if (event.key === PROGRESS_KEY) {
+        memory = parseProgress(event.newValue, validIds);
+        update();
+      }
+    });
+    update();
+  }
+</script>

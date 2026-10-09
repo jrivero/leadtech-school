@@ -1,11 +1,60 @@
+---
+import type { Locale } from '../lib/i18n';
+
+interface Props {
+  locale: Locale;
+  moduleCount: number;
+}
+
+const { locale, moduleCount } = Astro.props;
+const copy = locale === 'en'
+  ? {
+      ariaLabel: 'A single path to building software with AI in four stages: build the foundations, explore tools, use sound judgment, and put it into a project.',
+      topline: 'SOFTWARE DEVELOPMENT WITH AI',
+      base: 'FOUNDATIONS',
+      explore: 'EXPLORE',
+      judgment: 'JUDGMENT',
+      build: 'BUILD',
+      sketch: 'learn by doing',
+      idea: 'An idea',
+      practice: 'becomes practice',
+      modules: 'modules',
+      pace: 'to move at your own pace',
+      less: 'LESS',
+      guessing: 'GUESSING',
+      more: 'MORE',
+      thinking: 'JUDGMENT',
+      oneStep: 'One step at a time.',
+      caption: 'From curiosity to practice',
+    }
+  : {
+      ariaLabel: 'Recorrido único para desarrollar software con inteligencia artificial en cuatro fases: construir la base, explorar herramientas, trabajar con criterio y llevarlo a un proyecto.',
+      topline: 'DESARROLLO DE SOFTWARE CON IA',
+      base: 'BASE',
+      explore: 'EXPLORA',
+      judgment: 'CRITERIO',
+      build: 'CONSTRUYE',
+      sketch: 'aprende haciendo',
+      idea: 'Una idea',
+      practice: 'se vuelve práctica',
+      modules: 'módulos',
+      pace: 'para avanzar a tu ritmo',
+      less: 'MENOS',
+      guessing: 'ATAJOS',
+      more: 'MÁS',
+      thinking: 'CRITERIO',
+      oneStep: 'Un paso a la vez.',
+      caption: 'De la curiosidad a la práctica',
+    };
+---
 <figure
   class="roadmap-visual"
   role="img"
-  aria-label="Recorrido único para desarrollar software con inteligencia artificial en cuatro fases: construir la base, explorar herramientas, trabajar con criterio y llevarlo a un proyecto."
+  aria-label={copy.ariaLabel}
 >
   <div class="roadmap-visual__frame">
     <div class="roadmap-visual__topline" aria-hidden="true">
-      <span><i></i> DESARROLLO DE SOFTWARE CON IA</span>
+      <span><i></i> {copy.topline}</span>
       <span>01 — 04</span>
     </div>
 
@@ -33,50 +82,50 @@
         <circle cx="91" cy="376" r="22" fill="#F5F1E8" stroke="#D76A48" stroke-width="2" />
         <circle cx="91" cy="376" r="6" fill="#D76A48" />
         <text x="61" y="425" class="roadmap-visual__number">01</text>
-        <text x="61" y="446" class="roadmap-visual__label">BASE</text>
+        <text x="61" y="446" class="roadmap-visual__label">{copy.base}</text>
       </g>
       <g class="roadmap-visual__node roadmap-visual__node--two" filter="url(#roadmap-shadow)">
         <circle cx="231" cy="292" r="22" fill="#F5F1E8" stroke="#24384A" stroke-width="2" />
         <circle cx="231" cy="292" r="6" fill="#24384A" />
         <text x="204" y="248" class="roadmap-visual__number">02</text>
-        <text x="204" y="228" class="roadmap-visual__label">EXPLORA</text>
+        <text x="204" y="228" class="roadmap-visual__label">{copy.explore}</text>
       </g>
       <g class="roadmap-visual__node roadmap-visual__node--three" filter="url(#roadmap-shadow)">
         <circle cx="472" cy="220" r="22" fill="#F5F1E8" stroke="#24384A" stroke-width="2" />
         <circle cx="472" cy="220" r="6" fill="#24384A" />
         <text x="439" y="174" class="roadmap-visual__number">03</text>
-        <text x="439" y="153" class="roadmap-visual__label">CRITERIO</text>
+        <text x="439" y="153" class="roadmap-visual__label">{copy.judgment}</text>
       </g>
       <g class="roadmap-visual__node roadmap-visual__node--four" filter="url(#roadmap-shadow)">
         <circle cx="615" cy="115" r="25" fill="#D76A48" stroke="#F5F1E8" stroke-width="6" />
         <path d="m605 115 7 7 14-16" fill="none" stroke="#FFF9F2" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
         <text x="565" y="68" class="roadmap-visual__number">04</text>
-        <text x="565" y="47" class="roadmap-visual__label">CONSTRUYE</text>
+        <text x="565" y="47" class="roadmap-visual__label">{copy.build}</text>
       </g>
 
       <g class="roadmap-visual__scribble" aria-hidden="true">
         <path d="M106 114c22-16 46-22 67-15" fill="none" stroke="#D76A48" stroke-width="2" stroke-linecap="round" />
         <path d="m166 91 9 8-10 4" fill="none" stroke="#D76A48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-        <text x="93" y="94">aprende haciendo</text>
+        <text x="93" y="94">{copy.sketch}</text>
       </g>
     </svg>
 
     <div class="roadmap-visual__note roadmap-visual__note--top" aria-hidden="true">
       <span class="roadmap-visual__note-mark">+</span>
-      <span><strong>Una idea</strong><small>se vuelve práctica</small></span>
+      <span><strong>{copy.idea}</strong><small>{copy.practice}</small></span>
     </div>
     <div class="roadmap-visual__note roadmap-visual__note--bottom" aria-hidden="true">
-      <span class="roadmap-visual__note-index">12</span>
-      <span><strong>módulos</strong><small>para avanzar a tu ritmo</small></span>
+      <span class="roadmap-visual__note-index">{moduleCount}</span>
+      <span><strong>{copy.modules}</strong><small>{copy.pace}</small></span>
     </div>
     <div class="roadmap-visual__stamp" aria-hidden="true">
-      <span>MENOS<br />ATAJOS</span>
+      <span>{copy.less}<br />{copy.guessing}</span>
       <span class="roadmap-visual__stamp-star">✳</span>
-      <span>MÁS<br />CRITERIO</span>
+      <span>{copy.more}<br />{copy.thinking}</span>
     </div>
   </div>
   <figcaption class="roadmap-visual__caption">
-    <span>Un paso a la vez.</span>
-    <span>De la curiosidad a la práctica <span aria-hidden="true">↗</span></span>
+    <span>{copy.oneStep}</span>
+    <span>{copy.caption} <span aria-hidden="true">↗</span></span>
   </figcaption>
 </figure>

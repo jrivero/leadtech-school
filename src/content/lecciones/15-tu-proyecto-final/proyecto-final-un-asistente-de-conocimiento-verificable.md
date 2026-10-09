@@ -11,7 +11,7 @@ objectives:
   - "Evaluar el prototipo con preguntas de prueba, una rúbrica y documentación reproducible."
 prerequisites:
   - "Python básico, requisitos verificables, funciones y pruebas unitarias introductorias"
-updatedDate: "2026-10-08"
+updatedDate: "2026-10-09"
 sources:
   - label: "Documentación oficial de Python: pathlib"
     url: "https://docs.python.org/3/library/pathlib.html"
@@ -33,7 +33,11 @@ Usa tres documentos breves que hayas escrito tú o que tengas derecho a reutiliz
 from pathlib import Path
 import re
 
-OMITIR = {"que", "qué", "cuando", "cuándo", "los", "las", "del", "de", "la", "el"}
+OMITIR = {
+    "que", "qué", "cuando", "cuándo", "los", "las", "del", "de", "la", "el",
+    "a", "an", "the", "and", "or", "of", "to", "in", "on", "is", "are",
+    "was", "were", "be", "when", "which", "what", "how", "does", "do", "did",
+}
 
 def tokens(texto):
     return {t for t in re.findall(r"\w+", texto.casefold()) if t not in OMITIR}
@@ -50,7 +54,7 @@ def buscar(pregunta, carpeta):
     return sorted(hallazgos, key=lambda h: (-h[0], h[1], h[2]))[:3]
 ```
 
-La respuesta puede citar el primer resultado literal; si `buscar` devuelve una lista vacía, abstente. En un ejemplo, `biblioteca.md` contiene «Los préstamos vencen catorce días después de su creación». Pregunta «¿Cuándo vencen los préstamos?» y valida que el extracto incluya esa frase y la referencia `biblioteca.md, párrafo 1`. Pregunta después «¿Qué formato de imagen acepta el sistema?» si ningún documento lo explica; el resultado correcto es no inventar una respuesta. La coincidencia por palabras es deliberadamente sencilla y puede perder sinónimos; registra esa limitación, no la ocultes.
+La respuesta puede citar el primer resultado literal; si `buscar` devuelve una lista vacía, abstente. En un ejemplo, `biblioteca.md` contiene «Los préstamos vencen catorce días después de su creación». Pregunta «¿Cuándo vencen los préstamos?» y valida que el extracto incluya esa frase y la referencia `biblioteca.md, párrafo 1`. Pregunta después «¿Qué formato de imagen acepta el sistema?» si ningún documento lo explica; el resultado correcto es no inventar una respuesta. La lista `OMITIR` filtra algunas palabras frecuentes en español e inglés para evitar coincidencias basadas únicamente en artículos como «the». Es una lista pequeña, no un analizador lingüístico completo. Añade una prueba con un documento no relacionado y una pregunta que solo comparta palabras frecuentes. La coincidencia por palabras es deliberadamente sencilla y puede perder sinónimos o devolver coincidencias irrelevantes; inspecciona los extractos y registra esas limitaciones, no las ocultes.
 
 ## Hitos de entrega
 

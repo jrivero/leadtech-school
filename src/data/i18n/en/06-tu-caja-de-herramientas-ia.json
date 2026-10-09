@@ -1,0 +1,100 @@
+{
+  "id": "06-tu-caja-de-herramientas-ia",
+  "order": 6,
+  "title": "Your AI Toolkit",
+  "description": "Explore editors, assistants, and automations. Choose based on needs, not trends.",
+  "phase": 2,
+  "level": "Beginner",
+  "lessons": [
+    {
+      "slug": "elegir-herramientas-sin-perder-el-control",
+      "title": "Choosing Tools Without Losing Control",
+      "order": 1,
+      "optional": false
+    },
+    {
+      "slug": "vs-code-y-github-copilot-en-la-practica",
+      "title": "VS Code and GitHub Copilot in Practice",
+      "order": 2,
+      "optional": false
+    },
+    {
+      "slug": "alternativas-de-editor-y-flujos-de-trabajo",
+      "title": "Editor Alternatives and Workflows",
+      "order": 3,
+      "optional": false
+    },
+    {
+      "slug": "copilot-en-el-flujo-de-github",
+      "title": "Copilot in the GitHub Workflow",
+      "order": 4,
+      "optional": false
+    },
+    {
+      "slug": "trabajar-con-codex-de-forma-supervisada",
+      "title": "Working with Codex Under Supervision",
+      "order": 5,
+      "optional": false
+    },
+    {
+      "slug": "claude-para-tareas-de-desarrollo",
+      "title": "Claude for Development Tasks",
+      "order": 6,
+      "optional": false
+    },
+    {
+      "slug": "introduccion-practica-a-opencode",
+      "title": "Hands-On Introduction to OpenCode",
+      "order": 7,
+      "optional": false
+    },
+    {
+      "slug": "prototipar-interfaces-con-ayuda-de-ia",
+      "title": "Prototyping Interfaces with AI",
+      "order": 8,
+      "optional": false
+    },
+    {
+      "slug": "de-una-idea-a-un-mvp-verificable",
+      "title": "From an Idea to a Verifiable MVP",
+      "order": 9,
+      "optional": false
+    },
+    {
+      "slug": "automatizar-un-flujo-con-n8n",
+      "title": "Automating a Workflow with n8n",
+      "order": 10,
+      "optional": false
+    },
+    {
+      "slug": "ejecutar-modelos-en-tu-propio-equipo",
+      "title": "Running Models on Your Own Machine",
+      "order": 11,
+      "optional": false
+    },
+    {
+      "slug": "una-terminal-asistida-warp",
+      "title": "An AI-Assisted Terminal: Warp",
+      "order": 12,
+      "optional": false
+    },
+    {
+      "slug": "revisar-cambios-con-coderabbit",
+      "title": "Reviewing Changes with CodeRabbit",
+      "order": 13,
+      "optional": false
+    },
+    {
+      "slug": "openclaw-y-los-asistentes-persistentes",
+      "title": "OpenClaw and Persistent Assistants",
+      "order": 14,
+      "optional": false
+    },
+    {
+      "slug": "hermes-y-los-agentes-con-herramientas",
+      "title": "Hermes and Tool-Using Agents",
+      "order": 15,
+      "optional": false
+    }
+  ]
+}

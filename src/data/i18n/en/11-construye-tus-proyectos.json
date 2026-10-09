@@ -1,0 +1,40 @@
+{
+  "id": "11-construye-tus-proyectos",
+  "order": 11,
+  "title": "Build Your Projects",
+  "description": "Apply the learning path to small products: an interface, API, mobile app, and AI-powered search.",
+  "phase": 4,
+  "level": "Intermediate",
+  "lessons": [
+    {
+      "slug": "proyecto-una-interfaz-web-accesible",
+      "title": "Project: an Accessible Web Interface",
+      "order": 1,
+      "optional": false
+    },
+    {
+      "slug": "proyecto-una-api-de-tareas-segura",
+      "title": "Project: a Secure Task API",
+      "order": 2,
+      "optional": false
+    },
+    {
+      "slug": "proyecto-una-aplicacion-movil-pequena",
+      "title": "Project: a Small Mobile App",
+      "order": 3,
+      "optional": false
+    },
+    {
+      "slug": "proyecto-preguntas-y-respuestas-sobre-tus-documentos",
+      "title": "Project: Questions and Answers About Your Documents",
+      "order": 4,
+      "optional": false
+    },
+    {
+      "slug": "practica-integradora-desarrollar-con-especificaciones-y-agentes",
+      "title": "Capstone Practice: Developing with Specifications and Agents",
+      "order": 5,
+      "optional": false
+    }
+  ]
+}

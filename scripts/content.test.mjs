@@ -45,7 +45,8 @@ test('Todos los temas tienen Markdown original, metadatos, práctica y fuentes',
     assert.ok(Array.isArray(data.objectives) && data.objectives.length >= 3);
     assert.ok(data.objectives.every((item) => typeof item === 'string' && item.length >= 8));
     assert.ok(Array.isArray(data.prerequisites));
-    assert.equal(String(data.updatedDate), '2026-10-08');
+    assert.match(String(data.updatedDate), /^\d{4}-\d{2}-\d{2}$/);
+    assert.equal(new Date(data.updatedDate).toISOString().slice(0, 10), data.updatedDate, 'Fecha editorial ISO válida');
     assert.ok(Array.isArray(data.sources) && data.sources.length > 0);
     for (const source of data.sources) {
       assert.ok(source.label.length >= 3);

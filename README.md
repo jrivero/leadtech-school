@@ -1,6 +1,6 @@
 # Leadtech School · Desarrollo con IA
 
-MVP estático en **Astro**, en español, centrado exclusivamente en aprender **desarrollo de software con inteligencia artificial**. Incluye una landing, artículos originales en Markdown y progreso local, sin cuentas ni backend.
+Plataforma estática en **Astro**, en español e inglés, centrado exclusivamente en aprender **desarrollo de software con inteligencia artificial**. Incluye una landing, artículos originales en Markdown y progreso local, sin cuentas ni backend.
 
 ## Arrancar
 
@@ -34,29 +34,50 @@ Para desplegar manualmente desde una cuenta autorizada: `vercel link --project l
 
 - Un único recorrido de desarrollo con IA, no un catálogo de otros másteres.
 - **12 bloques y 83 lecciones principales**, más **13 complementos**: diez talleres escritos, dos temas extra y una práctica final.
-- Títulos reformulados, explicaciones originales, objetivos, ejercicios, comprobaciones y fuentes oficiales.
+- Los **96 artículos completos en español e inglés**, con títulos, explicaciones, objetivos, ejercicios, comprobaciones y fuentes.
+- Selector Español / English en la cabecera, disponible también en móvil y sin JavaScript; conserva la lección al cambiar de idioma.
 - Landing responsive con temario, búsqueda, filtros de fase, metodología y preguntas frecuentes.
 - Páginas de lectura con índice, requisitos previos, navegación del módulo y anterior/siguiente.
 - Marca de completado almacenada en `localStorage`, clave `leadtech:completed:v1`, solo en el navegador actual. No se sincroniza, no identifica al estudiante y no equivale a aprobar un examen.
 - Contenido y navegación disponibles sin JavaScript. Búsqueda, filtros y progreso son mejoras de cliente.
-- HTML estático, metadatos por artículo, idioma español, HTML semántico y sin fuentes, imágenes o analítica remotas.
+- HTML estático, metadatos por artículo, idioma `es` / `en`, enlaces alternativos `hreflang`, HTML semántico y sin fuentes, imágenes o analítica remotas.
 
 ## Estructura
 
 ```text
 src/data/curriculum.json             Inventario de temas y orden
 src/content.config.ts               Esquema de metadatos y colección Astro
-src/content/lecciones/<modulo>/*.md  Artículos editables
+src/content/lecciones/<modulo>/*.md  Artículos en español
+src/content/en/<modulo>/*.md         Traducciones completas al inglés
+src/data/i18n/en.json                Alcance y fases en inglés
+src/data/i18n/en/<modulo>.json        Módulos y títulos de lecciones en inglés
+src/lib/i18n.ts                     Idiomas y rutas con IDs compartidos
 src/lib/curriculum.ts                Relación validada currículo ↔ artículos
 src/lib/progress.ts                  Funciones de progreso local
-src/pages/index.astro                Landing
-src/pages/lecciones/[...id].astro    Generación estática de artículos
+src/pages/index.astro                Landing española
+src/pages/en/index.astro             Landing inglesa
+src/components/HomePage.astro        Plantilla bilingüe de portada
+src/components/LessonPage.astro      Plantilla bilingüe de lección
+src/pages/lecciones/[...id].astro    Artículos en español
+src/pages/en/lessons/[...id].astro    Artículos en inglés
 src/layouts/BaseLayout.astro         Cabecera, pie y metadatos
 src/styles/global.css               Diseño responsive
 scripts/                            Validación de contenidos, ejercicios, progreso y build
 tests/                              Pruebas de navegador y accesibilidad
 docs/temario-y-alcance.md            Procedencia, correspondencia y límites
 ```
+
+## Idiomas y rutas
+
+El español conserva `/` y `/lecciones/<modulo>/<slug>/`, de modo que los enlaces existentes siguen funcionando. El inglés usa `/en/` y `/en/lessons/<modulo>/<slug>/`. Los identificadores y slugs se mantienen idénticos en ambos idiomas: la URL inglesa puede contener palabras españolas, pero el artículo y la interfaz se muestran en inglés.
+
+El selector es navegación real, no una traducción automática en el navegador. Respeta siempre el idioma de la URL solicitada, sin redireccionar según el idioma del navegador. `html[lang]`, título, descripción y enlaces alternativos identifican la versión correcta. Las URLs canónicas usan el dominio configurado en `astro.config.mjs`.
+
+El progreso se comparte entre los idiomas con la clave existente `leadtech:completed:v1`: completar una lección en español también la muestra completada en inglés. Se conserva solo en el navegador actual. Si el almacenamiento está bloqueado, se puede seguir leyendo y cambiar de idioma.
+
+Los bloques de código se conservan **idénticos entre los dos idiomas**, partiendo de los ejercicios españoles ya verificados. Sus identificadores, comentarios y datos de ejemplo pueden estar en español; las explicaciones que los acompañan están traducidas. No se han actualizado afirmaciones técnicas ni fechas de revisión por el mero hecho de traducir. Dos correcciones verificadas —la explicación del laboratorio defensivo y la lista de palabras vacías del proyecto final— se aplicaron en ambos idiomas y se fecharon el 9 de octubre de 2026.
+
+Consulta `docs/traduccion-ingles.md` para el reparto de tareas y los resultados de la revisión.
 
 ## Editar una lección
 
@@ -82,22 +103,24 @@ sources:
 ---
 ```
 
-El cuerpo empieza con `##`, no con `#`: la plantilla genera el único H1. Las duraciones son estimaciones propias de estudio, no horas acreditadas. Si agregas o eliminas una lección, actualiza ambos lados; el build falla deliberadamente ante artículos ausentes, huérfanos o metadatos discordantes. Para cambiar la cobertura del programa hay que revisar también los tests de inventario.
+Para cada lección española debe existir su traducción en `src/content/en/<modulo>/<slug>.md`, con el mismo módulo, orden, duración, fecha y URLs de fuentes. Actualiza también su título en `src/data/i18n/en/<modulo>.json`. El nivel inglés usa `Beginner` o `Intermediate`. Traduce descripción, objetivos, requisitos, etiquetas de fuentes y el cuerpo completo; conserva los identificadores y los bloques de código. Al añadir módulos, crea su inventario inglés con la misma estructura y actualiza las fases si procede.
+
+El cuerpo empieza con `##`, no con `#`: la plantilla genera el único H1. Las duraciones son estimaciones propias de estudio, no horas acreditadas. Si agregas o eliminas una lección, actualiza el inventario y los artículos en ambos idiomas; el build falla deliberadamente ante artículos ausentes, huérfanos o metadatos discordantes. Para cambiar la cobertura del programa hay que revisar también los tests de inventario.
 
 ## Comprobaciones
 
 ```sh
 npm run check       # Tipos y diagnósticos Astro
-npm test            # Contenido, progreso, sintaxis y cuatro ejercicios Python
+npm test            # Contenido ES/EN, paridad, progreso, sintaxis y seis ejercicios Python
 npm run validate    # Lo anterior + build + enlaces/anclas internos
-npm run test:e2e    # Chromium: navegación, búsqueda, progreso, móvil y axe
+npm run test:e2e    # Chromium ES/EN: selector, navegación, búsqueda, progreso, móvil y axe
 npm run test:all    # Validación completa
 npm run audit:sources # Optativo: disponibilidad HTTP de fuentes externas
 ```
 
 Las pruebas E2E necesitan un build previo y Chromium compatible con Playwright. Si no está instalado, `npx playwright install chromium` descarga el navegador; esa descarga no es necesaria para servir o construir el sitio. La configuración de Playwright inicia automáticamente `astro preview` en primer plano con `--ignore-lock` en un puerto dedicado, 4322, y no reutiliza servidores de desarrollo. El flag evita el auto-background de Astro en entornos de agentes, de modo que Playwright controla el ciclo de vida del proceso. Deja ese puerto libre al ejecutar las pruebas.
 
-Se comprueba la sintaxis de los bloques Python y se ejecutan cuatro ejemplos locales representativos (biblioteca, gastos, gestor de tareas y SQL/JSON/vectores). Los ejercicios restantes no se ejecutan automáticamente. Si Python no está disponible, esas comprobaciones se omiten: la aplicación Astro no lo necesita.
+Se verifica que las 96 traducciones mantienen secciones, metadatos y fuentes, y que los bloques de código son idénticos al original. Se comprueba la sintaxis de los bloques Python y se ejecutan seis ejemplos locales representativos (biblioteca, gastos, gestor de tareas, SQL/JSON/vectores, laboratorio defensivo y núcleo del proyecto final con casos españoles e ingleses). Los ejercicios restantes no se ejecutan automáticamente. Si Python no está disponible, esas comprobaciones se omiten: la aplicación Astro no lo necesita.
 
 Los tests automatizados revisan estructura y comportamiento; no garantizan por sí solos la corrección pedagógica de todos los artículos, la vigencia futura de las herramientas ni la ejecución de todos los ejercicios. Las actividades que usan servicios externos deben revisarse antes de introducir datos sensibles o realizar gastos. La evaluación de accesibilidad automatizada tampoco sustituye pruebas manuales con tecnologías de apoyo.
 

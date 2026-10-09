@@ -1,0 +1,52 @@
+{
+  "id": "12-crece-como-profesional",
+  "order": 12,
+  "title": "Grow as a Professional",
+  "description": "Plan, communicate, and demonstrate your work. A sustainable foundation for continued learning.",
+  "phase": 4,
+  "level": "Beginner",
+  "lessons": [
+    {
+      "slug": "priorizar-trabajo-con-agilidad-y-foco",
+      "title": "Prioritizing Work with Agility and Focus",
+      "order": 1,
+      "optional": false
+    },
+    {
+      "slug": "comunicacion-feedback-y-colaboracion",
+      "title": "Communication, Feedback, and Collaboration",
+      "order": 2,
+      "optional": false
+    },
+    {
+      "slug": "definir-servicios-y-trabajar-por-cuenta-propia",
+      "title": "Define Your Services and Work Independently",
+      "order": 3,
+      "optional": false
+    },
+    {
+      "slug": "detectar-oportunidades-de-ia-en-una-empresa",
+      "title": "Identify AI Opportunities in a Company",
+      "order": 4,
+      "optional": false
+    },
+    {
+      "slug": "ingles-tecnico-para-colaborar-en-desarrollo",
+      "title": "Technical English for Collaborating in Software Development",
+      "order": 5,
+      "optional": false
+    },
+    {
+      "slug": "compartir-tu-trabajo-y-construir-una-red-profesional",
+      "title": "Share Your Work and Build a Professional Network",
+      "order": 6,
+      "optional": false
+    },
+    {
+      "slug": "preparar-tu-busqueda-de-empleo-y-tu-perfil-en-infojobs",
+      "title": "Prepare Your Job Search and InfoJobs Profile",
+      "order": 7,
+      "optional": false
+    }
+  ]
+}

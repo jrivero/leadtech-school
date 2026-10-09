@@ -74,3 +74,37 @@ test('Ejecutar el laboratorio SQL/JSON/vectorial en memoria', async (t) => {
   const result = run(t, match[1]);
   if (result !== undefined) assert.equal(result.trim(), "[(2, 'Cielo mecánico')]\nnaturaleza\nbosque 0.994");
 });
+
+test('Ejecutar el laboratorio defensivo en ambos idiomas y comprobar la salida documentada', async (t) => {
+  const id = '10-seguridad-desde-el-primer-dia/laboratorio-defensivo-corregir-una-aplicacion.md';
+  for (const locale of ['lecciones', 'en']) {
+    const body = await readFile(path.resolve(root, '..', locale, id), 'utf8');
+    const match = body.match(/python3 - <<'PY'\n([\s\S]*?)\nPY/);
+    assert.ok(match);
+    const result = run(t, match[1]);
+    if (result !== undefined) assert.equal(result.trim(), 'OK: aserciones defensivas completadas');
+    assert.doesNotMatch(body, /cuatro líneas|Four lines|`almacen`|`identidad`/);
+  }
+});
+
+test('El núcleo del proyecto final recupera y se abstiene con los ejemplos españoles e ingleses', async (t) => {
+  const code = await block('15-tu-proyecto-final/proyecto-final-un-asistente-de-conocimiento-verificable.md');
+  run(t, code + `
+from tempfile import TemporaryDirectory
+with TemporaryDirectory() as directory:
+    doc = Path(directory) / 'biblioteca.md'
+    for text, question, missing in [
+        ('Los préstamos vencen catorce días después de su creación.', '¿Cuándo vencen los préstamos?', '¿Qué formato de imagen acepta el sistema?'),
+        ('Loans are due fourteen days after they are created.', 'When are loans due?', 'Which image format does the system accept?')
+    ]:
+        doc.write_text(text, encoding='utf-8')
+        found = buscar(question, directory)
+        assert found and found[0][1:] == ('biblioteca.md', 1, text)
+        assert buscar(missing, directory) == []
+        assert buscar('', directory) == []
+    doc.write_text('The guide describes how registrations are organized.', encoding='utf-8')
+    assert buscar('Which image format does the system accept?', directory) == []
+    doc.write_text('La guía describe cómo organizar las inscripciones.', encoding='utf-8')
+    assert buscar('¿Qué formato de imagen acepta el sistema?', directory) == []
+`);
+});

@@ -1,0 +1,280 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CurriculumExplorer from './CurriculumExplorer.astro';
+import RoadmapVisual from './RoadmapVisual.astro';
+import { getCourse } from '../lib/curriculum';
+import { homeHref, type Locale } from '../lib/i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const course = getCourse(locale);
+const { curriculum, lessons, totalLessons, coreLessons } = course;
+const modules = course.modules.map((module) => ({
+  ...module,
+  lessons: course.getModuleLessons(module.id).map((lesson) => ({
+    ...lesson,
+    optional: module.lessons.find((topic) => topic.slug === lesson.slug)?.optional,
+  })),
+}));
+const coreModules = modules.filter((module) => module.supplement !== true);
+const supplementModules = modules.filter((module) => module.supplement === true);
+const coreLessonCount = coreLessons.length;
+const supplementLessonCount = lessons.length - coreLessonCount;
+const firstLessonHref = lessons[0]?.href ?? '#temario';
+const localizedHome = homeHref(locale);
+const alternateUrls = { es: homeHref('es'), en: homeHref('en') };
+const copy = locale === 'en'
+  ? {
+      title: 'AI Software Development · Leadtech School',
+      description: 'An independent path to learning software development with AI, from programming fundamentals to tools, code review, and projects. This is not an accredited degree or master’s program.',
+      heroEyebrow: 'ONE ROADMAP · SOFTWARE DEVELOPMENT WITH AI',
+      heroFirst: 'AI isn’t magic.',
+      heroSecond: 'It’s practice.',
+      heroIntro: 'Learn to build software with AI: start with the fundamentals, explore tools, and verify every decision. AI can support your work; the judgment remains yours.',
+      firstLesson: 'Start the first lesson',
+      curriculum: 'Explore the curriculum',
+      heroAside: 'No rush. Think critically. Learn at your own pace.',
+      metricsLabel: 'About this learning path',
+      coreModulesFirst: 'core',
+      coreModulesSecond: 'modules',
+      lessons: 'lessons',
+      main: 'core',
+      supplemental: 'supplemental',
+      optionalExtras: 'optional extras',
+      independent: 'Independent, self-paced learning · not an accredited degree.',
+      methodIndex: '02 / THE APPROACH',
+      methodEyebrow: 'Learn by building and reviewing',
+      methodTitleFirst: 'Less black box.',
+      methodTitleSecond: 'More independent thinking.',
+      methodLead: 'AI can speed up parts of the work; understanding the problem and checking the answer are still your responsibility.',
+      steps: [
+        ['Understand the fundamentals', 'Break problems down and recognize the building blocks of software.'],
+        ['Explore AI', 'Get to know models and tools before deciding where they add value.'],
+        ['Verify the result', 'Practice testing, quality, and security. Don’t trust what you haven’t reviewed.'],
+        ['Put it into a project', 'Apply what you’ve learned to something concrete and explain the decisions behind it.'],
+      ],
+      methodNote: 'This is independent, self-paced learning: it is not an accredited master’s program and does not grant an official qualification.',
+      closingEyebrow: 'YOU DON’T NEED TO HAVE IT ALL FIGURED OUT',
+      closingTitleFirst: 'Start with a',
+      closingTitleSecond: 'good question.',
+      closingBody: 'The first lesson is one step away. You decide what comes next.',
+      startAtBeginning: 'Start from the beginning',
+      faqIndex: '03 / BEFORE YOU BEGIN',
+      faqEyebrow: 'The essentials, clearly explained',
+      faqTitleFirst: 'Frequently',
+      faqTitleSecond: 'asked questions.',
+      faqIntro: 'A self-guided way to learn, with the scope explained from the start.',
+      faqs: [
+        ['Do I need experience to get started?', 'No prior experience is needed. The path starts with core ideas and moves on to more complex topics; spend as much time on each part as you need.'],
+        ['Is this program officially accredited?', 'No. Leadtech School is a self-guided learning platform and does not grant official accreditation. Work through the lessons and exercises at your own pace.'],
+        ['How much time will I need?', 'There is no schedule or deadline. This is a self-paced path: move forward, revisit a lesson, or pause whenever you need to.'],
+        ['How is my progress saved?', 'When you mark lessons as complete, your progress counter is saved in this browser’s local storage. It is not an assessment and does not count as accreditation.'],
+      ],
+      curriculumAbout: 'About this curriculum',
+      curriculumDescription: 'A path focused on software development with AI, with original explanations, examples, and exercises. Start with the fundamentals and move on to projects you can build and verify.',
+      exploreLessons: 'Explore the lessons',
+    }
+  : {
+      title: 'Desarrollo de software con IA · Leadtech School',
+      description: 'Un recorrido independiente para aprender desarrollo de software con IA, desde las bases de programación hasta herramientas, revisión y proyectos. No es un máster acreditado.',
+      heroEyebrow: 'RECORRIDO ÚNICO · DESARROLLO DE SOFTWARE CON IA',
+      heroFirst: 'La IA no es magia.',
+      heroSecond: 'Es práctica.',
+      heroIntro: 'Aprende a desarrollar software con IA: construye desde las bases, explora herramientas y verifica cada decisión. La IA acompaña tu trabajo; el criterio sigue siendo tuyo.',
+      firstLesson: 'Comenzar la primera lección',
+      curriculum: 'Ver el temario',
+      heroAside: 'Sin prisa. Con criterio. A tu ritmo.',
+      metricsLabel: 'Sobre este recorrido',
+      coreModulesFirst: 'módulos',
+      coreModulesSecond: 'principales',
+      lessons: 'lecciones',
+      main: 'principales',
+      supplemental: 'complementarias',
+      optionalExtras: 'complementos',
+      independent: 'Formación independiente y autónoma · no es un máster acreditado.',
+      methodIndex: '02 / EL MÉTODO',
+      methodEyebrow: 'Aprender es hacer y revisar',
+      methodTitleFirst: 'Menos caja negra.',
+      methodTitleSecond: 'Más criterio propio.',
+      methodLead: 'La IA puede acelerar partes del trabajo; entender el problema y comprobar la respuesta sigue siendo tuyo.',
+      steps: [
+        ['Entiende la base', 'Descompón problemas y reconoce las piezas con las que se construye el software.'],
+        ['Explora la IA', 'Conoce los modelos y herramientas antes de elegir cuándo te aportan valor.'],
+        ['Comprueba el resultado', 'Practica con pruebas, calidad y seguridad. No des por bueno lo que no has revisado.'],
+        ['Llévalo a un proyecto', 'Conecta lo aprendido en algo concreto y explica las decisiones que hay detrás.'],
+      ],
+      methodNote: 'Es formación independiente y autónoma: no es un máster acreditado ni concede una titulación oficial.',
+      closingEyebrow: 'NO HACE FALTA TENERLO TODO CLARO',
+      closingTitleFirst: 'Empieza por una',
+      closingTitleSecond: 'buena pregunta.',
+      closingBody: 'La primera lección está a un paso. El siguiente lo decides tú.',
+      startAtBeginning: 'Empezar desde el principio',
+      faqIndex: '03 / ANTES DE EMPEZAR',
+      faqEyebrow: 'Lo esencial, sin letra pequeña',
+      faqTitleFirst: 'Preguntas',
+      faqTitleSecond: 'frecuentes.',
+      faqIntro: 'Una propuesta para aprender por cuenta propia, con el alcance explicado desde el principio.',
+      faqs: [
+        ['¿Necesito experiencia para empezar?', 'No hace falta experiencia previa. La ruta empieza por ideas fundamentales y avanza hacia temas más complejos; puedes dedicar a cada parte el tiempo que necesites.'],
+        ['¿Esta formación ofrece acreditación oficial?', 'No. Leadtech School es una plataforma de aprendizaje autónomo y no concede acreditaciones oficiales. Puedes estudiar las lecciones y realizar las prácticas a tu ritmo.'],
+        ['¿Cuánto tiempo necesito?', 'No hay un calendario ni un plazo de finalización. Es un recorrido autónomo: puedes avanzar a tu ritmo, repasar una lección o pausar cuando lo necesites.'],
+        ['¿Cómo se guarda mi progreso?', 'Si marcas lecciones como completadas, el contador se conserva en el almacenamiento local de este navegador. No es una evaluación y no equivale a una acreditación.'],
+      ],
+      curriculumAbout: 'Sobre este temario',
+      curriculumDescription: 'Una ruta centrada en desarrollo de software con IA, con explicaciones, ejemplos y prácticas propios. Empieza por los fundamentos y avanza hacia proyectos que puedas construir y verificar.',
+      exploreLessons: 'Explorar las lecciones',
+    };
+---
+<BaseLayout
+  title={copy.title}
+  description={copy.description}
+  locale={locale}
+  canonical={localizedHome}
+  alternateUrls={alternateUrls}
+  socialType="website"
+>
+  <main id="contenido" tabindex="-1">
+    <section class="hero page-width" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <p class="eyebrow hero__eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span> {copy.heroEyebrow}</p>
+        <h1 id="hero-title">{copy.heroFirst}<br /><em>{copy.heroSecond}</em></h1>
+        <p class="hero__intro">{copy.heroIntro}</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href={firstLessonHref}>
+            {copy.firstLesson}
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8 4l4 4-4 4" /></svg>
+          </a>
+          <a class="button button--text" href="#temario">
+            {copy.curriculum}
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v9m-4-4 4 4 4-4" /></svg>
+          </a>
+        </div>
+        <div class="hero__aside">
+          <span class="hero__aside-arrow" aria-hidden="true">↳</span>
+          <span>{copy.heroAside}</span>
+        </div>
+      </div>
+      <RoadmapVisual locale={locale} moduleCount={coreModules.length} />
+    </section>
+
+    <section class="metrics page-width" aria-label={copy.metricsLabel}>
+      <div class="metric">
+        <strong>{coreModules.length}</strong>
+        <span>{copy.coreModulesFirst}<br />{copy.coreModulesSecond}</span>
+      </div>
+      <div class="metric metric--lessons">
+        <strong>{totalLessons}</strong>
+        <span>{copy.lessons}: {coreLessonCount} {copy.main}<br />+ {supplementLessonCount} {copy.supplemental}</span>
+      </div>
+      <div class="metric metric--note">
+        <span class="metric__asterisk" aria-hidden="true">✳</span>
+        <span><strong>{supplementModules.length} {copy.optionalExtras}</strong><br />{locale === 'en' ? 'optional in this roadmap' : 'opcionales de este recorrido'}</span>
+      </div>
+      <p class="metrics__caption">{copy.independent}</p>
+    </section>
+
+    <CurriculumExplorer
+      locale={locale}
+      modules={modules}
+      phases={curriculum.phases}
+      totalLessons={totalLessons}
+    />
+
+    <section class="method-section" id="metodo" aria-labelledby="method-title">
+      <div class="page-width method-section__inner">
+        <div class="section-intro__index method-section__index">
+          <span class="section-index">{copy.methodIndex}</span>
+          <span class="section-index__line" aria-hidden="true"></span>
+        </div>
+        <div class="method-section__main">
+          <div class="method-section__heading">
+            <div>
+              <p class="eyebrow eyebrow--terra">{copy.methodEyebrow}</p>
+              <h2 class="section-title" id="method-title">{copy.methodTitleFirst}<br /><em>{copy.methodTitleSecond}</em></h2>
+            </div>
+            <p class="method-section__lead">{copy.methodLead}</p>
+          </div>
+
+          <ol class="method-steps">
+            {copy.steps.map(([title, description], index) => (
+              <li class="method-step">
+                <span class="method-step__number">{String(index + 1).padStart(2, '0')}</span>
+                <div>
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                </div>
+                <span class="method-step__mark" aria-hidden="true">↗</span>
+              </li>
+            ))}
+          </ol>
+
+          <div class="method-footnote">
+            <span class="method-footnote__symbol" aria-hidden="true">i</span>
+            <p>{copy.methodNote}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing-cta page-width" aria-labelledby="closing-title">
+      <div class="closing-cta__decoration" aria-hidden="true">
+        {locale === 'en'
+          ? <><span>LEARN</span><span>→</span><span>TRY</span><span>→</span><span>UNDERSTAND</span></>
+          : <><span>APRENDER</span><span>→</span><span>PROBAR</span><span>→</span><span>ENTENDER</span></>}
+      </div>
+      <div class="closing-cta__body">
+        <p class="eyebrow">{copy.closingEyebrow}</p>
+        <h2 id="closing-title">{copy.closingTitleFirst}<br /><em>{copy.closingTitleSecond}</em></h2>
+        <p>{copy.closingBody}</p>
+        <a class="button button--light" href={firstLessonHref}>
+          {copy.startAtBeginning}
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8 4l4 4-4 4" /></svg>
+        </a>
+      </div>
+      <span class="closing-cta__orbit closing-cta__orbit--one" aria-hidden="true"></span>
+      <span class="closing-cta__orbit closing-cta__orbit--two" aria-hidden="true"></span>
+      <span class="closing-cta__spark" aria-hidden="true">✳</span>
+    </section>
+
+    <section class="faq-section page-width" id="preguntas" aria-labelledby="faq-title">
+      <div class="section-intro__index faq-section__index">
+        <span class="section-index">{copy.faqIndex}</span>
+        <span class="section-index__line" aria-hidden="true"></span>
+      </div>
+      <div class="faq-section__main">
+        <div class="faq-section__heading">
+          <div>
+            <p class="eyebrow eyebrow--terra">{copy.faqEyebrow}</p>
+            <h2 class="section-title" id="faq-title">{copy.faqTitleFirst}<br /><em>{copy.faqTitleSecond}</em></h2>
+          </div>
+          <p>{copy.faqIntro}</p>
+        </div>
+
+        <div class="faq-list">
+          {copy.faqs.map(([question, answer], index) => (
+            <details class="faq-item">
+              <summary>
+                <span class="faq-item__number">{String(index + 1).padStart(2, '0')}</span>
+                <span>{question}</span>
+                <span class="faq-item__toggle" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-item__answer"><p>{answer}</p></div>
+            </details>
+          ))}
+        </div>
+
+        <aside class="source-note">
+          <span class="source-note__icon" aria-hidden="true">↗</span>
+          <div>
+            <strong>{copy.curriculumAbout}</strong>
+            <p>{copy.curriculumDescription}</p>
+            <a href="#temario">{copy.exploreLessons} <span aria-hidden="true">→</span></a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

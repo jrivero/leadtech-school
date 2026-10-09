@@ -1,0 +1,23 @@
+{
+  "id": "14-del-proyecto-a-una-oportunidad",
+  "order": 14,
+  "title": "From Project to Opportunity",
+  "description": "Two extra topics from the public program, treated as planning exercises without promises of income or employment.",
+  "phase": 4,
+  "level": "Intermediate",
+  "supplement": true,
+  "lessons": [
+    {
+      "slug": "validar-un-modelo-de-negocio-para-tu-proyecto",
+      "title": "Validating a Business Model for Your Project",
+      "order": 1,
+      "optional": true
+    },
+    {
+      "slug": "practicar-una-entrevista-tecnica-con-y-sin-ia",
+      "title": "Practicing a Technical Interview with and without AI",
+      "order": 2,
+      "optional": true
+    }
+  ]
+}

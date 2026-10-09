@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { homeHref, type Locale } from '../lib/i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const routes = { es: '/404.html', en: '/en/404/' };
+const copy = locale === 'en'
+  ? {
+      title: 'Page not found · Leadtech School',
+      description: 'This page does not exist. Return to the curriculum to keep learning.',
+      eyebrow: 'Error 404',
+      heading: 'This path doesn’t exist yet.',
+      message: 'The link may be incomplete. You can find all available lessons in the curriculum.',
+      home: 'Back to the curriculum',
+      otherHome: 'Go to the Spanish home page',
+    }
+  : {
+      title: 'Página no encontrada · Leadtech School',
+      description: 'Esta página no existe. Vuelve al temario para continuar aprendiendo.',
+      eyebrow: 'Error 404',
+      heading: 'Este camino aún no existe.',
+      message: 'Puede que el enlace esté incompleto. Todas las lecciones disponibles están en el temario.',
+      home: 'Volver al temario',
+      otherHome: 'Ir a la página de inicio en inglés',
+    };
+---
+<BaseLayout
+  title={copy.title}
+  description={copy.description}
+  locale={locale}
+  canonical={routes[locale]}
+  alternateUrls={routes}
+>
+  <main id="contenido" tabindex="-1" class="not-found">
+    <span class="eyebrow">{copy.eyebrow}</span>
+    <h1>{copy.heading}</h1>
+    <p>{copy.message}</p>
+    <div class="not-found__actions">
+      <a class="button button--primary" href={`${homeHref(locale)}#temario`}>{copy.home} →</a>
+      <a
+        class="button button--text"
+        href={locale === 'en' ? '/' : '/en/'}
+        hreflang={locale === 'en' ? 'es' : 'en'}
+      >{copy.otherHome}</a>
+    </div>
+  </main>
+</BaseLayout>
+<style>
+  .not-found {
+    max-width: 48rem;
+    margin: 6rem auto;
+    padding: 0 1.5rem 5rem;
+  }
+
+  .not-found h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.06;
+  }
+
+  .not-found p {
+    margin: 1.5rem 0 2rem;
+    font-size: 1.15rem;
+  }
+
+  .not-found__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
+  }
+
+  @media (max-width: 580px) {
+    .not-found {
+      margin: 4rem auto;
+    }
+  }
+</style>

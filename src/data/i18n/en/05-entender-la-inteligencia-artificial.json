@@ -1,0 +1,46 @@
+{
+  "id": "05-entender-la-inteligencia-artificial",
+  "order": 5,
+  "title": "Understanding Artificial Intelligence",
+  "description": "Models, data, prompts, and responsibility: a clear foundation before choosing tools.",
+  "phase": 2,
+  "level": "Beginner",
+  "lessons": [
+    {
+      "slug": "que-es-la-ia-y-que-no-es",
+      "title": "What AI Is and What It Isn't",
+      "order": 1,
+      "optional": false
+    },
+    {
+      "slug": "como-funciona-la-ia-generativa",
+      "title": "How Generative AI Works",
+      "order": 2,
+      "optional": false
+    },
+    {
+      "slug": "dar-instrucciones-y-trabajar-con-imagenes-y-audio",
+      "title": "Giving Instructions and Working with Images and Audio",
+      "order": 3,
+      "optional": false
+    },
+    {
+      "slug": "frameworks-rag-y-ajuste-de-modelos",
+      "title": "Frameworks, RAG, and Model Fine-Tuning",
+      "order": 4,
+      "optional": false
+    },
+    {
+      "slug": "como-leer-las-tendencias-de-ia-con-criterio",
+      "title": "How to Read AI Trends Critically",
+      "order": 5,
+      "optional": false
+    },
+    {
+      "slug": "privacidad-sesgos-y-uso-responsable",
+      "title": "Privacy, Bias, and Responsible Use",
+      "order": 6,
+      "optional": false
+    }
+  ]
+}

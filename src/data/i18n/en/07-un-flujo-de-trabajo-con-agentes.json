@@ -1,0 +1,34 @@
+{
+  "id": "07-un-flujo-de-trabajo-con-agentes",
+  "order": 7,
+  "title": "A Workflow with Agents",
+  "description": "Move from chatting to directing tasks with context, permissions, tools, and validation.",
+  "phase": 3,
+  "level": "Intermediate",
+  "lessons": [
+    {
+      "slug": "de-copilotos-a-agentes-de-desarrollo",
+      "title": "From Copilots to Development Agents",
+      "order": 1,
+      "optional": false
+    },
+    {
+      "slug": "contexto-agents-md-skills-y-mcp",
+      "title": "Context, AGENTS.md, Skills, and MCP",
+      "order": 2,
+      "optional": false
+    },
+    {
+      "slug": "conectar-proveedores-de-ia-mediante-apis",
+      "title": "Connecting AI Providers Through APIs",
+      "order": 3,
+      "optional": false
+    },
+    {
+      "slug": "laboratorio-optativo-voz-y-audio-con-elevenlabs",
+      "title": "Optional Lab: Voice and Audio with ElevenLabs",
+      "order": 4,
+      "optional": true
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "03-disenar-antes-de-programar",
+  "order": 3,
+  "title": "Design Before Coding",
+  "description": "Learn to turn needs into specifications and design decisions that can be verified.",
+  "phase": 1,
+  "level": "Beginner",
+  "lessons": [
+    {
+      "slug": "del-problema-al-mantenimiento-el-ciclo-del-software",
+      "title": "From Problem to Maintenance: The Software Lifecycle",
+      "order": 1,
+      "optional": false
+    },
+    {
+      "slug": "convertir-necesidades-en-requisitos-verificables",
+      "title": "Turn Needs into Verifiable Requirements",
+      "order": 2,
+      "optional": false
+    },
+    {
+      "slug": "desarrollar-desde-una-especificacion-sdd",
+      "title": "Develop from a Specification: SDD",
+      "order": 3,
+      "optional": false
+    },
+    {
+      "slug": "elegir-un-paradigma-de-programacion",
+      "title": "Choose a Programming Paradigm",
+      "order": 4,
+      "optional": false
+    },
+    {
+      "slug": "principios-para-un-diseno-mantenible",
+      "title": "Principles of Maintainable Design",
+      "order": 5,
+      "optional": false
+    }
+  ]
+}

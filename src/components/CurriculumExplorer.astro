@@ -1,8 +1,10 @@
 ---
 import CurriculumModuleCard from './CurriculumModuleCard.astro';
+import type { Locale } from '../lib/i18n';
 
 interface LessonItem {
-  slug: string;
+  id: string;
+  href: string;
   title: string;
   order: number;
   optional?: boolean;
@@ -25,12 +27,96 @@ interface PhaseItem {
 }
 
 interface Props {
+  locale: Locale;
   modules: ModuleItem[];
   phases: PhaseItem[];
   totalLessons: number;
 }
 
-const { modules, phases, totalLessons } = Astro.props;
+const { locale, modules, phases, totalLessons } = Astro.props;
+const copy = locale === 'en'
+  ? {
+      index: '01 / THE ROADMAP',
+      eyebrow: 'SOFTWARE DEVELOPMENT WITH AI · ONE LEARNING PATH',
+      titleFirst: 'Learn the fundamentals.',
+      titleSecond: 'Build with purpose.',
+      intro: 'A path to building software with AI: start with the fundamentals, then explore tools and learn to review what you build. Optional extras expand this same program.',
+      coreModule: 'core module',
+      coreModules: 'core modules',
+      optionalExtra: 'optional extra',
+      optionalExtras: 'optional extras',
+      lesson: 'lesson',
+      lessons: 'lessons',
+      curriculumTotal: (core: number, extra: number, total: number) => `${core} core ${core === 1 ? 'module' : 'modules'} and ${extra} optional ${extra === 1 ? 'extra' : 'extras'}; ${total} ${total === 1 ? 'lesson' : 'lessons'} in total`,
+      progressLabel: 'Your learning progress',
+      progressEyebrow: 'YOUR LEARNING PATH',
+      progressLessonsCompleted: 'lessons completed',
+      progressSaved: 'Your progress is saved in this browser.',
+      progressMeter: 'Lesson progress',
+      progressContinue: 'Continue learning',
+      searchLabel: 'Search modules and lessons',
+      searchPlaceholder: 'Search for a topic or lesson',
+      clearSearch: 'Clear search',
+      filterLabel: 'Filter by phase',
+      all: 'All',
+      showAll: 'Show all',
+      phase: 'Phase',
+      filterPhase: 'Filter phase',
+      resultsHint: 'Open a module to see its lessons',
+      noResults: 'No results found',
+      noResultsHint: 'Try another search or show all phases again.',
+      clearFilters: 'Clear filters',
+      phaseLabel: 'PHASE',
+      supplementHeading: 'Optional extras',
+      deeperHeading: 'For a deeper dive',
+      deeperText: 'Extras within the same path. Save them for later or come back when they are useful.',
+      extra: 'extra',
+      extras: 'extras',
+      inModule: 'IN THIS MODULE',
+      caveat: 'Self-guided, non-accredited learning: optional extras are part of this same program.',
+      progressAria: 'lessons completed',
+    }
+  : {
+      index: '01 / EL RECORRIDO',
+      eyebrow: 'DESARROLLO CON IA · UN ÚNICO RECORRIDO',
+      titleFirst: 'Aprende la base.',
+      titleSecond: 'Construye con intención.',
+      intro: 'Un recorrido para desarrollar software con IA: primero las bases, luego las herramientas y el criterio para revisar lo que construyes. Los complementos opcionales amplían este mismo programa.',
+      coreModule: 'módulo principal',
+      coreModules: 'módulos principales',
+      optionalExtra: 'complemento opcional',
+      optionalExtras: 'complementos opcionales',
+      lesson: 'lección',
+      lessons: 'lecciones',
+      curriculumTotal: (core: number, extra: number, total: number) => `${core} ${core === 1 ? 'módulo principal' : 'módulos principales'} y ${extra} ${extra === 1 ? 'complemento opcional' : 'complementos opcionales'}; ${total} ${total === 1 ? 'lección' : 'lecciones'} en total`,
+      progressLabel: 'Tu progreso de aprendizaje',
+      progressEyebrow: 'TU RECORRIDO',
+      progressLessonsCompleted: 'lecciones completadas',
+      progressSaved: 'Tu avance se guarda en este navegador.',
+      progressMeter: 'Progreso de las lecciones',
+      progressContinue: 'Continuar el recorrido',
+      searchLabel: 'Buscar módulos y lecciones',
+      searchPlaceholder: 'Busca un tema o una lección',
+      clearSearch: 'Borrar búsqueda',
+      filterLabel: 'Filtrar por fase',
+      all: 'Todo',
+      showAll: 'Mostrar todo',
+      phase: 'Fase',
+      filterPhase: 'Filtrar fase',
+      resultsHint: 'Abre un módulo para ver sus lecciones',
+      noResults: 'No encontramos resultados',
+      noResultsHint: 'Prueba con otra palabra o vuelve a ver todas las fases.',
+      clearFilters: 'Limpiar filtros',
+      phaseLabel: 'FASE',
+      supplementHeading: 'Complementos opcionales',
+      deeperHeading: 'Para seguir profundizando',
+      deeperText: 'Extras del mismo recorrido; puedes dejarlos para después o volver a ellos cuando te resulten útiles.',
+      extra: 'extra',
+      extras: 'extras',
+      inModule: 'EN ESTE MÓDULO',
+      caveat: 'Ruta autónoma y no acreditada: los complementos son opcionales y pertenecen a este mismo programa.',
+      progressAria: 'lecciones completadas',
+    };
 const orderedModules = [...modules].sort((a, b) => a.order - b.order);
 const coreModules = orderedModules.filter((module) => module.supplement !== true);
 const supplementModules = orderedModules.filter((module) => module.supplement === true);
@@ -47,9 +133,7 @@ const phaseGroups = phases.map((phase) => {
 });
 const firstModule = orderedModules[0];
 const firstLesson = firstModule?.lessons.slice().sort((a, b) => a.order - b.order)[0];
-const firstLessonHref = firstModule && firstLesson
-  ? `/lecciones/${firstModule.id}/${firstLesson.slug}/`
-  : '#temario';
+const firstLessonHref = firstLesson?.href ?? '#temario';
 const pluralize = (count: number, singular: string, plural: string) => `${count} ${count === 1 ? singular : plural}`;
 const phaseFilterCount = (phaseId: number) => {
   const group = phaseGroups.find((entry) => entry.phase.id === phaseId);
@@ -58,114 +142,116 @@ const phaseFilterCount = (phaseId: number) => {
     ? `${group.coreModules.length}+${group.supplementModules.length}`
     : String(group.coreModules.length);
 };
+const phaseDescription = (phaseId: number) => {
+  const group = phaseGroups.find((entry) => entry.phase.id === phaseId);
+  if (!group) return `0 ${copy.coreModules}`;
+  const coreDescription = pluralize(group.coreModules.length, copy.coreModule, copy.coreModules);
+  return group.supplementModules.length > 0
+    ? `${coreDescription} + ${pluralize(group.supplementModules.length, copy.optionalExtra, copy.optionalExtras)}`
+    : coreDescription;
+};
 ---
-<section class="curriculum-section page-width" id="temario" data-curriculum-explorer aria-labelledby="curriculum-title">
+<section class="curriculum-section page-width" id="temario" data-curriculum-explorer data-locale={locale} aria-labelledby="curriculum-title">
   <div class="section-intro curriculum-section__intro">
     <div class="section-intro__index">
-      <span class="section-index">01 / EL RECORRIDO</span>
+      <span class="section-index">{copy.index}</span>
       <span class="section-index__line" aria-hidden="true"></span>
     </div>
     <div class="section-intro__body">
-      <p class="eyebrow eyebrow--terra">Desarrollo con IA · un único recorrido</p>
-      <h2 class="section-title" id="curriculum-title">Aprende la base.<br /><em>Construye con intención.</em></h2>
-      <p class="section-intro__description">
-        Un recorrido para desarrollar software con IA: primero las bases, luego las herramientas y el criterio para revisar lo que construyes. Los complementos opcionales amplían este mismo programa.
-      </p>
+      <p class="eyebrow eyebrow--terra">{copy.eyebrow}</p>
+      <h2 class="section-title" id="curriculum-title">{copy.titleFirst}<br /><em>{copy.titleSecond}</em></h2>
+      <p class="section-intro__description">{copy.intro}</p>
     </div>
     <div
       class="curriculum-total"
-      aria-label={`${coreModules.length} módulos principales y ${supplementModules.length} complementos opcionales; ${totalLessons} lecciones en total`}
+      aria-label={copy.curriculumTotal(coreModules.length, supplementModules.length, totalLessons)}
     >
       <strong>{String(coreModules.length).padStart(2, '0')}</strong>
-      <span>módulos principales<br />+ {supplementModules.length} complementos opcionales</span>
+      <span>{copy.coreModules}<br />+ {supplementModules.length} {copy.optionalExtras}</span>
     </div>
   </div>
 
-  <div class="curriculum-progress" data-progress-panel hidden aria-label="Tu progreso de aprendizaje">
+  <div class="curriculum-progress" data-progress-panel hidden aria-label={copy.progressLabel}>
     <div class="curriculum-progress__copy">
-      <span class="eyebrow">TU RECORRIDO</span>
-      <p class="curriculum-progress__count"><strong><span data-progress-count>0</span> de {totalLessons}</strong> lecciones completadas</p>
-      <p class="curriculum-progress__message" data-progress-message>Tu avance se guarda en este navegador.</p>
+      <span class="eyebrow">{copy.progressEyebrow}</span>
+      <p class="curriculum-progress__count"><strong><span data-progress-count>0</span> {locale === 'en' ? 'of' : 'de'} {totalLessons}</strong> {copy.progressLessonsCompleted}</p>
+      <p class="curriculum-progress__message" data-progress-message>{copy.progressSaved}</p>
     </div>
     <div
       class="curriculum-progress__meter"
       role="progressbar"
-      aria-label="Progreso de las lecciones"
+      aria-label={copy.progressMeter}
       aria-valuemin="0"
       aria-valuemax={totalLessons}
       aria-valuenow="0"
-      aria-valuetext={`0 de ${totalLessons} lecciones completadas`}
+      aria-valuetext={`0 ${locale === 'en' ? 'of' : 'de'} ${totalLessons} ${copy.progressAria}`}
       data-progress-meter
     >
       <span data-progress-fill></span>
     </div>
     <a class="curriculum-progress__link" href={firstLessonHref} data-continue-link>
-      <span data-progress-link-label>Continuar el recorrido</span>
+      <span data-progress-link-label>{copy.progressContinue}</span>
       <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8 4l4 4-4 4" /></svg>
     </a>
   </div>
 
   <div class="curriculum-tools" data-curriculum-controls hidden>
     <div class="curriculum-search">
-      <label class="visually-hidden" for="curriculum-search">Buscar módulos y lecciones</label>
+      <label class="visually-hidden" for="curriculum-search">{copy.searchLabel}</label>
       <svg class="curriculum-search__icon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.7" cy="8.7" r="5.8" /><path d="m13 13 4 4" /></svg>
       <input
         id="curriculum-search"
         type="search"
-        placeholder="Busca un tema o una lección"
+        placeholder={copy.searchPlaceholder}
         autocomplete="off"
         spellcheck="false"
         aria-controls="curriculum-results"
         data-curriculum-search
       />
-      <button class="curriculum-search__clear" type="button" aria-label="Borrar búsqueda" data-clear-search hidden>×</button>
+      <button class="curriculum-search__clear" type="button" aria-label={copy.clearSearch} data-clear-search hidden>×</button>
     </div>
 
-    <div class="phase-filter" role="group" aria-label="Filtrar por fase">
+    <div class="phase-filter" role="group" aria-label={copy.filterLabel}>
       <button
         class="phase-filter__button is-active"
         type="button"
         aria-pressed="true"
-        aria-label={`Mostrar todo: ${coreModules.length} módulos principales y ${supplementModules.length} complementos opcionales`}
+        aria-label={locale === 'en'
+          ? `${copy.showAll}: ${coreModules.length} ${copy.coreModules} and ${supplementModules.length} ${copy.optionalExtras}`
+          : `${copy.showAll}: ${coreModules.length} ${copy.coreModules} y ${supplementModules.length} ${copy.optionalExtras}`}
         data-phase-filter="all"
       >
-        Todo <span>{coreModules.length}+{supplementModules.length}</span>
+        {copy.all} <span>{coreModules.length}+{supplementModules.length}</span>
       </button>
-      {phases.map((phase) => {
-        const group = phaseGroups.find((entry) => entry.phase.id === phase.id);
-        const moduleDescription = group?.supplementModules.length
-          ? `${group.coreModules.length} módulos y ${group.supplementModules.length} complementos opcionales`
-          : `${group?.coreModules.length ?? 0} módulos`;
-        return (
-          <button
-            class="phase-filter__button"
-            type="button"
-            aria-pressed="false"
-            aria-label={`Filtrar fase ${String(phase.id).padStart(2, '0')}: ${moduleDescription}`}
-            data-phase-filter={phase.id}
-          >
-            Fase {String(phase.id).padStart(2, '0')} <span>{phaseFilterCount(phase.id)}</span>
-          </button>
-        );
-      })}
+      {phases.map((phase) => (
+        <button
+          class="phase-filter__button"
+          type="button"
+          aria-pressed="false"
+          aria-label={`${copy.filterPhase} ${String(phase.id).padStart(2, '0')}: ${phaseDescription(phase.id)}`}
+          data-phase-filter={phase.id}
+        >
+          {copy.phase} {String(phase.id).padStart(2, '0')} <span>{phaseFilterCount(phase.id)}</span>
+        </button>
+      ))}
     </div>
   </div>
 
   <div class="curriculum-results-bar">
     <p class="curriculum-results-count" data-results-count aria-live="polite" aria-atomic="true">
-      {pluralize(totalLessons, 'lección', 'lecciones')} · {coreModules.length} {coreModules.length === 1 ? 'módulo' : 'módulos'} + {supplementModules.length} {supplementModules.length === 1 ? 'complemento opcional' : 'complementos opcionales'}
+      {pluralize(totalLessons, copy.lesson, copy.lessons)} · {coreModules.length} {coreModules.length === 1 ? copy.coreModule : copy.coreModules} + {pluralize(supplementModules.length, copy.optionalExtra, copy.optionalExtras)}
     </p>
-    <p class="curriculum-results-hint">Abre un módulo para ver sus lecciones</p>
+    <p class="curriculum-results-hint">{copy.resultsHint}</p>
   </div>
 
   <div class="curriculum-results" id="curriculum-results">
     <div class="curriculum-empty" data-empty-state hidden role="status">
       <span class="curriculum-empty__symbol" aria-hidden="true">⌕</span>
       <div>
-        <strong>No encontramos resultados</strong>
-        <p>Prueba con otra palabra o vuelve a ver todas las fases.</p>
+        <strong>{copy.noResults}</strong>
+        <p>{copy.noResultsHint}</p>
       </div>
-      <button type="button" class="text-button" data-filter-reset>Limpiar filtros <span aria-hidden="true">↗</span></button>
+      <button type="button" class="text-button" data-filter-reset>{copy.clearFilters} <span aria-hidden="true">↗</span></button>
     </div>
 
     {phaseGroups.map(({ phase, coreModules: phaseCoreModules, supplementModules: phaseSupplements, lessonCount }) => (
@@ -173,12 +259,12 @@ const phaseFilterCount = (phaseId: number) => {
         <header class="phase-group__header">
           <div class="phase-group__number" aria-hidden="true">{String(phase.id).padStart(2, '0')}</div>
           <div class="phase-group__title-wrap">
-            <span class="phase-group__kicker">FASE {String(phase.id).padStart(2, '0')}</span>
+            <span class="phase-group__kicker">{copy.phaseLabel} {String(phase.id).padStart(2, '0')}</span>
             <h3 id={`phase-${phase.id}-title`}>{phase.title}</h3>
           </div>
           <p class="phase-group__count">
-            <span>{pluralize(phaseCoreModules.length, 'módulo', 'módulos')}{phaseSupplements.length > 0 ? ` + ${pluralize(phaseSupplements.length, 'complemento opcional', 'complementos opcionales')}` : ''}</span>
-            <br />{pluralize(lessonCount, 'lección', 'lecciones')}
+            <span>{pluralize(phaseCoreModules.length, copy.coreModule, copy.coreModules)}{phaseSupplements.length > 0 ? ` + ${pluralize(phaseSupplements.length, copy.optionalExtra, copy.optionalExtras)}` : ''}</span>
+            <br />{pluralize(lessonCount, copy.lesson, copy.lessons)}
           </p>
           <span class="phase-group__rule" aria-hidden="true"></span>
         </header>
@@ -187,6 +273,7 @@ const phaseFilterCount = (phaseId: number) => {
           {phaseCoreModules.map((module) => (
             <CurriculumModuleCard
               module={module}
+              locale={locale}
               coreModuleCount={coreModules.length}
               supplementCount={supplementModules.length}
               initialOpen={module.id === firstModule?.id}
@@ -198,19 +285,20 @@ const phaseFilterCount = (phaseId: number) => {
           <div class="supplement-group" role="group" aria-labelledby={`supplements-${phase.id}-title`}>
             <div class="supplement-group__heading">
               <div>
-                <span class="eyebrow eyebrow--terra">Complementos opcionales</span>
-                <h4 id={`supplements-${phase.id}-title`}>Para seguir profundizando</h4>
-                <p>Extras del mismo recorrido; puedes dejarlos para después o volver a ellos cuando te resulten útiles.</p>
+                <span class="eyebrow eyebrow--terra">{copy.supplementHeading}</span>
+                <h4 id={`supplements-${phase.id}-title`}>{copy.deeperHeading}</h4>
+                <p>{copy.deeperText}</p>
               </div>
               <span class="supplement-group__count">
-                {pluralize(phaseSupplements.length, 'extra', 'extras')}<br />
-                {pluralize(phaseSupplements.reduce((count, module) => count + module.lessons.length, 0), 'lección', 'lecciones')}
+                {pluralize(phaseSupplements.length, copy.extra, copy.extras)}<br />
+                {pluralize(phaseSupplements.reduce((count, module) => count + module.lessons.length, 0), copy.lesson, copy.lessons)}
               </span>
             </div>
             <div class="module-list module-list--supplements">
               {phaseSupplements.map((module) => (
                 <CurriculumModuleCard
                   module={module}
+                  locale={locale}
                   coreModuleCount={coreModules.length}
                   supplementCount={supplementModules.length}
                   supplementIndex={supplementModules.findIndex((item) => item.id === module.id) + 1}
@@ -223,15 +311,35 @@ const phaseFilterCount = (phaseId: number) => {
     ))}
   </div>
 
-  <p class="curriculum-caveat">
-    Ruta autónoma y no acreditada: los complementos son opcionales y pertenecen a este mismo programa.
-  </p>
+  <p class="curriculum-caveat">{copy.caveat}</p>
 </section>
 
 <script>
   const explorer = document.querySelector<HTMLElement>('[data-curriculum-explorer]');
 
   if (explorer) {
+    const locale = explorer.dataset.locale === 'en' ? 'en' : 'es';
+    const text = locale === 'en'
+      ? {
+          module: 'module', modules: 'modules',
+          extra: 'optional extra', extras: 'optional extras',
+          lesson: 'lesson', lessons: 'lessons',
+          complete: 'You have marked every lesson and optional extra in this path as complete in this browser.',
+          partial: 'Your progress is saved only in this browser; optional extras are up to you.',
+          ariaCompleted: 'lessons completed',
+          review: 'Review from the beginning',
+          continue: 'Continue',
+        }
+      : {
+          module: 'módulo', modules: 'módulos',
+          extra: 'complemento opcional', extras: 'complementos opcionales',
+          lesson: 'lección', lessons: 'lecciones',
+          complete: 'Has marcado todas las lecciones y complementos de este recorrido en este navegador.',
+          partial: 'Tu avance solo se guarda en este navegador; los complementos son opcionales.',
+          ariaCompleted: 'lecciones completadas',
+          review: 'Repasar desde el inicio',
+          continue: 'Continuar',
+        };
     const controls = explorer.querySelector<HTMLElement>('[data-curriculum-controls]');
     const searchInput = explorer.querySelector<HTMLInputElement>('[data-curriculum-search]');
     const clearSearchButton = explorer.querySelector<HTMLButtonElement>('[data-clear-search]');
@@ -244,8 +352,7 @@ const phaseFilterCount = (phaseId: number) => {
     let activePhase = 'all';
 
     const normalize = (value: string) =>
-      value.toLocaleLowerCase('es').normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
-
+      value.toLocaleLowerCase(locale === 'es' ? 'es' : 'en').normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
     const updateResults = () => {
       if (!searchInput || !resultsCount || !emptyState) return;
 
@@ -281,9 +388,9 @@ const phaseFilterCount = (phaseId: number) => {
         section.hidden = !sectionCards.some((card) => !card.hidden);
       });
 
-      const moduleLabel = visibleCoreModules === 1 ? 'módulo' : 'módulos';
-      const supplementLabel = visibleSupplements === 1 ? 'complemento opcional' : 'complementos opcionales';
-      const lessonLabel = visibleLessons === 1 ? 'lección' : 'lecciones';
+      const moduleLabel = visibleCoreModules === 1 ? text.module : text.modules;
+      const supplementLabel = visibleSupplements === 1 ? text.extra : text.extras;
+      const lessonLabel = visibleLessons === 1 ? text.lesson : text.lessons;
       resultsCount.textContent = `${visibleLessons} ${lessonLabel} · ${visibleCoreModules} ${moduleLabel} + ${visibleSupplements} ${supplementLabel}`;
       emptyState.hidden = visibleCoreModules + visibleSupplements > 0;
       if (clearSearchButton) clearSearchButton.hidden = searchInput.value.length === 0;
@@ -322,7 +429,7 @@ const phaseFilterCount = (phaseId: number) => {
       const lessons = Array.from(explorer.querySelectorAll<HTMLAnchorElement>('[data-lesson-link]')).map((link) => ({
         id: link.dataset.lessonId ?? '',
         href: link.getAttribute('href') ?? '#temario',
-        title: link.textContent?.trim() ?? 'la siguiente lección',
+        title: link.textContent?.trim() ?? text.lesson,
       })).filter((lesson) => lesson.id.length > 0);
       const knownIds = new Set(lessons.map((lesson) => lesson.id));
       let completedIds = new Set<string>();
@@ -354,19 +461,15 @@ const phaseFilterCount = (phaseId: number) => {
         const percentage = Math.round((completedCount / lessons.length) * 100);
 
         if (count) count.textContent = String(completedCount);
-        if (message) {
-          message.textContent = isComplete
-            ? 'Has marcado todas las lecciones y complementos de este recorrido en este navegador.'
-            : 'Tu avance solo se guarda en este navegador; los complementos son opcionales.';
-        }
+        if (message) message.textContent = isComplete ? text.complete : text.partial;
         if (meter) {
           meter.setAttribute('aria-valuenow', String(completedCount));
-          meter.setAttribute('aria-valuetext', `${completedCount} de ${lessons.length} lecciones completadas`);
+          meter.setAttribute('aria-valuetext', `${completedCount} ${locale === 'en' ? 'of' : 'de'} ${lessons.length} ${text.ariaCompleted}`);
         }
         if (fill) fill.style.width = `${percentage}%`;
         if (continueLink && nextLesson) continueLink.href = nextLesson.href;
         if (continueLabel && nextLesson) {
-          continueLabel.textContent = isComplete ? 'Repasar desde el inicio' : `Continuar: ${nextLesson.title}`;
+          continueLabel.textContent = isComplete ? text.review : `${text.continue}: ${nextLesson.title}`;
         }
         progressPanel.hidden = false;
       }

@@ -1,0 +1,82 @@
+{
+  "id": "08-calidad-que-se-demuestra",
+  "order": 8,
+  "title": "Quality You Can Demonstrate",
+  "description": "Verify code, user experience, and agent work with evidence rather than blind trust.",
+  "phase": 3,
+  "level": "Intermediate",
+  "lessons": [
+    {
+      "slug": "pruebas-unitarias-de-integracion-y-de-extremo-a-extremo",
+      "title": "Unit, Integration, and End-to-End Tests",
+      "order": 1,
+      "optional": false
+    },
+    {
+      "slug": "refactorizar-y-gestionar-deuda-tecnica",
+      "title": "Refactoring and Managing Technical Debt",
+      "order": 2,
+      "optional": false
+    },
+    {
+      "slug": "cobertura-complejidad-y-metricas-utiles",
+      "title": "Coverage, Complexity, and Useful Metrics",
+      "order": 3,
+      "optional": false
+    },
+    {
+      "slug": "observar-errores-y-rendimiento-con-sentry",
+      "title": "Observing Errors and Performance with Sentry",
+      "order": 4,
+      "optional": false
+    },
+    {
+      "slug": "secretos-validacion-y-seguridad-de-aplicacion",
+      "title": "Secrets, Validation, and Application Security",
+      "order": 5,
+      "optional": false
+    },
+    {
+      "slug": "documentacion-versionada-con-ayuda-de-ia",
+      "title": "Versioned Documentation with AI Assistance",
+      "order": 6,
+      "optional": false
+    },
+    {
+      "slug": "interfaces-usables-y-accesibles",
+      "title": "Usable and Accessible Interfaces",
+      "order": 7,
+      "optional": false
+    },
+    {
+      "slug": "patrones-para-coordinar-varios-agentes",
+      "title": "Patterns for Coordinating Multiple Agents",
+      "order": 8,
+      "optional": false
+    },
+    {
+      "slug": "revision-de-codigo-entre-personas-e-ia",
+      "title": "Code Review Between People and AI",
+      "order": 9,
+      "optional": false
+    },
+    {
+      "slug": "verificar-el-software-generado-por-agentes",
+      "title": "Verifying Agent-Generated Software",
+      "order": 10,
+      "optional": false
+    },
+    {
+      "slug": "dar-vision-a-un-agente-con-pruebas-de-navegador",
+      "title": "Giving an Agent Vision with Browser Tests",
+      "order": 11,
+      "optional": false
+    },
+    {
+      "slug": "laboratorio-un-pipeline-de-calidad-completo",
+      "title": "Lab: A Complete Quality Pipeline",
+      "order": 12,
+      "optional": false
+    }
+  ]
+}

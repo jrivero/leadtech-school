@@ -1,0 +1,11 @@
+{
+  "name": "Leadtech School",
+  "reviewedDate": "2026-10-08",
+  "scope": "AI-assisted software development: 12 modules with 83 core lessons, 10 workshops, 2 supplementary topics and a final project. Original articles, examples and exercises for self-directed learning, without official accreditation.",
+  "phases": [
+    { "id": 1, "title": "Build the foundations" },
+    { "id": 2, "title": "Understand and explore AI" },
+    { "id": 3, "title": "Work with sound judgment" },
+    { "id": 4, "title": "Put it into a project" }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "09-de-tu-equipo-a-la-nube",
+  "order": 9,
+  "title": "From Your Computer to the Cloud",
+  "description": "Data, containers, and operations: understand what it takes to publish and maintain an application.",
+  "phase": 3,
+  "level": "Intermediate",
+  "lessons": [
+    {
+      "slug": "devops-y-pipelines-de-integracion-y-entrega",
+      "title": "DevOps and CI/CD Pipelines",
+      "order": 1,
+      "optional": false
+    },
+    {
+      "slug": "servicios-cloud-y-control-del-gasto",
+      "title": "Cloud Services and Cost Control",
+      "order": 2,
+      "optional": false
+    },
+    {
+      "slug": "bases-de-datos-relacionales-documentales-y-vectoriales",
+      "title": "Relational, Document, and Vector Databases",
+      "order": 3,
+      "optional": false
+    },
+    {
+      "slug": "contenedores-reproducibles-con-docker",
+      "title": "Reproducible Containers with Docker",
+      "order": 4,
+      "optional": false
+    },
+    {
+      "slug": "un-rag-sencillo-con-python-y-langchain",
+      "title": "A Simple RAG with Python and LangChain",
+      "order": 5,
+      "optional": false
+    },
+    {
+      "slug": "llmops-evaluar-y-operar-sistemas-de-ia",
+      "title": "LLMOps: Evaluating and Operating AI Systems",
+      "order": 6,
+      "optional": false
+    },
+    {
+      "slug": "sistemas-multiagente-con-google-adk",
+      "title": "Multi-Agent Systems with Google ADK",
+      "order": 7,
+      "optional": false
+    }
+  ]
+}

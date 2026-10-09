@@ -1,0 +1,58 @@
+{
+  "id": "10-seguridad-desde-el-primer-dia",
+  "order": 10,
+  "title": "Security from Day One",
+  "description": "Model risks and protect applications, APIs, and agents through defensive labs.",
+  "phase": 3,
+  "level": "Intermediate",
+  "lessons": [
+    {
+      "slug": "pensar-en-seguridad-antes-de-escribir-codigo",
+      "title": "Think About Security Before Writing Code",
+      "order": 1,
+      "optional": false
+    },
+    {
+      "slug": "riesgos-web-y-el-owasp-top-10",
+      "title": "Web Risks and the OWASP Top 10",
+      "order": 2,
+      "optional": false
+    },
+    {
+      "slug": "proteger-apis-con-el-owasp-api-top-10-de-2023",
+      "title": "Protecting APIs with the 2023 OWASP API Top 10",
+      "order": 3,
+      "optional": false
+    },
+    {
+      "slug": "riesgos-de-ia-generativa-y-el-owasp-llm-top-10",
+      "title": "Generative AI Risks and the OWASP LLM Top 10",
+      "order": 4,
+      "optional": false
+    },
+    {
+      "slug": "integrar-seguridad-en-el-ciclo-de-desarrollo",
+      "title": "Integrating Security into the Development Lifecycle",
+      "order": 5,
+      "optional": false
+    },
+    {
+      "slug": "validacion-autorizacion-y-codificacion-defensiva",
+      "title": "Validation, Authorization, and Defensive Encoding",
+      "order": 6,
+      "optional": false
+    },
+    {
+      "slug": "usar-ia-para-revisar-seguridad-sin-confiar-a-ciegas",
+      "title": "Using AI to Review Security Without Blind Trust",
+      "order": 7,
+      "optional": false
+    },
+    {
+      "slug": "laboratorio-defensivo-corregir-una-aplicacion",
+      "title": "Defensive Lab: Fixing an Application",
+      "order": 8,
+      "optional": false
+    }
+  ]
+}

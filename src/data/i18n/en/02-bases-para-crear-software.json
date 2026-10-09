@@ -1,0 +1,52 @@
+{
+  "id": "02-bases-para-crear-software",
+  "order": 2,
+  "title": "Foundations for Building Software",
+  "description": "From idea to program: logic, tools, code, and a first project you can explain.",
+  "phase": 1,
+  "level": "Beginner",
+  "lessons": [
+    {
+      "slug": "descomponer-problemas-y-pensar-en-algoritmos",
+      "title": "Break Down Problems and Think in Algorithms",
+      "order": 1,
+      "optional": false
+    },
+    {
+      "slug": "tu-entorno-terminal-git-y-editor",
+      "title": "Your Environment: Terminal, Git, and Editor",
+      "order": 2,
+      "optional": false
+    },
+    {
+      "slug": "variables-funciones-y-estructuras-de-control",
+      "title": "Variables, Functions, and Control Structures",
+      "order": 3,
+      "optional": false
+    },
+    {
+      "slug": "lenguajes-objetos-y-programacion-funcional",
+      "title": "Languages, Objects, and Functional Programming",
+      "order": 4,
+      "optional": false
+    },
+    {
+      "slug": "como-se-comunican-sistemas-redes-y-apis",
+      "title": "How Systems, Networks, and APIs Communicate",
+      "order": 5,
+      "optional": false
+    },
+    {
+      "slug": "codigo-legible-depuracion-y-pruebas",
+      "title": "Readable Code, Debugging, and Testing",
+      "order": 6,
+      "optional": false
+    },
+    {
+      "slug": "construye-tu-primer-gestor-de-tareas",
+      "title": "Build Your First Task Manager",
+      "order": 7,
+      "optional": false
+    }
+  ]
+}

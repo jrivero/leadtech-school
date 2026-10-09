@@ -1,6 +1,9 @@
 ---
+import type { Locale } from '../lib/i18n';
+
 interface LessonItem {
-  slug: string;
+  id: string;
+  href: string;
   title: string;
   order: number;
   optional?: boolean;
@@ -19,6 +22,7 @@ interface ModuleItem {
 
 interface Props {
   module: ModuleItem;
+  locale: Locale;
   coreModuleCount: number;
   supplementCount: number;
   supplementIndex?: number;
@@ -27,6 +31,7 @@ interface Props {
 
 const {
   module,
+  locale,
   coreModuleCount,
   supplementCount,
   supplementIndex = 0,
@@ -34,13 +39,29 @@ const {
 } = Astro.props;
 const isSupplement = module.supplement === true;
 const orderedLessons = module.lessons.slice().sort((a, b) => a.order - b.order);
-const searchText = [
-  module.title,
-  module.description,
-  module.level,
-  isSupplement ? 'complemento opcional extra' : 'módulo principal',
-].join(' ');
-const pluralize = (count: number, singular: string, plural: string) => `${count} ${count === 1 ? singular : plural}`;
+const copy = locale === 'en'
+  ? {
+      searchTerms: 'optional extra core module',
+      optional: 'Optional',
+      optionalExtra: 'Optional extra',
+      lesson: 'lesson',
+      lessons: 'lessons',
+      inModule: 'IN THIS MODULE',
+      extra: 'EXTRA',
+      module: 'MODULE',
+    }
+  : {
+      searchTerms: 'complemento opcional extra módulo principal',
+      optional: 'Opcional',
+      optionalExtra: 'Complemento opcional',
+      lesson: 'lección',
+      lessons: 'lecciones',
+      inModule: 'EN ESTE MÓDULO',
+      extra: 'EXTRA',
+      module: 'MÓDULO',
+    };
+const searchText = [module.title, module.description, module.level, copy.searchTerms].join(' ');
+const pluralizeLessons = (count: number) => `${count} ${count === 1 ? copy.lesson : copy.lessons}`;
 ---
 <details
   id={`module-${module.id}`}
@@ -56,10 +77,10 @@ const pluralize = (count: number, singular: string, plural: string) => `${count}
     <span class="module-card__copy">
       <span class="module-card__eyebrow">
         {isSupplement
-          ? <span class="module-card__badge">Complemento opcional</span>
+          ? <span class="module-card__badge">{copy.optionalExtra}</span>
           : <span>{module.level}</span>}
         <i aria-hidden="true">·</i>
-        <span>{pluralize(module.lessons.length, 'lección', 'lecciones')}</span>
+        <span>{pluralizeLessons(module.lessons.length)}</span>
       </span>
       <strong>{module.title}</strong>
       <span class="module-card__description">{module.description}</span>
@@ -70,33 +91,29 @@ const pluralize = (count: number, singular: string, plural: string) => `${count}
   </summary>
   <div class="module-card__content">
     <div class="module-card__content-heading">
-      <p>{isSupplement ? 'COMPLEMENTO OPCIONAL' : 'EN ESTE MÓDULO'}</p>
+      <p>{isSupplement ? copy.optionalExtra.toUpperCase() : copy.inModule}</p>
       <span>
         {isSupplement
-          ? `EXTRA ${String(supplementIndex).padStart(2, '0')} / ${String(supplementCount).padStart(2, '0')}`
-          : `MÓDULO ${String(module.order).padStart(2, '0')} / ${String(coreModuleCount).padStart(2, '0')}`}
+          ? `${copy.extra} ${String(supplementIndex).padStart(2, '0')} / ${String(supplementCount).padStart(2, '0')}`
+          : `${copy.module} ${String(module.order).padStart(2, '0')} / ${String(coreModuleCount).padStart(2, '0')}`}
       </span>
     </div>
     <ol class="lesson-list">
-      {orderedLessons.map((lesson, lessonIndex) => {
-        const lessonHref = `/lecciones/${module.id}/${lesson.slug}/`;
-        const lessonId = `${module.id}/${lesson.slug}`;
-        return (
-          <li class="lesson-list__item" data-lesson-item data-search={lesson.title}>
-            <span class="lesson-list__number" aria-hidden="true">{String(lesson.order ?? lessonIndex + 1).padStart(2, '0')}</span>
-            <a
-              class="lesson-list__link"
-              href={lessonHref}
-              data-lesson-link
-              data-lesson-id={lessonId}
-            >
-              <span>{lesson.title}</span>
-              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8 4l4 4-4 4" /></svg>
-            </a>
-            {lesson.optional && !isSupplement && <span class="lesson-list__optional">Opcional</span>}
-          </li>
-        );
-      })}
+      {orderedLessons.map((lesson, lessonIndex) => (
+        <li class="lesson-list__item" data-lesson-item data-search={lesson.title}>
+          <span class="lesson-list__number" aria-hidden="true">{String(lesson.order ?? lessonIndex + 1).padStart(2, '0')}</span>
+          <a
+            class="lesson-list__link"
+            href={lesson.href}
+            data-lesson-link
+            data-lesson-id={lesson.id}
+          >
+            <span>{lesson.title}</span>
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8 4l4 4-4 4" /></svg>
+          </a>
+          {lesson.optional && !isSupplement && <span class="lesson-list__optional">{copy.optional}</span>}
+        </li>
+      ))}
     </ol>
   </div>
 </details>
